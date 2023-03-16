@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "helpers",
+  "info": {
+    "singularName": "helper",
+    "pluralName": "helpers",
+    "displayName": "Helper",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "summary": {
+      "type": "richtext"
+    },
+    "about": {
+      "type": "richtext"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "unique": true
+    },
+    "website": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "street": {
+      "type": "string"
+    },
+    "zipcode": {
+      "type": "string",
+      "maxLength": 5
+    },
+    "bookable": {
+      "type": "boolean",
+      "default": false
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "geo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "geo.geo"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "helper"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ticket.ticket",
+      "mappedBy": "helper"
+    }
+  }
+}
