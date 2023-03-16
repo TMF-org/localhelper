@@ -1,4 +1,5 @@
 import { signIn } from '@/services/auth';
+import { HTTPError } from 'ky';
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -30,8 +31,12 @@ export const authOptions: NextAuthOptions = {
           );
           return { ...user, jwt, name: jwt };
         } catch (error: any) {
-          // Sign In Fail
-          return null;
+          if (error instanceof HTTPError && error.response.status === 401) {
+            // invalid credentials, silent error
+            return null;
+          }
+          // other error => throw
+          throw error;
         }
       },
     }),
