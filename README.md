@@ -35,55 +35,117 @@ integraler Bestandteil der digitalen Strategie sind. Diese Integrationsmöglichk
 
 ### Frontend
 
-- NextJS
+- Next.js
 
 ## Getting started
 
-### Production (Starting point)
+We provide an example Docker setup which is intended as a starting point for deploying an instance of the platform.
 
-We provide an example docker-compose.yml which is intended as a starting point for deploying an instance of the platform.  
-For an actual deployment you will need to add e.g. a load balancer/reverse proxy with TLS termination etc.
+However, please note that this configuration is intended as a starting point only and requires adjustments to suit your specific production infrastructure requirements.
+
+For instance, you will need to incorporate a reverse proxy/load balancer with TLS termination for secure communication.
+
+#### Requirements
+
+- Docker & `docker-compose`
+- Linux (Mac and Windows/WSL will probably work as well)
 
 #### 1. Adjust configuration variables
 
+To begin, copy the .env.example file to .env and adjust the configuration variables as necessary:
+
 ```shell
-cd strapi/
-cp .env.example .env
-cd frontend/
 cp .env.example .env
 ```
 
-Now make changes to the .env-file as needed. Make sure to at least change the database passwords etc.
+If deploying in a production environment, it is important to set unique and secure secrets for all relevant variables!
 
 #### 2. Build & Start docker images
 
-Now the docker images need to be build and started:
+Build and start the Docker images with the following commands:
 
 ```shell
 docker-compose build --pull
 docker-compose up -d
 ```
 
-#### 3. Access Strapi and configure
+#### 3. Import Quick-Start example config (Optional, but recommended)
 
-Open http://localhost:1337 and configure first admin user.  
-The frontend can be accessed on http://localhost:3000.
+For a fast and easy setup, import our example Strapi-configuration, which includes pre-configured user roles, services, and categories. Keep in mind that everything can be easily modified or removed later from within Strapi.
 
-### Development
-
-#### Start strapi backend
-
-By default the strapi backend is using SQLite as a DB.
-It's recommended to use Postgres or MySQL for production instances.
+To initiate the import, run the following command:
 
 ```shell
-cd strapi
+docker-compose exec strapi yarn strapi import -f export_example_config.tar.gz
+```
+
+To proceed with the import, confirm the "Are you sure you want to proceed?" message by typing "y" and pressing Enter. Please note that this will wipe the existing database, but since it is a fresh database, this should not be a concern.
+
+![strapi_import_confirm](docs/assets/dev_strapi_import_confirm.png)
+
+If successful, you should see the following confirmation:
+
+![strapi_import_finished](docs/assets/dev_strapi_import_confirm.png)
+
+#### 4. Create admin user in Strapi
+
+Open http://localhost:1337 to launch the Strapi wizard, and configure your first admin user as directed.
+
+![strapi_welcome](docs/assets/dev_strapi_welcome.png)
+
+#### Finished!
+
+The frontend should now be accessible at http://localhost:3000.  
+To manage services, FAQ, helpers, and more, use Strapi at http://localhost:1337.
+
+## Development
+
+To run the platform in development make sure to have NodeJS `v18` installed (e.g. using `nvm`).  
+Then run the following steps:
+
+#### 1. Adjust configuration variables
+
+To begin, copy the .env.example file to .env and adjust the configuration variables as necessary:
+
+```shell
+cp .env.example .env
+```
+
+#### 2. Install dependencies and start dev-server
+
+Build and start the Docker images with the following commands:
+
+```shell
+yarn install
 yarn dev
 ```
 
-#### Start the frontend
+This will start both Strapi and the frontend Next.js application
+
+#### 3. Import Quick-Start example config (Optional, but recommended)
+
+For a fast and easy setup, import the example Strapi-configuration, which includes pre-configured user roles, services, and categories.
 
 ```shell
-cd frontend
-yarn dev
+cd apps/strapi/
+yarn strapi import -f export_example_config.tar.gz
 ```
+
+To proceed with the import, confirm the "Are you sure you want to proceed?" message by typing "y" and pressing Enter. Please note that this will wipe the existing database, but since it is a fresh database, this should not be a concern.
+
+![strapi_import_confirm](docs/assets/dev_strapi_import_confirm.png)
+
+If successful, you should see the following confirmation:
+
+![strapi_import_finished](docs/assets/dev_strapi_import_confirm.png)
+
+#### 4. Create admin user in Strapi
+
+Open http://localhost:1337 to launch the Strapi wizard, and configure your first admin user as directed.
+
+![strapi_welcome](docs/assets/dev_strapi_welcome.png)
+
+#### Finished!
+
+The frontend should now be accessible at http://localhost:3000.  
+To manage services, FAQ, helpers, and more, use Strapi at http://localhost:1337.
