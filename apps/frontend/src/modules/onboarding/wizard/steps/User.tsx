@@ -115,6 +115,7 @@ export const UserStep = ({
 
       <div className="frm not-on-mobile box-centered pdg-top-20">
         <button
+          type="button"
           className="flt-lft button secondary"
           onClick={handleSubmit(updateAndBack)}
         >
@@ -129,13 +130,17 @@ export const UserStep = ({
 
       <div className="frm box-centered only-on-mobile box-centered flx-btns">
         <button
+          type="button"
           className="left-flx-btn button secondary"
           onClick={handleSubmit(updateAndBack)}
         >
           <BackIcon className="mobile-back" />
         </button>
 
-        <button className="right-flx-btn button">
+        <button
+          className="right-flx-btn button"
+          onClick={handleSubmit(updateAndNext)}
+        >
           <div>
             <span>Nächster Schritt!</span>
           </div>

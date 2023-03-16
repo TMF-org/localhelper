@@ -112,6 +112,7 @@ export const LocationStep = ({
       </div>
       <div className="frm not-on-mobile box-centered pdg-top-20">
         <button
+          type="button"
           className="flt-lft button secondary"
           onClick={handleSubmit(updateAndBack)}
         >
@@ -126,6 +127,7 @@ export const LocationStep = ({
 
       <div className="frm box-centered only-on-mobile box-centered flx-btns">
         <button
+          type="button"
           className="left-flx-btn button secondary"
           onClick={handleSubmit(updateAndBack)}
         >

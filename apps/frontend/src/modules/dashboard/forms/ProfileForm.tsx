@@ -22,7 +22,7 @@ interface FormProps {
 
 const contactInfoSchema = z.object({
   name: z.string().trim().nonempty({ message: 'Bitte ausfüllen' }),
-  phone: z.string().trim().nonempty({ message: 'Bitte ausfüllen' }),
+  phone: z.string().trim().optional(),
   summary: z.string().trim().nonempty({ message: 'Bitte ausfüllen' }),
   about: z.string().trim().nonempty({ message: 'Bitte ausfüllen' }),
 });
