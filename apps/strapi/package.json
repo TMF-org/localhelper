@@ -6,14 +6,15 @@
     "dev": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
     "@strapi/typescript-utils": "^4.8.2",
+    "dotenv-expand": "^10.0.0",
     "typescript": "^5.0.2"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "^4.6.1",
     "@strapi/plugin-i18n": "^4.7.1",
     "@strapi/plugin-users-permissions": "^4.7.1",
     "@strapi/provider-email-nodemailer": "^4.7.1",
@@ -23,6 +24,7 @@
     "geolib": "^3.3.3",
     "lodash": "^4.17.21",
     "nanoid": "3",
+    "pg": "^8.10.0",
     "url-slug": "^3.0.4",
     "zod": "^3.21.4"
   },
