@@ -40,7 +40,15 @@ export default () => ({
       throw new Error('duplicate-name');
     }
 
-    const authenticatedRole = 1;
+    const roleResult = await strapi.entityService.findMany(
+      'plugin::users-permissions.role',
+      { filters: { type: 'authenticated' } },
+    );
+    const authRole = roleResult?.[0];
+    if (!authRole) {
+      throw new Error('no-authenticated-role');
+    }
+
     const user = await strapi.entityService.create(
       'plugin::users-permissions.user',
       {
@@ -48,7 +56,7 @@ export default () => ({
           username: data.email,
           email: data.email,
           password: data.password,
-          role: authenticatedRole,
+          role: authRole.id,
           provider: 'local',
         },
       },
