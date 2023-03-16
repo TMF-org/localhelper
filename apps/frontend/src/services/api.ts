@@ -8,7 +8,11 @@ import ky from 'ky';
 import type { GetServerSidePropsContext } from 'next';
 import { getServerSession, Session } from 'next-auth';
 
-const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+let strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+const isServer = typeof window === 'undefined';
+if (isServer && process.env.NEXT_INTERNAL_STRAPI_URL) {
+  strapiUrl = process.env.NEXT_INTERNAL_STRAPI_URL;
+}
 
 const api = ky.create({
   prefixUrl: `${strapiUrl}/api`,

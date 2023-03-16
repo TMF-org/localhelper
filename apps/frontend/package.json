@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.11",
@@ -25,7 +26,6 @@
     "react-markdown": "^8.0.5",
     "react-swipeable-views": "^0.14.0",
     "sharp": "^0.31.3",
-    "typescript": "5.0.2",
     "zod": "^3.21.4",
     "zustand": "^4.3.6"
   },
@@ -34,10 +34,13 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-swipeable-views": "^0.13.1",
+    "dotenv": "^16.0.3",
+    "dotenv-expand": "^10.0.0",
     "eslint": "^8.35.0",
     "eslint-config-next": "^13.2.3",
     "prettier": "^2.8.4",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "typescript": "5.0.2"
   },
   "license": "GPL-3.0"
 }

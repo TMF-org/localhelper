@@ -1,0 +1,17 @@
+.tmp/
+.cache/
+.git/
+dist/
+build/
+node_modules/
+data/
+
+**/node_modules/
+**/dist/
+**/build/
+**/.next/
+**/.cache/
+**/.tmp/
+
+**/uploads/
+!**/uploads/.gitkeep

@@ -2,26 +2,62 @@ version: '3'
 
 services:
   frontend:
-    image: lokalhelfer_frontend
-    build: ./frontend
+    build:
+      context: .
+      dockerfile: ./apps/frontend/Dockerfile
+    environment:
+      - NEXT_PUBLIC_URL=${NEXT_PUBLIC_URL}
+      - NEXT_PUBLIC_STRAPI_URL=${NEXT_PUBLIC_STRAPI_URL}
+      - NEXT_INTERNAL_STRAPI_URL=http://strapi:1337
+      - NEXT_AUTH_SECRET=${NEXT_AUTH_SECRET}
+      - NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME}
+      - NEXT_PUBLIC_APP_DESCRIPTION=${NEXT_PUBLIC_APP_DESCRIPTION}
+      - NEXT_PUBLIC_GMAPS_API_KEY=${NEXT_PUBLIC_GMAPS_API_KEY}
+      - NEXT_PUBLIC_SUPPORT_EMAIL=${NEXT_PUBLIC_SUPPORT_EMAIL}
+      - NEXTAUTH_URL=${NEXT_PUBLIC_URL}
     ports:
       - 3000:3000
 
   strapi:
-    image: lokalhelfer_strapi
-    build: ./strapi
+    build:
+      context: .
+      dockerfile: ./apps/strapi/Dockerfile
     environment:
       - DATABASE_CLIENT=postgres
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
       - DATABASE_NAME=strapi
+      - DATABASE_PASSWORD=strapi
+
+      - MAIL_HOST=${MAIL_HOST}
+      - MAIL_USER=${MAIL_USER}
+      - MAIL_PORT=${MAIL_PORT}
+      - MAIL_PASS=${MAIL_PASS}
+
+      - STRAPI_HOST=${STRAPI_HOST}
+      - STRAPI_PORT=${STRAPI_PORT}
+      - STRAPI_APP_KEYS=${STRAPI_APP_KEYS}
+      - STRAPI_API_TOKEN_SALT=${STRAPI_API_TOKEN_SALT}
+      - STRAPI_ADMIN_JWT_SECRET=${STRAPI_ADMIN_JWT_SECRET}
+      - STRAPI_JWT_SECRET=${STRAPI_JWT_SECRET}
+      - JWT_SECRET=${STRAPI_JWT_SECRET}
+    volumes:
+      # Note: mounting "public" instead of "public/uploads" for Strapi import/export support,
+      # as Strapi renames the uploads directory during this process, causing volume issues
+      - strapi-public:/app/apps/strapi/public
     ports:
       - 1337:1337
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:15.2
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 5
     environment:
       - POSTGRES_USER=strapi
       - POSTGRES_PASSWORD=strapi
@@ -31,3 +67,4 @@ services:
 
 volumes:
   pg-data:
+  strapi-public:
