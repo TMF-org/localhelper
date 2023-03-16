@@ -1,0 +1,23 @@
+label {
+  color: #9e9e9e;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+  padding: rem(13px) 0;
+
+  &.optional {
+    padding: rem(6px) 0;
+
+    strong {
+      display: block;
+      padding-bottom: rem(2px);
+    }
+
+    small {
+      color: $color-grey-dark;
+      font-size: rem(11px);
+      font-weight: normal;
+    }
+  }
+}

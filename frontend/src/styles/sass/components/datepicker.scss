@@ -1,0 +1,149 @@
+.DayPicker {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  z-index: 2;
+  background-color: $color-primary;
+  margin-top: 15px;
+
+  @include on(tablet) {
+    max-width: 350px;
+    border-radius: 5px;
+    margin: 15px auto 0;
+  }
+
+  &:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: transparent;
+    border-bottom-color: #5ad2a0;
+    border-width: 14px;
+    margin-left: -14px;
+  }
+
+  .DayPicker-Month {
+    .DayPicker-Caption {
+      @include cf();
+
+      display: block;
+      width: 68%;
+
+      font-size: 22px;
+      padding: 19px 10px;
+      margin: 0 auto;
+    }
+  }
+
+  .DayPicker-NavBar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-top: 18px;
+    padding-bottom: 16px;
+  }
+
+  .DayPicker-Body {
+    padding: 10px 5px;
+  }
+
+  .DayPicker-Body [class*='-Week'] {
+    @include cf();
+
+    > div {
+      float: left;
+      width: 14.285714286%;
+    }
+
+    [class*='-Day'] {
+      @extend %noselect;
+
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+      padding: 2px;
+
+      span {
+        color: #fff;
+        display: block;
+        width: 100%;
+        padding: 8px;
+      }
+
+      &:not([class*='--outside']):not([class*='--disabled']) {
+        cursor: pointer;
+
+        &:hover span {
+          @extend %round;
+
+          color: $color-primary;
+          background-color: #fff;
+        }
+      }
+    }
+
+    [class*='--outside'],
+    [class*='--disabled'] {
+      opacity: 0.2;
+    }
+
+    [class*='--selected'] span {
+      @extend %round;
+      color: $color-primary;
+      background-color: #fff;
+    }
+  }
+
+  [class*='-WeekdaysRow'] {
+    @include cf();
+
+    display: block;
+    padding: 10px 10px 0;
+
+    > div {
+      @extend %noselect;
+      text-align: center;
+      font-size: 18px;
+      float: left;
+      width: 14.285714286%;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    abbr {
+      text-decoration: none;
+    }
+  }
+
+  [class*='-Caption'] {
+    @extend %noselect;
+
+    color: #fff;
+    text-align: center;
+  }
+
+  [class*='nav'] {
+    padding: rem($space-tiny);
+    margin: 0 rem($space-small);
+    cursor: pointer;
+
+    svg {
+      fill: $color-secondary;
+    }
+  }
+
+  .nav-left {
+    float: left;
+  }
+
+  .nav-right {
+    float: right;
+  }
+}

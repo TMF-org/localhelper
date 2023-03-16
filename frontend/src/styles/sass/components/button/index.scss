@@ -1,0 +1,36 @@
+[class*='button'] {
+  @include cf();
+  @extend %noselect;
+
+  display: inline-block;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  max-width: 100%;
+
+  @import 'coloring';
+  @import 'size';
+  @import '../../base/modifier';
+
+  svg {
+    float: left;
+    position: relative;
+    top: 0;
+  }
+
+  span,
+  strong {
+    float: left;
+  }
+
+  span + svg,
+  strong + svg {
+    float: none;
+    margin-left: rem(5px);
+    top: 4px;
+  }
+}
+
+[class*='-rounded'] {
+  border-radius: 5px;
+}

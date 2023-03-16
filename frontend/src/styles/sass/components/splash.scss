@@ -1,0 +1,19 @@
+.splash {
+  height: calc(100vh - #{$header-mobile-height});
+  padding: 20px;
+  max-width: 410px;
+  margin: 0 auto;
+
+  p {
+    padding-bottom: 20px;
+  }
+
+  @include on(tablet) {
+    height: calc(100vh - #{$header-tablet-height});
+
+    p {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+}

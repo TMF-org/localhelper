@@ -1,0 +1,35 @@
+&[class*='-primary'] {
+  color: #fff;
+  background: $color-primary;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff;
+  }
+
+  &:hover {
+    background: darken($color-primary, 10);
+  }
+}
+
+&[class*='-secondary'] {
+  color: #fff;
+  background: $color-secondary;
+
+  svg {
+    fill: #fff;
+  }
+}
+
+&[class*='-grey'] {
+  color: #fff;
+  background: $color-grey;
+
+  svg {
+    fill: #fff;
+  }
+}

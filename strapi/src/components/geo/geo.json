@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_geo_geos",
+  "info": {
+    "displayName": "geo"
+  },
+  "options": {},
+  "attributes": {
+    "lat": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "string"
+    }
+  }
+}

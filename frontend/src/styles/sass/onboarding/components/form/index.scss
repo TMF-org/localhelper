@@ -1,0 +1,29 @@
+@import 'input.scss';
+@import 'select.scss';
+@import 'textarea.scss';
+@import 'number.scss';
+@import 'checkbox.scss';
+@import 'box.scss';
+@import 'tags.scss';
+@import 'radio.scss';
+@import 'label.scss';
+@import 'modifier.scss';
+
+form {
+  &[class*='--right'] {
+    text-align: right;
+  }
+
+  @import 'info';
+
+  .row {
+    display: block;
+    float: left;
+    width: 100%;
+    padding: rem(5px) 0;
+  }
+
+  [class*='notice-'] {
+    margin-bottom: 0;
+  }
+}

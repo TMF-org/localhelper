@@ -1,0 +1,23 @@
+.progress {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: 6px;
+  background-color: #e6e6e6;
+  position: relative;
+  margin: 0 auto;
+
+  @include on(tablet) {
+    height: 25px;
+  }
+
+  i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background-color: $color-primary;
+    transition: width 0.4s;
+  }
+}

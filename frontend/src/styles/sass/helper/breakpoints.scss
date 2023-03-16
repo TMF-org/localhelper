@@ -1,0 +1,62 @@
+/*
+Author: Holger Schauf
+
+example:
+@include on(desktop) {}
+
+*/
+
+$mobile: 320px !default;
+$phablet: 520px !default;
+$tablet: 650px !default;
+$desktop: 1024px !default;
+$widescreen: 1200px !default;
+$television: 1600px !default;
+
+$heightSmall: 400px !default;
+
+@mixin on($canvas, $print: 'false') {
+  @if $canvas == heightSmall {
+    @media only screen and (max-height: $heightSmall) {
+      @content;
+    }
+  }
+
+  @if $canvas == mobile {
+    @media only screen and (min-width: $mobile) {
+      @content;
+    }
+  }
+
+  @if $canvas == phablet {
+    @media only screen and (min-width: $phablet) {
+      @content;
+    }
+  } @else if $canvas == tablet {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $canvas == desktop {
+    @media only screen and (min-width: $desktop) {
+      @content;
+    }
+  } @else if $canvas == widescreen {
+    @media only screen and (min-width: $widescreen) {
+      @content;
+    }
+  } @else if $canvas == television {
+    @media only screen and (min-width: $television) {
+      @content;
+    }
+  } @else if $canvas == 'print' {
+    @media print {
+      @content;
+    }
+  }
+
+  @if $print == 'true' {
+    @media print {
+      @content;
+    }
+  }
+}

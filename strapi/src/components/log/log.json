@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_log_logs",
+  "info": {
+    "displayName": "Log"
+  },
+  "options": {},
+  "attributes": {
+    "action": {
+      "type": "string"
+    },
+    "result": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    }
+  }
+}

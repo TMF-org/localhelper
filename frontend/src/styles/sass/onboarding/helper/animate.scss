@@ -1,0 +1,48 @@
+@mixin animated($name: fadeIn, $time: 0.4s) {
+  animation-duration: $time;
+  animation-name: $name;
+  animation-fill-mode: both;
+}
+
+@mixin duration($time: 0.4s) {
+  animation-duration: $time;
+  animation-fill-mode: both;
+}
+
+@mixin delay($time: 0.3s) {
+  animation-delay: $time;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

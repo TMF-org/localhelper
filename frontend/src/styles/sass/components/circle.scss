@@ -1,0 +1,136 @@
+[class*='circle'] {
+  text-decoration: none;
+
+  display: inline-block;
+  max-width: 100%;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+
+  svg {
+    @extend %noselect;
+
+    position: relative;
+    top: 0;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  &[class*='-primary'] {
+    @include color-set-primary();
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &[class*='-secondary'] {
+    @include color-set-secondary();
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &[class*='-grey'] {
+    color: $color-grey-dark;
+    background-color: $color-grey;
+
+    svg {
+      fill: $color-grey-dark;
+    }
+  }
+
+  &[class*='-highlight'] {
+    @include color-set-highlight();
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &[class*='-blank'] {
+    color: transparent;
+    background: transparent;
+    transform: translate3d(0, 0, 0);
+
+    svg {
+      fill: transparent;
+    }
+  }
+
+  &[class*='-small'] {
+    $size: rem(30px);
+
+    width: $size;
+    height: $size;
+    line-height: $size;
+
+    svg {
+      position: relative;
+      top: rem(8px);
+    }
+  }
+
+  &[class*='-medium'] {
+    $size: rem(50px);
+
+    width: $size;
+    height: $size;
+    line-height: $size;
+
+    svg {
+      position: relative;
+      top: rem(8px);
+    }
+  }
+
+  &[class*='-big'] {
+    $size: rem(80px);
+
+    width: $size;
+    height: $size;
+    line-height: $size;
+
+    svg {
+      position: relative;
+      top: rem(13px);
+    }
+  }
+
+  &[class*='-result'] {
+    $size: 125px;
+
+    max-width: $size;
+    max-height: $size;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    svg {
+      position: relative;
+      top: rem(13px);
+    }
+
+    img {
+      max-width: $size;
+      max-height: $size;
+    }
+  }
+
+  &[class*='--avatar'] img {
+    @extend %noselect;
+
+    position: relative;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+
+    background: #efefef;
+  }
+
+  @import '../base/modifier';
+}

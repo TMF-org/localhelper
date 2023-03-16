@@ -1,0 +1,33 @@
+.dashboard {
+  $color-background: #f1f1f1;
+
+  &#page {
+    background-color: $color-background;
+  }
+
+  // @import "_config/index.scss";
+
+  // @import "helper/index.scss";
+
+  @import 'components/form/index.scss';
+
+  @import 'components/layout.scss';
+
+  @import 'components/calendar/index.scss';
+
+  @import 'components/button/index.scss';
+  @import 'components/appointment/index.scss';
+  @import 'components/stores/index.scss';
+  @import 'components/list.scss';
+  @import 'components/settings.scss';
+  @import 'components/register-box.scss';
+  @import 'components/notice.scss';
+  @import 'components/box.scss';
+  @import 'components/eventlog.scss';
+  @import 'components/login.scss';
+  @import 'components/header.scss';
+  @import 'components/suggestion.scss';
+  // @import "mote/grid.scss";
+  // @import "mote/padding.scss";
+  // @import "mote/position.scss";
+}

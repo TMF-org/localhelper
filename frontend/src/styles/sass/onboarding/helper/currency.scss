@@ -1,0 +1,9 @@
+[data-currency] {
+  position: relative;
+
+  &:before {
+    content: attr(data-currency);
+    position: relative;
+    left: 0;
+  }
+}

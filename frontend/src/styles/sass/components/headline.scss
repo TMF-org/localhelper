@@ -1,0 +1,143 @@
+@mixin headline {
+  color: $color-text;
+  font-weight: 400;
+  font-family: $font-family;
+}
+
+@mixin headline-1() {
+  font-size: $h1;
+  font-family: $font-family-headline;
+  line-height: rem(38px);
+  padding-bottom: rem($space-medium);
+}
+
+@mixin headline-2() {
+  font-size: $h2;
+  font-family: $font-family-headline;
+  line-height: rem(30px);
+
+  padding-bottom: rem($space-default);
+}
+
+@mixin headline-3() {
+  font-size: $h3;
+  line-height: rem(28px);
+
+  padding-bottom: rem($space-small);
+}
+
+@mixin headline-4() {
+  font-size: $h4;
+  line-height: rem(32px);
+  padding-bottom: rem($space-default);
+}
+
+@mixin headline-5() {
+  font-size: $h5;
+  line-height: rem(20px);
+  padding: rem($space-small) 0;
+}
+
+@mixin headline-6() {
+  font-size: $h6;
+  line-height: rem(18px);
+  padding: rem($space-small) 0;
+}
+
+@mixin text() {
+  font-size: $text-default;
+  line-height: rem(20px);
+}
+
+@mixin text-small() {
+  font-size: $text-small;
+  line-height: rem(16px);
+}
+
+.headline--grey {
+  background: #efefef;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-family-headline;
+}
+
+[class*='headline'] {
+  @include headline();
+  display: block;
+
+  // size
+  &[class*='-1'] {
+    @include headline-1();
+  }
+
+  &[class*='-2'] {
+    @include headline-2();
+  }
+
+  &[class*='-3'] {
+    @include headline-3();
+  }
+
+  &[class*='-4'] {
+    @include headline-4();
+  }
+
+  &[class*='-5'] {
+    @include headline-5();
+  }
+
+  &[class*='-6'] {
+    @include headline-6();
+  }
+
+  // coloring
+  &[class*='-primary'] {
+    color: $color-primary;
+  }
+
+  &[class*='-secondary'] {
+    color: $color-secondary;
+  }
+
+  &[class*='-text'] {
+    color: $color-text;
+  }
+
+  &[class*='-blank'] {
+    color: #fff;
+  }
+
+  // modifier
+  &[class*='--center'] {
+    width: 100%;
+    text-align: center;
+  }
+
+  // modifier
+  &[class*='--normal'] {
+    font-weight: normal;
+    * {
+      font-weight: normal;
+    }
+  }
+
+  // modifier
+  &[class*='--light'] {
+    font-weight: 300;
+    * {
+      font-weight: 300;
+    }
+  }
+
+  // modifier
+  &[class*='--right'] {
+    width: 100%;
+    text-align: right;
+  }
+}

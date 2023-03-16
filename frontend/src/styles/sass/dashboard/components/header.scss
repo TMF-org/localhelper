@@ -1,0 +1,283 @@
+.admin {
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+  background: #fff;
+
+  a {
+    color: #424242;
+    font-size: 14px;
+    padding: 7px;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background: $color-primary;
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 20px 5px;
+    height: 100%;
+    text-decoration: none;
+    img {
+      max-height: 110px;
+    }
+  }
+
+  nav,
+  ul,
+  li,
+  a {
+    height: 100%;
+  }
+
+  .navigation li {
+    text-align: center;
+
+    a {
+      padding: 6px 15px;
+      text-decoration: none;
+      min-width: 110px;
+
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+    }
+
+    a.active {
+      background-color: #fff;
+
+      svg,
+      span {
+        fill: $color-primary;
+        color: $color-primary;
+      }
+    }
+
+    svg {
+      fill: #fff;
+      width: 30px;
+      height: 30px;
+    }
+
+    span {
+      color: #fff;
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      padding-top: 7px;
+    }
+  }
+}
+
+.main-right-menu {
+  @include cf();
+
+  background: $color-primary-dark;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: fit-content;
+  height: 100%;
+  z-index: 1;
+
+  .store-select {
+    float: left;
+    padding: 10px;
+    width: 70px;
+
+    .active-store {
+      height: 50px;
+      width: 50px;
+      padding-top: 10px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 50%;
+      background-color: #fff;
+      cursor: pointer;
+
+      svg {
+        height: 30px;
+        width: 30px;
+        fill: $color-primary;
+      }
+    }
+  }
+
+  .menu-icon svg {
+    height: inherit;
+    width: inherit;
+  }
+}
+
+.profile {
+  background: $color-primary;
+  height: 100%;
+  width: 100%;
+
+  .trigger {
+    background-color: $color-darken;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+
+    .profile-image-container {
+      background-color: $color-darken;
+      display: flex;
+      padding: 10px;
+      max-width: 70px;
+      height: 100%;
+      svg {
+        fill: white;
+      }
+    }
+
+    .not-on-mobile {
+      flex-direction: column;
+    }
+
+    .menu-icon {
+      height: 100%;
+      width: 70px;
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  h4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+
+    strong,
+    small {
+      color: #fff;
+      display: block;
+    }
+
+    svg {
+      fill: #fff;
+      width: 100px;
+      height: 10px;
+    }
+
+    strong {
+      max-width: 210px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 16px;
+      padding-bottom: 5px;
+    }
+
+    small {
+      font-size: 12px;
+    }
+  }
+
+  .open-indicator {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+
+    svg,
+    image {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+  }
+}
+
+.profile-menu {
+  // TODO: proper positioning of overlay
+  position: fixed;
+  top: 70px;
+  height: auto;
+  right: 0;
+  background: $color-primary;
+  max-width: 235px;
+  @include on(mobile) {
+    width: 100vw;
+  }
+  @include on(tablet) {
+    width: 100%;
+  }
+}
+
+.profile-menu li {
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  cursor: pointer;
+
+  a,
+  span {
+    width: 100%;
+    display: inline-block;
+  }
+
+  span {
+    padding: 15px;
+    color: #fff;
+  }
+
+  &:hover span {
+    color: $color-primary;
+    background: #fff;
+  }
+}
+
+.profile-menu .seperator {
+  padding: 5px;
+  border-bottom: 1px solid darken($color-primary, 10%);
+}
+
+.stores-menu {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: auto;
+  left: 0;
+  right: 0;
+  background: #53b990;
+
+  h4 {
+    color: #fff;
+    font-size: 16px;
+    padding: 20px 15px 10px;
+  }
+
+  ul {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+
+  li {
+    display: block;
+    width: 100%;
+
+    span {
+      color: #fff;
+      font-size: 16px;
+      padding: 15px;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    &:hover span {
+      color: $color-primary;
+      background: #fff;
+    }
+  }
+}

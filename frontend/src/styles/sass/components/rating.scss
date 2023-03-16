@@ -1,0 +1,13 @@
+[class*='rating'] {
+  display: inline-block;
+
+  .full {
+    fill: #efce4a;
+  }
+
+  .blank {
+    fill: #cacaca;
+  }
+
+  @import '../base/modifier';
+}

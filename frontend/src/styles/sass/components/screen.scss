@@ -1,0 +1,159 @@
+[class*='screen'] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  z-index: 50;
+
+  @include on(tablet) {
+    height: 100vh;
+    left: 50%;
+    max-width: $content-tablet-width;
+    transform: translateX(-50%);
+  }
+
+  @include on(desktop) {
+    max-width: $content-desktop-width;
+  }
+
+  &.dark,
+  &.primary,
+  &.white {
+    background-color: $color-primary;
+  }
+
+  &.close-animation {
+    transition-delay: 0.15s;
+    transition: all 0.25s;
+    opacity: 0;
+
+    [class*='header'] {
+      transition: all 0.25s;
+      opacity: 0;
+      transform: translateY(-35px);
+    }
+
+    .wrapper {
+      transition: all 0.25s;
+      opacity: 0;
+      transform: translateY(35px);
+    }
+  }
+
+  [class*='header'] {
+    position: static;
+    height: $header-mobile-height;
+
+    * {
+      color: #fff;
+    }
+
+    .headline h2 {
+      font-size: 17px;
+      padding-top: 3px;
+      font-weight: bold;
+    }
+
+    @include on(tablet) {
+      height: $header-tablet-height;
+      .headline h2 {
+        font-size: 20px;
+        padding-top: 0;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .wrapper {
+    text-align: center;
+    position: relative;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    height: 100%;
+    background-color: #fff;
+  }
+
+  [class*='header'] ~ .wrapper {
+    height: calc(100% - #{$header-mobile-height});
+
+    @include on(tablet) {
+      height: calc(100% - #{$header-tablet-height});
+    }
+  }
+
+  &.dark,
+  &.primary,
+  &.white {
+    .wrapper {
+      background-color: $color-primary;
+    }
+
+    * {
+      color: #fff;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    cursor: pointer;
+    z-index: 1;
+
+    span {
+      font-size: rem(13px);
+      padding: 0 rem(10px) 0 0;
+    }
+
+    svg {
+      top: 6px;
+      fill: #fff;
+    }
+
+    @include on(tablet) {
+      top: 16px;
+      right: 16px;
+      padding: 4px;
+      border-radius: 4px;
+
+      svg {
+        height: 30px;
+        width: 30px;
+      }
+
+      &:hover {
+        background-color: $color-primary-dark;
+        svg {
+          fill: white !important;
+        }
+      }
+    }
+  }
+
+  &.animation-default {
+    [class*='header'] {
+      animation-delay: 0.2s ease;
+      animation: slide-down 0.25s ease;
+    }
+
+    .wrapper {
+      animation-delay: 0.2s ease;
+      animation: slide-up 0.25s ease;
+    }
+  }
+
+  &.animation-round-open {
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '';
+      background: #fff;
+      width: 100%;
+      height: 0;
+      animation: roll-down 0.7s ease;
+    }
+  }
+}

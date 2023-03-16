@@ -1,0 +1,44 @@
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 100%;
+
+  fieldset {
+    padding: 20px 10px 10px;
+    border-radius: 0 0 4px 4px;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px -2px;
+  }
+
+  legend {
+    font-size: 14px;
+    text-align: center;
+    padding: 15px 20px;
+    width: 100%;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    background-color: $color-primary;
+
+    svg {
+      fill: #fff;
+      height: 25px;
+      width: auto;
+      margin-bottom: 10px;
+    }
+  }
+
+  .info {
+    color: #a3a3a3;
+    text-align: center;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 10px 0;
+
+    a {
+      color: #a3a3a3;
+    }
+  }
+}

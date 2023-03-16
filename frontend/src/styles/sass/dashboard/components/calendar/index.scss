@@ -1,0 +1,118 @@
+.calendar,
+.DayPicker,
+.DayPicker-Month {
+  display: block;
+  height: 100%;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: $color-grey;
+  }
+}
+
+.DayPicker-wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-gap: 0;
+  grid-template-rows: 70px 1fr;
+}
+
+.DayPicker-Body {
+  height: 100%;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-rows: auto;
+}
+
+.DayPicker-Week {
+  height: 100%;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.DayPicker-Day {
+  position: relative;
+  background: #fff;
+
+  &:hover {
+    outline: 2px solid $color-grey;
+    z-index: 21;
+  }
+}
+
+.DayPicker-Day--today {
+  outline: 2px solid $color-primary !important;
+  z-index: 20;
+}
+
+.DayPicker-Day.DayPicker-Day--selected {
+  outline: 2px solid $color-primary;
+  z-index: 20;
+}
+
+.DayPicker .DayPicker-NavBar {
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 70px;
+  background: #e8e8e8;
+}
+
+.DayPicker-Months {
+  padding: 20px 0;
+  @extend %noselect;
+}
+
+.DayPicker .caption {
+  display: inline-block;
+  max-width: 350px;
+  padding-top: 9px;
+}
+
+.DayPicker .nav-right,
+.DayPicker .nav-left {
+  position: relative;
+  top: 6px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  background: $color-primary;
+}
+
+.DayPicker .nav-left {
+  float: left;
+}
+
+.DayPicker .nav-right {
+  float: right;
+}
+
+.DayPicker .caption h2 {
+  font-size: 28px;
+  color: $color-primary;
+  padding-top: 9px;
+  width: 260px;
+  @extend %noselect;
+}
+
+.DayPicker [class*='nav'] svg {
+  fill: #fff;
+  width: 30px;
+  height: 30px;
+}
+
+.DayPicker-Day--outside {
+  opacity: 0.4;
+}
+
+.calendar {
+  @import 'day.scss';
+  @import 'appointment.scss';
+}

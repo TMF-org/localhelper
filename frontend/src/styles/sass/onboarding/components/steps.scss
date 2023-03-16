@@ -1,0 +1,262 @@
+.steps {
+  &.mobile-only {
+    @include on(tablet) {
+      display: none;
+    }
+  }
+
+  &.not-on-mobile {
+    display: none;
+    @include on(tablet) {
+      display: table !important;
+      max-width: 1000px;
+      width: 100%;
+    }
+  }
+
+  display: inline-block;
+  width: 80%;
+  margin: 0 auto;
+  white-space: nowrap;
+
+  @include on(tablet) {
+    white-space: normal;
+    display: table;
+  }
+
+  a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  .picto {
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 1px;
+    padding-bottom: 55.5%;
+
+    &:after {
+      content: ' ';
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      background: #e6e6e6;
+    }
+  }
+
+  svg {
+    fill: #d2d2d2;
+    width: calc(100% - 10px);
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    right: 5px;
+    z-index: 1;
+    transition: all 0.4s;
+  }
+
+  .active {
+    svg {
+      fill: $color-primary-alpha;
+    }
+
+    h3 {
+      color: $color-primary-alpha;
+    }
+
+    i {
+      background: $color-primary-alpha;
+    }
+  }
+
+  .active.current {
+    svg {
+      fill: $color-primary;
+    }
+
+    h3 {
+      color: $color-primary;
+    }
+
+    i {
+      background: $color-primary;
+    }
+  }
+
+  li {
+    display: inline-block;
+    padding: 10px 0;
+    overflow: hidden;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+
+    @include on(tablet) {
+      left: auto;
+      transform: none;
+      display: table-cell;
+      padding: 30px 0;
+    }
+
+    i {
+      color: #fff;
+      display: block;
+      margin: 0 auto 15px;
+      font-size: 16px;
+      line-height: 36px;
+      width: 36px;
+      height: 36px;
+      font-style: normal;
+      text-align: center;
+      border-radius: 50%;
+      background: #d2d2d2;
+      transition: all 0.4s;
+    }
+
+    h3 {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #d2d2d2;
+      padding-top: 10px;
+      transition: color 0.4s;
+
+      @include on(desktop) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.error-holder {
+  display: block;
+  height: 50px;
+
+  [class*='notice'] {
+    padding: 10px;
+  }
+}
+
+.map {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+}
+
+.pin {
+  fill: $color-state-info;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: block;
+  padding: 7px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.tip {
+  font-size: 14px;
+  text-align: left;
+  line-height: 22px;
+}
+
+.accept-group {
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #efefef;
+  padding: 15px;
+}
+
+.accept {
+  display: block;
+  width: 100%;
+
+  strong {
+    padding: 6px 0 0 10px;
+    font-size: 16px;
+  }
+}
+
+.loading {
+  background: white;
+  position: static;
+}
+
+.hidden-input {
+  cursor: pointer;
+  @include on(mobile) {
+    .camera-icon {
+      display: none;
+    }
+    .loading {
+      background: $color-background;
+    }
+    &.visible-icon {
+      background: white;
+
+      .field.space.loading {
+        display: none !important;
+      }
+
+      .camera-icon {
+        display: block;
+      }
+    }
+    padding: 0;
+    .field.space {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+
+      > input {
+        display: none !important;
+      }
+    }
+
+    display: flex;
+    justify-content: center;
+  }
+  @include on(tablet) {
+    .upload-profile-image-text {
+      font-size: 16px;
+    }
+    padding: inherit;
+  }
+
+  .camera-icon {
+    position: static;
+    fill: $color-primary;
+    width: 80px;
+
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.field.space.loading {
+  @include on(mobile) {
+    .image-preview {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+.h2-normalize {
+  @include on(mobile) {
+    font-size: 26px !important;
+  }
+  @include on(tablet) {
+    font-size: 50px !important;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_customer_customers",
+  "info": {
+    "displayName": "Customer"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "about": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "geo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "geo.geo"
+    },
+    "agb": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

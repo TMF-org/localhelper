@@ -1,0 +1,73 @@
+[class*='box'] {
+  width: 100%;
+
+  &[class*='--border'] {
+    border: 1px solid transparent;
+  }
+
+  &[class*='--border-bottom-fat'] {
+    border: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  &[class*='-white'] {
+    background-color: #fff;
+
+    &[class*='--border'] {
+      border-color: $color-grey-dark;
+    }
+  }
+
+  &[class*='-primary'] {
+    background-color: $color-primary;
+
+    &[class*='-arrow']:before {
+      border-bottom-color: $color-primary;
+    }
+
+    * {
+      color: #fff;
+    }
+  }
+
+  &[class*='-grey'] {
+    background-color: #f4f4f4;
+
+    &[class*='-arrow']:before {
+      border-bottom-color: #f4f4f4;
+    }
+  }
+
+  &[class*='-arrow-up'] {
+    position: relative;
+    margin-top: 20px;
+
+    &:before {
+      bottom: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: ' ';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: transparent;
+      border-width: 14px;
+      margin-left: -14px;
+    }
+  }
+
+  &[class*='-max'] {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include on(phablet) {
+    &[class*='-round'] {
+      border-radius: 4px;
+    }
+  }
+}

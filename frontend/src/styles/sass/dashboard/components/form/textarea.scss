@@ -1,0 +1,25 @@
+textarea {
+  color: #43464c;
+  font-size: 18px;
+  font-weight: 300;
+  display: block;
+  width: 100%;
+  padding: 0.77rem;
+  appearance: none;
+  border-radius: 0;
+  border: 1px solid #efefef;
+
+  &.error {
+    border-color: $color-state-error;
+
+    &:focus {
+      border-color: $color-state-error;
+    }
+  }
+}
+
+.error {
+  textarea {
+    border-color: $color-state-error;
+  }
+}

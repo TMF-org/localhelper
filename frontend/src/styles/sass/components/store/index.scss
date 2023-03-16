@@ -1,0 +1,163 @@
+.store {
+  @include cf();
+
+  display: block;
+  position: relative;
+
+  .summary p {
+    color: #3b3b3b;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .store-info {
+    padding: 15px 10px;
+    background: #fff;
+    transition: all 0.2s ease-out;
+    z-index: 1;
+  }
+
+  .name-price {
+    padding-bottom: 20px;
+  }
+
+  header,
+  footer,
+  section {
+    display: block;
+    width: 100%;
+  }
+
+  header {
+    @include cf();
+
+    padding-bottom: 20px;
+  }
+
+  footer {
+    padding-top: 10px;
+  }
+
+  section {
+    @include cf();
+  }
+
+  .price {
+    float: right;
+    width: 100px;
+    border-radius: 2px;
+    background: #f2f1f1;
+    padding: 12px 0;
+    text-align: center;
+
+    strong {
+      color: #43464c;
+      font-size: 18px;
+      font-weight: normal;
+    }
+  }
+
+  .store-name {
+    width: calc(100% - 110px);
+
+    strong {
+      color: #43464c;
+      font-size: 20px;
+      line-height: 25px;
+      font-weight: normal;
+      display: block;
+      text-decoration: underline;
+    }
+
+    small {
+      color: #9d9d9d;
+      font-size: 12px;
+      font-weight: normal;
+      display: inline-block;
+    }
+
+    @include on(tablet) {
+      font-size: 13px;
+      padding-top: 3px;
+    }
+  }
+
+  .ratings {
+    float: right;
+    width: 100px;
+
+    small {
+      color: #9d9d9d;
+      font-size: 14px;
+      font-weight: normal;
+      text-align: center;
+      display: block;
+      width: 100%;
+      padding-top: 2px;
+    }
+
+    &.clickable {
+      > span,
+      > small {
+        cursor: pointer;
+      }
+
+      > small {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  footer [data-box]:first-child {
+    padding-right: 5px;
+  }
+
+  footer [data-box]:last-child {
+    padding-left: 5px;
+  }
+
+  footer [class*='button'] {
+    height: 45px;
+    line-height: 45px;
+
+    svg {
+      top: 6px;
+      margin: 0 0 0 5px;
+    }
+
+    strong {
+      color: #a0a0a0;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 45px;
+    }
+  }
+
+  .schedule {
+    width: 100%;
+    display: block;
+    float: left;
+  }
+
+  .map {
+    padding: 0;
+
+    svg {
+      fill: #a0a0a0;
+      height: 28px;
+      width: 28px;
+    }
+  }
+
+  @import 'buisnessHours';
+  @import 'distance';
+  @import 'brands';
+  @import 'ratings';
+}
+
+.button-small-centered {
+  display: block;
+  width: 50% !important;
+  margin-left: auto;
+  margin-right: auto;
+}

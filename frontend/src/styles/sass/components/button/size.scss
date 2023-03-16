@@ -1,0 +1,115 @@
+&[class*='--tiny'] {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 0.4rem;
+
+  svg {
+    top: 2px;
+  }
+}
+
+&[class*='--small'] {
+  $height: 34px;
+  font-size: rem(12px);
+  height: $height;
+  line-height: $height - 1px;
+
+  padding: 0 rem(10px);
+
+  @include on(tablet) {
+    font-size: $text-default;
+    padding: 0 rem(20px);
+  }
+}
+
+&[class*='--medium'] {
+  $height: 36px;
+  font-size: $h6;
+  height: $height;
+  line-height: $height - 1px;
+  padding: 0 rem(10px);
+
+  span,
+  strong {
+    font-size: rem(14px);
+    padding: 0 rem(15px);
+  }
+}
+
+&[class*='--default'] {
+  $height: 50px;
+  width: 100%;
+  font-size: $h6;
+  height: $height;
+  line-height: $height;
+
+  padding: 0 rem(10px);
+
+  span,
+  strong {
+    line-height: 48px;
+    font-size: 20px;
+    font-weight: 500;
+    float: none;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  svg {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+  }
+
+  strong + svg,
+  span + svg {
+    margin-left: 5px;
+    margin-right: 0;
+  }
+
+  svg + strong,
+  svg + span {
+    float: left;
+    width: calc(100% - 35px);
+  }
+
+  svg:first-child {
+    &:last-child {
+      float: none;
+      margin: 0;
+    }
+  }
+
+  @include on(tablet) {
+    padding: 0 18px;
+  }
+}
+
+&[class*='--nospace'] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+&[class*='--large'] {
+  height: 60px;
+  line-height: 56px;
+  padding: 0 rem(25px);
+  font-size: rem(18px);
+}
+
+&[class*='--iconleft'] {
+  width: auto;
+  padding-left: rem(10px);
+  @include cf();
+
+  svg {
+    float: left;
+    top: 5px;
+    margin-right: rem(8px);
+  }
+
+  span {
+    float: left;
+  }
+}

@@ -1,0 +1,143 @@
+.side-navi {
+  padding: 5px;
+
+  li {
+    padding: 4px 5px;
+
+    a {
+      color: $color-text;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 3px;
+      background-color: #efefef;
+    }
+  }
+
+  @include on(desktop) {
+    padding: 10px 20px;
+
+    li {
+      padding: 5px 10px 5px 10px;
+
+      a {
+        padding: 15px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.be-ticket-list {
+  @include cf();
+
+  padding: 10px;
+  background: #efefef;
+
+  @include on(desktop) {
+    padding: 20px;
+  }
+}
+
+.be-ticket {
+  float: left;
+  width: 100%;
+  padding: 0 0 10px;
+  perspective: 800px;
+
+  .inner {
+    height: 388px;
+  }
+
+  @include on(phablet) {
+    width: 50%;
+    padding: 10px;
+  }
+
+  @include on(desktop) {
+    width: 33.3335%;
+    padding: 15px;
+  }
+
+  @include on(widescreen) {
+    width: 25%;
+    padding: 20px;
+  }
+
+  @include on(television) {
+    width: 20%;
+    padding: 20px;
+  }
+
+  .inner {
+    @include cf();
+    background: #fff;
+    border-radius: 3px;
+  }
+
+  .time {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 0;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .state {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    text-align: center;
+
+    svg {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+    }
+
+    strong {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-weight: 300;
+      font-size: 16px;
+      padding: 8px 0 0 0;
+    }
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table tr {
+    @include cf();
+
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  table th,
+  table td {
+    float: left;
+    font-size: 16px;
+    padding: 12px 10px;
+  }
+
+  .log-list {
+    max-height: 324px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  table th {
+    width: 100px;
+  }
+
+  table td {
+    @extend %cut;
+    width: calc(100% - 100px);
+  }
+
+  .actions {
+    padding: 10px;
+  }
+}

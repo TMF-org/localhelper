@@ -1,0 +1,55 @@
+input[class*='--blank'],
+textarea[class*='--blank'],
+select[class*='--blank'] {
+  border: none;
+}
+
+label {
+  svg {
+    pointer-events: none;
+  }
+}
+
+[class*='input-icon'] {
+  position: relative;
+  padding: 0;
+  > svg {
+    position: absolute;
+    z-index: 1;
+  }
+
+  &[class*='icon-left'] {
+    > svg {
+      top: rem($space-small);
+      left: rem(6px);
+      cursor: pointer;
+    }
+
+    > svg + input,
+    select {
+      padding-left: rem(33px);
+      padding-right: rem(10px);
+    }
+  }
+
+  &[class*='icon-right'] {
+    > svg + input,
+    > svg + select {
+      padding-right: rem(33px);
+    }
+
+    > svg {
+      top: rem($space-small);
+      right: rem(6px);
+      cursor: pointer;
+    }
+  }
+}
+
+input.icon-left {
+  padding-left: rem(33px);
+}
+
+input.icon-right {
+  padding-right: rem(33px);
+}

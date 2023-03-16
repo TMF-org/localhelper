@@ -1,0 +1,67 @@
+[class*='mood'] {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  min-height: 518px;
+  max-height: 600px;
+
+  @include on(mobile) {
+    padding-top: 24px;
+  }
+
+  @include on(tablet) {
+    padding-top: 0;
+    min-height: 580px;
+  }
+
+  &[class*='-dark'] {
+    background: $color-primary;
+    color: #fff;
+    * {
+      color: #fff;
+    }
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &[class*='-primary'] {
+    background: $color-primary;
+    color: #fff;
+    * {
+      color: #fff;
+    }
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  > h1,
+  > .headline {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 30px;
+    display: block;
+    padding: 2px 0 2px 0;
+    max-width: 280px;
+    margin: 0 auto;
+
+    @include on(tablet) {
+      font-size: 30px;
+      line-height: 42px;
+      padding: 5px 0 5px 0;
+      max-width: 460px;
+      font-weight: normal;
+    }
+  }
+
+  .skyline {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,94 @@
+.facts {
+  @include cf();
+
+  $iconSizeWidth: 110px;
+
+  .sign {
+    position: absolute;
+    width: $iconSizeWidth;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .inner {
+    @include cf();
+
+    position: relative;
+    padding-top: 20px;
+  }
+
+  h3 {
+    font-size: 32px;
+    display: block;
+    padding-bottom: 10px;
+
+    strong {
+      font-weight: normal;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom: 15px;
+    height: 75px;
+
+    @include on(tablet) {
+      font-size: 20px;
+      line-height: 30px;
+      height: 100px;
+    }
+  }
+
+  i svg {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    transform: translateX(-50%);
+  }
+
+  .fact {
+    float: right;
+    min-height: 125px;
+    width: calc(100% - #{$iconSizeWidth});
+    padding-right: 15px;
+  }
+
+  .navigation {
+    @include cf();
+    @extend %noselect;
+
+    width: 100%;
+    min-height: 50px;
+    padding: 10px 15px;
+    background: $color-primary-dark;
+
+    li {
+      float: left;
+      cursor: pointer;
+      max-width: 45%;
+
+      svg {
+        float: left;
+      }
+
+      span {
+        font-size: 18px;
+        float: left;
+        padding: 4px 10px;
+      }
+    }
+
+    .forward {
+      float: right;
+    }
+
+    @include on(tablet) {
+      border-radius: 0 0 4px 4px;
+    }
+  }
+}

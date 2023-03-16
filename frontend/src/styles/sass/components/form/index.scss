@@ -1,0 +1,29 @@
+form {
+  &[class*='--right'] {
+    text-align: right;
+  }
+
+  @import 'info';
+
+  .row {
+    display: block;
+    float: left;
+    width: 100%;
+    padding: rem(5px) 0;
+  }
+
+  [class*='notice-'] {
+    margin-bottom: 0;
+  }
+}
+
+@import 'input';
+@import 'select';
+@import 'textarea';
+@import 'number';
+@import 'checkbox';
+@import 'box';
+@import 'tags';
+@import 'radio';
+@import 'label';
+@import 'modifier';

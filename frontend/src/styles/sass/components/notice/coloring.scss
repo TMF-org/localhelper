@@ -1,0 +1,100 @@
+&[class*='-error'] {
+  color: #fff;
+  background-color: $color-state-error;
+
+  a,
+  p {
+    color: #fff;
+  }
+
+  svg {
+    fill: #fff;
+  }
+
+  span {
+    svg {
+      fill: #fff;
+    }
+    background: darken($color-state-error, 6%);
+  }
+}
+
+&[class*='-success'] {
+  color: #fff;
+  background-color: $color-state-success;
+
+  a,
+  p {
+    color: #fff;
+  }
+
+  svg {
+    fill: #fff;
+  }
+
+  span {
+    svg {
+      fill: #fff;
+    }
+    background: darken($color-state-success, 6%);
+  }
+}
+
+&[class*='-idle'] {
+  color: #fff;
+  background-color: #f5a623;
+
+  p {
+    color: #fff;
+    text-align: left;
+  }
+
+  svg {
+    fill: #fff;
+  }
+
+  span {
+    svg {
+      fill: #fff;
+    }
+    background: darken(#f5a623, 6%);
+  }
+}
+
+&[class*='-info'] {
+  color: #fff;
+  background-color: $color-state-info;
+
+  p {
+    color: #fff;
+    text-align: left;
+  }
+
+  svg {
+    fill: #fff;
+  }
+
+  span {
+    svg {
+      fill: #fff;
+    }
+    background: darken($color-state-info, 6%);
+  }
+}
+
+&[class*='-warning'] {
+  color: #fff;
+  background-color: lighten($color-highlight, 15%);
+
+  p {
+    color: $color-text;
+    text-align: left;
+  }
+
+  span {
+    svg {
+      fill: #fff;
+    }
+    background: $color-highlight;
+  }
+}

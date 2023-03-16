@@ -1,0 +1,129 @@
+.form-box {
+  padding: 15px 0;
+  background: #fff;
+}
+
+.box {
+  padding: 10px;
+  width: 100%;
+
+  h4 {
+    color: #fff;
+    font-size: rem(14px);
+    width: 100%;
+    font-weight: 300;
+    padding: rem(15px) 0 rem(5px) rem(15px);
+  }
+
+  label {
+    color: #fff;
+    font-size: rem(14px);
+    width: 100%;
+    font-weight: 400;
+    padding: 0 0 rem(10px) 0;
+  }
+
+  p,
+  label {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  fieldset {
+    width: 100%;
+    margin-bottom: rem(10px);
+    background-color: #161718;
+
+    .inner {
+      padding: rem(10px);
+
+      @include on(tablet) {
+        padding: rem(15px);
+      }
+    }
+
+    label {
+      width: 100%;
+      padding: 0 0 10px;
+    }
+
+    p {
+      padding: 10px 0;
+    }
+  }
+
+  legend {
+    @include cf;
+    @extend %noselect;
+
+    color: #fff;
+    font-size: $h5;
+    width: 100%;
+    padding: rem(12px) rem(10px) rem(16px);
+    display: block;
+    background-color: #111213;
+
+    svg {
+      float: left;
+      fill: #fff;
+    }
+
+    span {
+      @extend %noselect;
+      float: left;
+      padding: rem(3px) 0 0 rem(10px);
+    }
+  }
+
+  [class*='options-select'] {
+    padding: rem(10px);
+
+    > div {
+      padding: 0 rem(5px) rem(5px);
+    }
+
+    [class*='option'] {
+      @extend %noselect;
+
+      color: #fff;
+      font-size: rem(14px);
+      text-align: center;
+      padding: rem(10px) 0;
+      width: 100%;
+      background-color: #1d1e21;
+      border: 1px solid transparent;
+      cursor: pointer;
+
+      &:hover {
+        border-color: $color-state-info;
+      }
+
+      &[class*='--active'] {
+        background-color: $color-state-info;
+      }
+    }
+  }
+
+  .color-list {
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: rem(10px);
+
+    [class*='color'] {
+      display: inline-block;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      margin-right: rem(10px);
+      border: 2px solid transparent;
+      cursor: pointer;
+
+      &[class*='--active'] {
+        border-color: #fff;
+      }
+    }
+  }
+}

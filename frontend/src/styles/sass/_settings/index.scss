@@ -1,0 +1,37 @@
+@import 'colors';
+@import 'font';
+
+// breakpoints
+$mobile: 320px;
+$phablet: 450px;
+$tablet: 768px;
+$desktop: 1024px;
+$widescreen: 1400px;
+$television: 1800px;
+
+// layer order
+$layer-order: ('header', 'mood', 'autocomplete');
+
+// Header
+$header-mobile-height: 45px;
+$header-tablet-height: 70px;
+
+// Content
+
+$content-tablet-width: 800px;
+$content-desktop-width: 850px;
+
+// spaces
+$space-tiny: 5px;
+$space-small: 10px;
+$space-default: 15px;
+$space-medium: 20px;
+$space-default: 25px;
+$space-big: 30px;
+
+// radius
+$radius-default: 2px;
+$radius-2x: 4px;
+
+$default-font-size: 16px;
+$default-line-height: 1.4rem;

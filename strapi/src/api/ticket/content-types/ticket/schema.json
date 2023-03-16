@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tickets",
+  "info": {
+    "singularName": "ticket",
+    "pluralName": "tickets",
+    "displayName": "Ticket",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "shortID": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 21,
+      "maxLength": 21
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "onRequest",
+        "accepted",
+        "declined",
+        "canceledAutomatically",
+        "canceledByCustomer",
+        "canceledByStore",
+        "inWork",
+        "finished"
+      ],
+      "default": "onRequest",
+      "required": true
+    },
+    "editID": {
+      "type": "string"
+    },
+    "customer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "customer.customer"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service"
+    },
+    "annotation": {
+      "type": "string",
+      "private": true
+    },
+    "comment": {
+      "type": "string",
+      "private": true
+    },
+    "log": {
+      "type": "component",
+      "repeatable": true,
+      "component": "log.log"
+    },
+    "helper": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::helper.helper",
+      "inversedBy": "tickets"
+    }
+  }
+}

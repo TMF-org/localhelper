@@ -1,0 +1,22 @@
+label {
+  color: #787878;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  display: block;
+
+  &.optional {
+    padding: rem(6px) 0;
+
+    strong {
+      display: block;
+      padding-bottom: rem(2px);
+    }
+
+    small {
+      color: $color-grey-dark;
+      font-size: rem(11px);
+      font-weight: 400;
+    }
+  }
+}

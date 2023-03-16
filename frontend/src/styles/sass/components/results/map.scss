@@ -1,0 +1,41 @@
+.store {
+  overflow: hidden;
+
+  &.show-map {
+    > .image,
+    .store-info {
+      position: relative;
+      transition: all 0.2s ease-in;
+      transform: translateX(-90%);
+    }
+  }
+
+  .map-card {
+    position: absolute;
+    left: 10%;
+    top: 0;
+    bottom: 0;
+    width: 90%;
+
+    .close {
+      position: absolute;
+      background-color: #fff;
+      padding: 10px;
+      top: 5px;
+      right: 5px;
+      z-index: 10;
+      border-radius: 50%;
+      box-shadow: 0 0 4px -1px rgba(0, 0, 0, 0.4);
+
+      svg {
+        position: relative;
+        top: 1px;
+        fill: $color-state-error;
+      }
+    }
+
+    .icon-default {
+      fill: $color-primary-dark;
+    }
+  }
+}

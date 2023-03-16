@@ -1,0 +1,17 @@
+.only-on-mobile {
+  @include on(mobile) {
+    display: flex !important;
+  }
+  @include on(tablet) {
+    display: none !important;
+  }
+}
+
+.not-on-mobile {
+  @include on(mobile) {
+    display: none !important;
+  }
+  @include on(tablet) {
+    display: inherit !important;
+  }
+}

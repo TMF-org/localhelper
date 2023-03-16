@@ -1,0 +1,48 @@
+.offline {
+  @extend .fadeInDown;
+  @include duration(0.4);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  text-align: center;
+  background-color: $color-state-error;
+
+  svg {
+    fill: #fff;
+    position: absolute;
+    right: rem(15px);
+    top: rem(15px);
+    cursor: pointer;
+  }
+
+  .inner {
+    @include cf;
+
+    display: inline-block;
+    width: 100%;
+    padding: rem(12px) 0;
+
+    h4 {
+      text-align: left;
+      float: left;
+      width: 90%;
+      padding: rem(5px) 0 0 rem(15px);
+
+      strong {
+        color: #fff;
+        font-size: rem(18px);
+        display: block;
+        padding-bottom: rem(5px);
+      }
+
+      small {
+        color: #fff;
+        font-size: rem(14px);
+        font-weight: 300;
+      }
+    }
+  }
+}

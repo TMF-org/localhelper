@@ -1,0 +1,161 @@
+.bgc-white {
+  background: #fff;
+
+  h3 {
+    color: $color-primary-dark;
+  }
+
+  .bgc-white-on-mobile {
+    @include on(mobile) {
+      .field.space {
+        margin-top: 10px;
+        padding: 10px 10px 0;
+        background: white;
+        border-radius: 5px;
+
+        input {
+          border: none;
+          font-size: 18px;
+          padding: 0;
+          font-weight: 400;
+          color: #004b86;
+        }
+
+        .notice-error {
+          margin: 0 -10px;
+          border-radius: 0 0 4px 4px;
+        }
+      }
+      label {
+        font-size: 12px;
+        padding: 0;
+      }
+
+      .field.space {
+        background: #fff;
+        border-radius: 4px;
+
+        textarea {
+          font-size: 16px;
+        }
+
+        textarea {
+          max-width: 100%;
+          color: $color-primary-dark;
+          font-weight: normal;
+          font-size: 16px;
+          padding-left: 0;
+          border: none;
+        }
+      }
+    }
+    @include on(tablet) {
+      label {
+        font-size: 16px;
+        padding: 10px 0;
+      }
+      .field.space {
+        textarea {
+          font-size: 16px;
+        }
+
+        .notice-error {
+          margin: 0;
+          border-radius: 0;
+        }
+
+        input {
+          font-size: 18px;
+        }
+
+        textarea,
+        input {
+          max-width: 100%;
+          font-weight: normal;
+          padding: 10px;
+          border: 1px solid #d2d2d2;
+
+          &:hover,
+          &:focus {
+            border: 1px solid rgba(0, 114, 201, 0.5) !important;
+          }
+
+          &.error input {
+            border-color: #c94a30 !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.bgc-transparent-on-mobile {
+    @include on(mobile) {
+      background: transparent;
+
+      > .field.space input {
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-bottom: solid #d2d2d2 1px;
+        font-size: 18px;
+        color: #004b86;
+      }
+      .accept-group {
+        @include on(mobile) {
+          label {
+            display: flex;
+
+            strong {
+              padding-top: 0;
+
+              &,
+              * {
+                color: $color-primary-dark;
+              }
+
+              br {
+                display: block;
+              }
+            }
+          }
+          background: white;
+          border-radius: 4px;
+        }
+        @include on(tablet) {
+          label {
+            strong {
+              padding-top: 6px;
+
+              br {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include on(tablet) {
+      background: #fff;
+      > .field {
+        &.space {
+          input {
+            border: 1px solid #d2d2d2;
+            padding: 0 10px;
+            font-size: 18px;
+            font-weight: 400;
+            color: #004b86;
+
+            &:hover {
+              border: 1px solid rgba(0, 114, 201, 0.5);
+            }
+
+            &.error input {
+              border-color: #c94a30 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

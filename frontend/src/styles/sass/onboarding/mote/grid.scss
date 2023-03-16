@@ -1,0 +1,202 @@
+.center {
+  justify-content: center;
+  align-self: center;
+}
+
+.flt-rgt {
+  float: right;
+}
+
+.flt-lft {
+  float: left;
+}
+
+.flx-btns {
+  display: flex;
+  margin-top: 15px;
+  padding: 0 20px;
+  justify-content: space-between;
+  height: 50px;
+
+  .left-flx-btn {
+    background: #fff;
+    padding: 0;
+    display: flex;
+    min-width: 50px;
+    max-width: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right-flx-btn {
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.frm {
+  @include cf;
+}
+
+.grd-1 {
+  float: left;
+  display: inline-block;
+  width: 100%;
+}
+
+.grd-2 {
+  float: left;
+  display: inline-block;
+  width: 50%;
+}
+
+.grd-3 {
+  float: left;
+  display: block;
+  width: 33.33334%;
+}
+
+.grd-4 {
+  display: block;
+  width: 25%;
+}
+
+.location-on-mobile {
+  &.grd-1 {
+    .only-on-mobile {
+      align-self: center;
+    }
+
+    @include on(mobile) {
+      &.bgc-white {
+        background: transparent;
+      }
+      display: flex;
+      flex-direction: column-reverse;
+      > .grd-2 {
+        justify-content: center;
+        width: 100%;
+
+        &.pdg-rgt-10 {
+          padding-right: 0;
+        }
+
+        .map {
+          padding: 10px;
+          background: white;
+          border-radius: 5px;
+        }
+
+        .field {
+          &.space {
+            margin-top: 10px;
+            padding: 10px 10px 0;
+            background: white;
+            border-radius: 5px;
+
+            input {
+              border: none;
+              font-size: 18px;
+              padding: 0;
+              font-weight: 400;
+              color: #004b86;
+            }
+
+            .notice-error {
+              margin: 0 -10px;
+              border-radius: 0 0 4px 4px;
+            }
+          }
+        }
+      }
+    }
+    @include on(tablet) {
+      &.bgc-white {
+        background: #fff;
+      }
+      display: inline-block;
+      > .grd-2 {
+        width: 50%;
+
+        &.pdg-rgt-10 {
+          padding-right: 0;
+        }
+
+        .map {
+          padding: 10px;
+          background: white;
+          border-radius: 5px;
+        }
+
+        .field {
+          &.space {
+            margin-top: 10px;
+            padding: 10px 10px 0;
+            background: white;
+            border-radius: 5px;
+
+            input {
+              padding: 0 10px;
+              border: 1px solid #efefef;
+            }
+
+            .notice-error {
+              margin: 0;
+              border-radius: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.flex {
+  padding: 0 20px;
+  display: flex;
+
+  &.column {
+    flex-direction: column;
+
+    &.centered {
+      align-items: center;
+      justify-content: center;
+
+      h3 {
+        color: $color-primary-dark;
+      }
+
+      .box {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        background-color: #fff;
+        @include on(mobile) {
+          max-width: 400px;
+          height: 200px;
+        }
+        @include on(tablet) {
+          background: #f1f1f1;
+          max-width: 800px;
+          height: 400px;
+        }
+
+        > svg {
+          fill: $color-primary;
+          min-width: 100%;
+          min-height: 100%;
+        }
+      }
+
+      .field.space {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

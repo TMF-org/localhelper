@@ -1,0 +1,52 @@
+@media all {
+  .page-break {
+    display: none;
+  }
+}
+
+@media print {
+  body,
+  html {
+    display: block !important;
+    overflow: visible !important;
+    height: auto !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+  }
+
+  *,
+  *::after,
+  *::before {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  #main,
+  #page,
+  #product-page {
+    display: block !important;
+    position: static !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    height: 100% !important;
+  }
+
+  [class*='no-print'],
+  iframe {
+    display: none !important;
+  }
+
+  @page {
+    margin: 1cm;
+  }
+
+  .content {
+    padding: 10px 0 !important;
+  }
+
+  .page-break {
+    display: block !important;
+    page-break-before: always !important;
+  }
+}

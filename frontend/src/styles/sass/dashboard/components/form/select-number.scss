@@ -1,0 +1,33 @@
+.select-number {
+  @include cf();
+  display: inline-block;
+  width: auto;
+
+  li {
+    float: left;
+    padding: 0 10px 12px 0;
+
+    span {
+      color: #a6a6a6;
+      font-size: 16px;
+      border: 1px solid #a6a6a6;
+      padding: 0 2px;
+      line-height: 36px;
+      min-width: 40px;
+      text-align: center;
+      border-radius: 2px;
+      cursor: pointer;
+      @extend %noselect;
+    }
+
+    span:hover {
+      background-color: #efefef;
+    }
+
+    &.active span {
+      color: #fff;
+      border-color: $color-primary;
+      background-color: $color-primary;
+    }
+  }
+}

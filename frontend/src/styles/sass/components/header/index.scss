@@ -1,0 +1,83 @@
+[class*='header'] {
+  @include cf();
+  width: 100%;
+  z-index: layer('header');
+  text-align: right;
+  height: $header-mobile-height;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+
+  @include on(tablet) {
+    height: $header-tablet-height;
+    padding: 8px;
+  }
+
+  &[class*='-dark'] {
+    background-color: $color-primary-dark;
+    box-shadow: 0 4px 2px -4px rgba(0, 0, 0, 0.15);
+  }
+
+  &[class*='-light'] {
+    background-color: transparentize($color-primary, 0.4);
+  }
+
+  &[class*='-primary'] {
+    background-color: $color-primary;
+  }
+  &[class*='-white'] {
+    background-color: white;
+    * {
+      color: $color-primary-dark !important;
+    }
+    svg {
+      fill: $color-primary-dark !important;
+    }
+  }
+
+  .actions {
+    padding: 10px;
+  }
+
+  .menu {
+    float: right;
+  }
+
+  .point {
+    display: inline-block;
+    padding: 11px 10px 0 0;
+
+    &.create {
+      display: none;
+
+      @include on(tablet) {
+        display: inline-block;
+      }
+    }
+
+    span {
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  @import 'logo';
+}
+
+#main > [class*='header'] {
+  @include on(tablet) {
+    max-width: $content-tablet-width;
+  }
+
+  @include on(desktop) {
+    max-width: $content-desktop-width;
+  }
+}
+
+#main.wide > [class*='header'] {
+  @include on(tablet) {
+    max-width: 100%;
+  }
+}
+
+@import 'menu';

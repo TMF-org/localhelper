@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="10px" viewBox="0 0 18 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="select/simple/closed" transform="translate(-301.000000, -21.000000)" fill="#E1E1E1">
+            <g id="select/closed">
+                <g id="Group">
+                    <path d="M312.955887,34.9975842 C313.460532,34.9975842 313.967237,34.7946594 314.362714,34.3851862 C315.182505,33.5360426 315.215462,32.12644 314.437896,31.2326046 L309.866223,25.9831334 L314.431717,20.7723146 C315.211342,19.8821028 315.183535,18.4700845 314.366834,17.6197329 C313.551163,16.7669656 312.258653,16.7983707 311.479028,17.6885824 L305.566441,24.4382476 C304.812563,25.2982622 304.811533,26.6535099 305.561291,27.5183561 L311.472849,34.3066736 C311.876565,34.7656702 312.414166,35 312.955887,35 L312.955887,34.9975842 Z" id="Shape" transform="translate(310.000000, 26.000000) rotate(-90.000000) translate(-310.000000, -26.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

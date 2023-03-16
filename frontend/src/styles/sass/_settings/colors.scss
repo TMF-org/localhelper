@@ -1,0 +1,73 @@
+$color-text: #5c5d64;
+
+$color-primary: #0072c9;
+$color-primary-light: #eb3c3c;
+$color-primary-dark: #004b84;
+$color-primary-alpha: rgba(0, 114, 201, 0.5);
+
+$color-secondary: #12856e;
+$color-secondary-light: #3d9987;
+$color-secondary-dark: #11735f;
+
+$color-highlight: #278aff;
+$color-highlight-dark: #278aff;
+
+// state colors
+$color-state-success: #5ad2a0;
+$color-state-error: #c94a30;
+$color-state-info: #76aae7;
+$color-state-info-dark: #4a90e2;
+$color-state-disabled: #cde4f2;
+
+$color-dark: #2a2b30;
+$color-grey: #d5d5d5;
+
+$color-grey-dark: darken($color-grey, 50%);
+$color-grey-light: lighten($color-grey, 10%);
+$color-background: #fff;
+
+$color-darken: rgba(0, 0, 0, 0.1);
+
+// color set primary
+@mixin color-set-primary($invert: 'false', $transparence: 0) {
+  $color: transparentize($color-primary, $transparence);
+
+  @if $invert == 'true' {
+    color: $color;
+    fill: $color;
+  } @else {
+    color: #fff;
+    fill: #fff;
+    background-color: $color;
+  }
+}
+
+// color set secondary
+@mixin color-set-secondary($invert: 'false', $transparence: 0) {
+  $color: transparentize($color-secondary, $transparence);
+
+  @if $invert == 'true' {
+    color: $color;
+    fill: $color;
+    background-color: #fff;
+  } @else {
+    color: #fff;
+    fill: #fff;
+    background-color: $color;
+  }
+}
+
+// color set highlight
+@mixin color-set-highlight($invert: 'false', $transparence: 0) {
+  $color: lighten($color-highlight, $transparence);
+
+  @if $invert == 'true' {
+    color: $color;
+    fill: $color;
+    background-color: #fff;
+  } @else {
+    color: #fff;
+    fill: #fff;
+    background-color: $color;
+  }
+}

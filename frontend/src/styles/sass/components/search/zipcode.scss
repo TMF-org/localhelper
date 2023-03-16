@@ -1,0 +1,82 @@
+.zipcode {
+  text-align: center;
+
+  .action {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 20px;
+    text-decoration: underline;
+  }
+
+  &.inactive .action {
+    padding: 75px 20px 0;
+    height: 180px;
+  }
+
+  input {
+    float: left;
+    width: 100%;
+    text-align: center;
+  }
+
+  .location {
+    float: left;
+    width: 100%;
+    line-height: 50px;
+    font-size: 16px;
+    box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+}
+
+.detection-type-selection {
+  @include cf();
+
+  display: block;
+  width: 100%;
+  border: 1px solid #fff;
+  margin: 20px 0;
+  border-radius: 2px;
+
+  label {
+    @extend %noselect;
+
+    float: left;
+    width: 50%;
+    font-weight: 300;
+    padding: 10px 0 5px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.7;
+
+    svg {
+      fill: #fff !important;
+    }
+
+    span {
+      color: #fff !important;
+      padding-left: 5px;
+      position: relative;
+      top: -8px;
+    }
+
+    &.active {
+      opacity: 1;
+      box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.1);
+      background-color: #51bd90;
+
+      svg {
+        fill: #fff !important;
+      }
+      span {
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+.zipcode.full-height {
+  height: 180px;
+}

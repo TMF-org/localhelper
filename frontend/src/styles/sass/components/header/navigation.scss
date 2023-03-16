@@ -1,0 +1,119 @@
+nav {
+  display: inline-block;
+
+  @include on(tablet) {
+    padding: 0 rem(5px);
+  }
+
+  > ul {
+    @include cf();
+    display: inline-block;
+    text-align: center;
+
+    %active {
+      background-color: #fff;
+
+      > a,
+      > span {
+        color: $color-primary;
+      }
+      .trigger {
+        svg {
+          fill: $color-primary;
+        }
+      }
+    }
+
+    > li {
+      @extend %noselect;
+
+      display: inline-block;
+      cursor: pointer;
+
+      @include first(4) {
+        display: none;
+
+        @include on(tablet) {
+          display: inline-block;
+        }
+
+        @include on(desktop) {
+          display: inline-block;
+        }
+      }
+
+      @include first(3) {
+        @include on(tablet) {
+          display: none;
+        }
+
+        @include on(desktop) {
+          display: inline-block;
+        }
+      }
+
+      &:hover {
+        @extend %active;
+      }
+
+      .direct-search-trigger {
+        svg {
+          position: relative;
+          top: 7px;
+        }
+      }
+
+      &:hover .direct-search-trigger svg {
+        fill: $color-primary;
+      }
+
+      .trigger {
+        svg {
+          position: relative;
+          top: 7px;
+        }
+      }
+
+      ul {
+        display: block;
+        width: 100%;
+
+        > li {
+          color: $color-primary;
+          font-size: $text-default;
+          text-align: left;
+          display: block;
+          padding-bottom: 0;
+          height: inherit;
+          line-height: auto;
+
+          a {
+            color: $color-primary;
+            font-size: $text-default;
+            text-decoration: none;
+            display: block;
+            height: auto;
+            line-height: auto;
+            width: 100%;
+            padding: rem($space-small) 0 rem($space-small) rem(5px);
+
+            &:hover {
+              color: #fff;
+              background-color: $color-primary;
+            }
+          }
+        }
+
+        li:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.direct-search-trigger svg {
+  fill: #fff;
+  height: 22px;
+  width: 22px;
+}

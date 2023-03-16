@@ -1,0 +1,49 @@
+[class*='progress-'] {
+  display: block;
+  width: 100%;
+
+  position: relative;
+  background-color: #eee;
+  overflow: hidden;
+
+  .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    transition: width 1s;
+  }
+
+  &[class*='-primary'] {
+    .bar {
+      background-color: $color-primary;
+    }
+  }
+
+  &[class*='-primary-light'] {
+    .bar {
+      background-color: $color-primary-light;
+    }
+  }
+
+  &[class*='-secondary'] {
+    .bar {
+      background-color: $color-secondary;
+    }
+  }
+
+  &[class*='--shadow'] {
+    box-shadow: inset 0 0 5px -2px rgba(0, 0, 0, 0.2);
+
+    .bar {
+      box-shadow: inset 0 0 6px 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &[class*='--round'] .bar {
+    @extend %round;
+  }
+
+  @import '../base/modifier';
+}

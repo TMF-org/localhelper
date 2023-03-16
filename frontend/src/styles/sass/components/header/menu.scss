@@ -1,0 +1,99 @@
+.menu {
+  @include on(mobile) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @include on(tablet) {
+    position: inherit;
+  }
+
+  li,
+  a {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  li {
+    padding: 12px 10px;
+  }
+
+  a {
+    padding: 5px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.main-menu {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  animation: slide-up 0.95s ease;
+  animation-delay: 0.5s ease;
+
+  .big-list ul {
+    padding: 30px;
+
+    li {
+      display: block;
+      width: 100%;
+      padding: 0 0 20px 0;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      a {
+        @include cf();
+
+        display: block;
+        color: #fff;
+
+        svg {
+          float: left;
+          fill: #fff;
+          width: 40px;
+          height: 40px;
+        }
+
+        strong {
+          float: left;
+          font-size: 18px;
+          font-weight: 300;
+          padding: 12px 0 0 20px;
+          width: calc(100% - 45px);
+        }
+      }
+    }
+  }
+
+  .small-list {
+    margin-bottom: 20px;
+
+    ul {
+      @include cf();
+      padding: 10px 30px;
+      background-color: $color-primary-dark;
+
+      li {
+        float: left;
+        width: 50%;
+        padding: 10px 10px 10px 0;
+
+        a {
+          font-size: 18px;
+          strong {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}

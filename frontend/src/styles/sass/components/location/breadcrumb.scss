@@ -1,0 +1,83 @@
+.breadcrumb {
+  @include cf();
+
+  display: block;
+  width: 100%;
+  background: $color-primary-dark;
+  padding: 9px 0 9px 5px;
+
+  ol {
+    @include cf();
+    display: block;
+    width: 100%;
+
+    li {
+      display: inline-block;
+      padding: 2px 0 2px 5px;
+
+      a,
+      span {
+        color: #fff;
+        font-size: 12px;
+      }
+
+      &:after {
+        content: '▶';
+        font-size: 8px;
+        margin-left: 5px;
+        color: #fff;
+        position: relative;
+        top: -1px;
+      }
+
+      &:last-child:after {
+        content: '';
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  @include on(tablet) {
+    padding: 6px 0;
+    ol {
+      li {
+        padding: 5px 0 5px 10px;
+
+        a,
+        span {
+          font-size: 16px;
+        }
+
+        &:after {
+          font-size: 10px;
+          margin-left: 10px;
+          top: -2px;
+        }
+      }
+    }
+  }
+
+  @include on(desktop) {
+    padding: 8px 0;
+
+    ol {
+      li {
+        padding: 8px 0 8px 10px;
+
+        a,
+        span {
+          font-size: 18px;
+        }
+
+        &:after {
+          font-size: 10px;
+          margin-left: 10px;
+          top: -2px;
+        }
+      }
+    }
+  }
+}

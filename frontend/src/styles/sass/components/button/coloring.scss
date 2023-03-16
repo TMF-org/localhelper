@@ -1,0 +1,283 @@
+&[class*='-primary'] {
+  @include color-set-primary();
+  color: #fff;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff;
+  }
+
+  &:hover {
+    @include color-set-primary('false', 0.1);
+  }
+}
+
+&[class*='-primary-dark'] {
+  color: #fff;
+  background-color: $color-primary-dark;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: lighten($color-primary-dark, 50%);
+  }
+}
+
+&[class*='-white'] {
+  color: $color-primary;
+  background-color: #fff;
+
+  svg {
+    fill: $color-primary;
+  }
+
+  span,
+  strong {
+    color: $color-primary;
+  }
+
+  &:hover {
+    background-color: $color-primary-dark;
+    span,
+    strong {
+      color: white;
+    }
+  }
+}
+
+&[class*='-outline'] {
+  color: $color-primary;
+  background-color: #fff;
+  border: 1px solid $color-primary;
+
+  span,
+  strong {
+    color: $color-primary;
+  }
+
+  svg {
+    fill: #fff;
+  }
+}
+
+&[class*='-secondary'] {
+  @include color-set-secondary();
+
+  svg {
+    fill: #fff;
+  }
+
+  &:hover {
+    @include color-set-secondary('false', 0.1);
+  }
+}
+
+&[class*='-highlight'] {
+  @include color-set-highlight();
+
+  svg {
+    fill: #fff;
+  }
+
+  &:hover {
+    @include color-set-highlight('false', 5);
+  }
+}
+
+&[class*='-discord'] {
+  color: #fff;
+  background: #7289da;
+
+  svg {
+    fill: #fff;
+  }
+}
+
+&[class*='-error'] {
+  color: #fff;
+  border-color: $color-state-error;
+  background-color: $color-state-error;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff;
+  }
+
+  &:hover {
+    border-color: lighten($color-state-error, 5%);
+    background-color: lighten($color-state-error, 5%);
+  }
+}
+
+&[class*='-yellow'] {
+  color: #fff;
+  border-color: #efce4a;
+  background-color: #efce4a;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff;
+  }
+
+  &:hover {
+    border-color: lighten(#efce4a, 5%);
+    background-color: lighten(#efce4a, 5%);
+  }
+}
+
+&[class*='-success'] {
+  color: #fff;
+  border-color: $color-state-success;
+  background-color: $color-state-success;
+
+  svg {
+    fill: #fff;
+  }
+
+  &:hover {
+    border-color: lighten($color-state-success, 5%);
+    background-color: lighten($color-state-success, 5%);
+  }
+}
+
+&[class*='-progress'] {
+  color: #fff;
+  border-color: #f9a11e;
+  background-color: #f9a11e;
+
+  svg {
+    fill: #fff;
+  }
+
+  &:hover {
+    border-color: lighten(#f9a11e, 5%);
+    background-color: lighten(#f9a11e, 5%);
+  }
+}
+
+&[class*='-info'] {
+  color: #fff;
+  border-color: $color-state-info;
+  background-color: $color-state-info;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff;
+  }
+
+  &:hover {
+    border-color: lighten($color-state-info, 5%);
+    background-color: lighten($color-state-info, 5%);
+  }
+}
+
+&[class*='-grey'] {
+  color: $color-grey-dark;
+  border-color: #f2f1f1;
+  background-color: #f2f1f1;
+
+  svg {
+    fill: #43464c;
+  }
+
+  span,
+  strong {
+    color: #43464c;
+  }
+
+  &:hover {
+    border-color: lighten(#f2f1f1, 2%);
+    background-color: lighten(#f2f1f1, 2%);
+  }
+}
+
+&[class*='-blue'] {
+  border-color: #e41e2a;
+  background-color: #ffffff;
+
+  span,
+  strong {
+    color: #e41e2a !important;
+  }
+
+  &:hover {
+    color: #ffffff;
+    border-color: $color-primary-light;
+    background-color: $color-primary-light;
+
+    span,
+    strong {
+      color: #ffffff !important;
+    }
+  }
+}
+
+&[class*='-reverse'] {
+  @include color-set-primary();
+  color: #fff;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff !important;
+  }
+
+  &:hover {
+    border-color: $color-primary-light;
+    background-color: $color-primary-light;
+  }
+}
+
+&[class*='-grey-outline'] {
+  color: $color-text;
+  border-color: $color-grey;
+  background-color: #fff;
+
+  svg {
+    fill: #fff;
+  }
+
+  &:hover {
+    @include color-set-primary('true');
+  }
+}
+
+&[class*='-blank'] {
+  color: $color-text;
+  border-color: none;
+  background-color: transparent;
+
+  svg {
+    fill: #fff;
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
+}

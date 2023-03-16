@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="header/closed" transform="translate(-275.000000, 0.000000)">
+            <g id="Group">
+                <g id="Group-2" transform="translate(275.000000, 0.000000)">
+                    <g id="menu-button" fill="#FFFFFF">
+                        <g transform="translate(12.000000, 15.000000)" id="Shape">
+                            <path d="M0,0 L0,0.789473684 L22,0.789473684 L22,0 L0,0 Z M0,7.89473684 L22,7.89473684 L22,7.10526316 L0,7.10526316 L0,7.89473684 Z M0,15 L22,15 L22,14.2105263 L0,14.2105263 L0,15 Z" />
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

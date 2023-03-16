@@ -1,0 +1,40 @@
+.city {
+  @include cf();
+
+  display: block;
+  width: 100%;
+  padding: 0;
+
+  p {
+    color: #43464c;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 32px;
+    padding: 0 10px 10px;
+  }
+
+  [class*='button'] {
+    overflow-y: hidden;
+  }
+}
+
+.cities {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.cities li {
+  display: inline-block;
+  width: 100%;
+  padding: 0 0 20px 0;
+
+  @include on(phablet) {
+    width: 50%;
+    padding: 10px;
+  }
+
+  @include on(tablet) {
+    width: 50%;
+    padding: 10px;
+  }
+}

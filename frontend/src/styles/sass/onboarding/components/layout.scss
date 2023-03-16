@@ -1,0 +1,23 @@
+[class*='layout'] {
+  display: block;
+  height: 100%;
+}
+
+#page {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+
+  > *:last-child {
+    overflow-x: hidden;
+    max-height: 100%;
+  }
+}
+
+.canvas {
+  text-align: center;
+}
+
+.box-centered {
+  max-width: 1000px;
+  margin: 0 auto;
+}

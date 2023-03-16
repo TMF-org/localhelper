@@ -1,0 +1,39 @@
+[class*='button'] {
+  @include cf;
+  @extend %noselect;
+
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  max-width: 100%;
+
+  @import 'size.scss';
+  @import 'coloring.scss';
+  @import '../../helper/modifier.scss';
+
+  svg {
+    float: left;
+    position: relative;
+    top: 0;
+  }
+
+  span,
+  strong {
+    float: left;
+  }
+
+  span + svg,
+  strong + svg {
+    float: none;
+    margin-left: rem(5px);
+    top: 4px;
+  }
+
+  label {
+    cursor: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}

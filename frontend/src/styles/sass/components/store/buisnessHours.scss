@@ -1,0 +1,84 @@
+.buisness-hours {
+  padding-top: 25px;
+  padding-bottom: 20px;
+
+  ul {
+    @include cf();
+
+    padding: 15px 20px;
+    max-width: 320px;
+  }
+
+  li {
+    @include cf();
+
+    display: block;
+    width: 100%;
+    padding: 8px 8px;
+    text-align: center;
+
+    strong,
+    time {
+      color: #43464c;
+      font-size: 18px;
+      display: inline-block;
+    }
+
+    strong {
+      float: left;
+      text-align: left;
+      width: 50%;
+      padding-right: 15px;
+    }
+
+    span {
+      text-align: left;
+      width: 50%;
+
+      time {
+        display: block;
+        width: 100%;
+        padding-bottom: 4px;
+      }
+    }
+
+    &.today {
+      border-radius: 3px;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  @include on(tablet) {
+    [class*='box'] {
+      max-width: 100%;
+      padding: 0;
+      background: transparent;
+      border-top: 1px solid #f4f4f4;
+    }
+
+    li {
+      float: left;
+      width: 14.2%;
+      text-align: center;
+
+      strong,
+      span {
+        width: 100%;
+        text-align: center;
+      }
+
+      strong {
+        padding: 20px 0 20px;
+      }
+
+      span,
+      time {
+        font-size: 16px;
+      }
+
+      span time {
+        padding-bottom: 10px;
+      }
+    }
+  }
+}

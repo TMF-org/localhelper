@@ -1,0 +1,14 @@
+/*
+@example
+<span data-currency="$">145</span>
+*/
+
+[data-currency] {
+  position: relative;
+
+  &:before {
+    content: attr(data-currency);
+    position: relative;
+    left: 0;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Lokalhelfer",
+  "dir": "ltr",
+  "short_name": "Lokalhelfer",
+  "description": "Dein Mobile Patronus",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0072C9",
+  "theme_color": "#004B84",
+  "icons": [
+    {
+      "src": "/image/favicon192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/image/favicon256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/image/favicon512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

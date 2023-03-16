@@ -1,0 +1,29 @@
+[class*='notice'] {
+  display: block;
+  width: 100%;
+  background: #fff;
+
+  p {
+    line-height: inherit;
+    font-weight: inherit;
+  }
+}
+
+.notice-error {
+  color: #fff;
+  background-color: $color-state-error;
+
+  p {
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+    display: block;
+    padding: 8px;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 18px;
+    padding: 15px;
+  }
+}

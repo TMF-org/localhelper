@@ -1,0 +1,21 @@
+.distance {
+  float: left;
+  width: calc(100% - 100px);
+  padding-top: 6px;
+
+  svg {
+    float: left;
+    height: 23px;
+    width: 23px;
+    fill: #363636;
+    position: relative;
+    left: -3px;
+  }
+
+  small {
+    color: #9d9d9d;
+    font-size: 14px;
+    float: left;
+    padding: 6px 0 0 5px;
+  }
+}

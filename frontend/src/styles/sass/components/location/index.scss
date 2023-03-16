@@ -1,0 +1,24 @@
+@import 'breadcrumb';
+@import 'list';
+
+.fuse {
+  display: block;
+  background: #efefef;
+  padding: 20px 0;
+
+  div {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+
+    input {
+      background: #fff;
+    }
+  }
+}
+
+.locationlist {
+  .summary {
+    padding-bottom: 20px;
+  }
+}

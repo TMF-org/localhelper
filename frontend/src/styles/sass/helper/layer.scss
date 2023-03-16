@@ -1,0 +1,6 @@
+// Layout Layers
+$layer-order: ('highest', 'lowest') !default;
+
+@function layer($alias) {
+  @return ((length($layer-order) - index($layer-order, $alias)) + 1);
+}

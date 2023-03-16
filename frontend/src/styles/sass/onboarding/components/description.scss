@@ -1,0 +1,112 @@
+.description-full {
+  padding-bottom: 40px;
+
+  .step-icon {
+    display: block;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 50px;
+
+    svg {
+      fill: $color-primary;
+      width: 240px;
+    }
+  }
+
+  h2 {
+    color: $color-primary;
+    font-size: 40px;
+    @include on(tablet) {
+      font-size: 50px;
+    }
+    padding: 0 0 20px;
+    width: 100%;
+  }
+
+  > p {
+    font-size: 18px;
+    color: #929393;
+    line-height: 30px;
+    max-width: 600px;
+    padding-bottom: 30px;
+  }
+}
+
+.description-small {
+  padding-top: 15px !important;
+
+  svg {
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    fill: $color-primary;
+    width: 220px;
+  }
+
+  .info {
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+    padding-left: 220px;
+    border-bottom: 5px solid $color-primary;
+    justify-content: left;
+    align-items: center;
+    display: grid;
+  }
+
+  p {
+    text-align: left;
+    font-size: 18px;
+    color: #929393;
+    line-height: 30px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+.button {
+  border-radius: 4px;
+  background: $color-primary;
+  padding: 10px 20px;
+
+  &.inactive {
+    background: #d2d2d2;
+
+    span {
+      color: #787878;
+    }
+
+    cursor: default;
+  }
+
+  &.secondary {
+    background: #d2d2d2;
+
+    span {
+      color: #787878;
+    }
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  span {
+    font-size: 18px;
+    padding: 10px 25px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  svg {
+    fill: #fff;
+    width: 34px;
+    height: 34px;
+  }
+}
+// Fix spacing in checkbox group
+.checkb-group {
+  label strong {
+    padding-top: 0 !important;
+  }
+}

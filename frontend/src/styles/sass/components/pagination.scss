@@ -1,0 +1,135 @@
+$pagination-height: 35px;
+
+[class*='pagination'] {
+  @include max();
+  text-align: center;
+
+  &[class*='gap'] {
+    padding-bottom: rem(15px);
+  }
+
+  ul {
+    @include cf();
+    display: inline-block;
+
+    li {
+      float: left;
+      cursor: pointer;
+    }
+
+    a {
+      font-size: rem(14px);
+      color: $color-secondary;
+      text-decoration: none;
+      display: inline-block;
+      @extend %noselect;
+    }
+
+    .page {
+      a {
+        height: $pagination-height;
+        background-color: #fff;
+        width: 35px;
+        padding: rem(10px) rem(5px);
+      }
+
+      &:hover {
+        a {
+          border-radius: 2px;
+          background-color: $color-secondary-light;
+          color: #fff;
+        }
+      }
+    }
+
+    .bound-first {
+      span {
+        padding: 0 rem(3px);
+      }
+    }
+
+    .bound-last {
+      span {
+        padding: 0 rem(3px);
+      }
+    }
+
+    .next,
+    .prev {
+      height: $pagination-height;
+
+      span {
+        display: none;
+      }
+
+      &:hover a span {
+        text-decoration: underline;
+      }
+
+      a {
+        @include cf();
+
+        width: 35px;
+        @include on(tablet) {
+          width: 77px;
+        }
+      }
+
+      @include on(tablet) {
+        span {
+          display: inline-block;
+        }
+      }
+
+      svg {
+        fill: $color-secondary;
+      }
+    }
+
+    .inactive {
+      opacity: 0.6;
+
+      &:hover a span {
+        text-decoration: none;
+      }
+    }
+
+    .prev {
+      a {
+        padding-top: rem(6px);
+      }
+
+      svg {
+        float: left;
+      }
+
+      span {
+        float: left;
+        padding: rem(3px) 0 0 rem(5px);
+      }
+    }
+
+    .next {
+      a {
+        padding-top: rem(6px);
+      }
+
+      svg {
+        float: right;
+      }
+
+      span {
+        float: right;
+        padding: rem(3px) rem(5px) 0 0;
+      }
+    }
+
+    .active {
+      a {
+        color: #fff;
+        border-radius: 2px;
+        background-color: $color-secondary;
+      }
+    }
+  }
+}

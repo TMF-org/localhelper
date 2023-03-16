@@ -1,0 +1,276 @@
+.stores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-auto-rows: max-content;
+  grid-gap: 20px;
+  padding: 20px;
+
+  @include on(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include on(television) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  li {
+    background: #fff;
+    min-height: 250px;
+  }
+}
+
+.store {
+  text-align: center;
+  padding: 20px;
+  border-radius: 3px;
+
+  &.active {
+    outline: 2px solid $color-primary;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: block;
+    width: 100%;
+  }
+
+  h3 {
+    font-size: 24px;
+    padding-bottom: 25px;
+    height: 70px;
+    line-height: 30px;
+  }
+
+  h4 {
+    font-size: 18px;
+    padding-bottom: 10px;
+    font-weight: 400;
+  }
+
+  h5 {
+    font-size: 16px;
+    padding-bottom: 10px;
+    font-weight: 400;
+  }
+
+  h6 {
+    font-size: 14px;
+    padding-bottom: 35px;
+    font-weight: 300;
+  }
+
+  [class*='button'] {
+    display: inline-block;
+  }
+}
+
+.profile-overview {
+  padding-bottom: 100px;
+
+  input {
+    border-radius: 5px;
+  }
+
+  @include on(mobile) {
+    display: flex;
+    flex-direction: column;
+    h1 {
+      color: $color-primary-dark;
+      font-size: 18px;
+      font-weight: 600;
+      width: 100%;
+    }
+    > h1 {
+      color: $color-primary-dark;
+      background: #e8e8e8;
+      padding: 19px;
+    }
+    .profile-form {
+      width: 100%;
+      border-radius: 6px;
+      margin-top: 60px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: center;
+
+      .description {
+        font-size: 16px;
+      }
+
+      .form-container {
+        h1 {
+          padding: 10px 0;
+        }
+
+        .description {
+          line-height: 22px;
+          padding: 10px 0;
+          color: #82898e;
+        }
+
+        .field {
+          padding: 10px 15px 0 15px;
+          background-color: white;
+          border-radius: 5px;
+          margin: 10px 0;
+
+          label {
+            padding: 0;
+            color: #82898e;
+            font-size: 12px;
+          }
+
+          input {
+            border: none;
+            padding: 0;
+            font-size: 18px;
+            color: $color-primary-dark;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .profile-form-button {
+        border-radius: 5px;
+        padding: 10px;
+        height: initial;
+        font-size: 17px;
+        width: 100%;
+      }
+    }
+  }
+
+  @include on(tablet) {
+    display: flex;
+    flex-direction: column;
+    h1 {
+      font-size: 21px;
+    }
+
+    .profile-form {
+      background: white;
+      width: 100%;
+      max-width: 960px;
+      height: auto;
+
+      .form-container {
+        .field {
+          padding: 0;
+
+          input {
+            color: #43464c;
+            border: 1px solid #efefef;
+            padding: 10px;
+          }
+
+          h1 {
+            padding: 0 0 17px;
+          }
+
+          label {
+            color: $color-primary-dark;
+            font-weight: 600;
+            margin-top: 14px;
+            padding: 10px 0;
+            font-size: 16px;
+          }
+
+          .description {
+            line-height: 21px;
+            font-size: 14px;
+            padding: 10px 0;
+          }
+        }
+      }
+
+      .profile-form-button {
+        line-height: inherit;
+        margin-top: 20px;
+        font-size: 18px;
+        width: 130px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+.loading {
+  background: white;
+  position: static;
+}
+
+.hidden-input {
+  cursor: pointer;
+  @include on(mobile) {
+    .camera-icon {
+      display: none;
+    }
+    .loading {
+      background: $color-background;
+    }
+    &.visible-icon {
+      background: white;
+
+      .field.space.loading {
+        display: none !important;
+      }
+
+      .camera-icon {
+        display: block;
+      }
+    }
+    padding: 0;
+    .field.space {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+
+      > input {
+        display: none !important;
+      }
+    }
+
+    display: flex;
+    justify-content: center;
+  }
+  @include on(tablet) {
+    .upload-profile-image-text {
+      font-size: 16px;
+    }
+    padding: inherit;
+  }
+
+  .camera-icon {
+    position: static;
+    fill: $color-primary;
+    width: 80px;
+
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.field.space.loading {
+  @include on(mobile) {
+    .image-preview {
+      max-height: 90%;
+      max-width: 100%;
+    }
+  }
+}
+
+.h2-normalize {
+  @include on(mobile) {
+    font-size: 26px !important;
+  }
+  @include on(tablet) {
+    font-size: 50px !important;
+  }
+}

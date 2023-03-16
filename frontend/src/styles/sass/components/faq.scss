@@ -1,0 +1,30 @@
+.faqs {
+  width: 90%;
+  padding: 20px;
+  margin: 0 auto;
+  padding-top: 40px;
+
+  article {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $color-grey-light;
+
+    &:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    h3 {
+      font-size: 22px;
+      color: $color-primary;
+      width: 100%;
+      font-weight: 400;
+      padding-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+}

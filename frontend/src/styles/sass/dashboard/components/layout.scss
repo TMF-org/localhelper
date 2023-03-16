@@ -1,0 +1,265 @@
+[class*='layout'] {
+  display: block;
+  height: 100%;
+
+  .not-on-mobile {
+    @include on(tablet) {
+      display: flex !important;
+    }
+  }
+}
+
+.layout-base,
+.sticky-header-list {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+
+  > *:last-child {
+    overflow-x: auto;
+    max-height: 100%;
+  }
+}
+
+.options {
+  position: relative;
+  padding: 0 20px;
+
+  > * {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.sticky-header-list.sidebar {
+  grid-template-columns: 0.5fr 1fr;
+}
+
+.layout-admin {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  height: 100%;
+
+  > *:last-child {
+    overflow-x: auto;
+    max-height: 100%;
+  }
+}
+
+.headline {
+  padding: 0 20px 0 0;
+  font-size: 22px;
+}
+
+[class*='panel'] {
+  height: 70px;
+
+  &.infopanel {
+    display: flex;
+    justify-content: space-between;
+
+    &.only-on-mobile {
+      height: auto;
+      flex-direction: column;
+
+      .appointment-notice--success,
+      .appointment-notice--error {
+        padding-bottom: 0;
+
+        p {
+          padding: 0 20px;
+        }
+
+        svg {
+          display: none;
+        }
+
+        justify-content: flex-start;
+        background: transparent;
+      }
+    }
+  }
+}
+
+[class*='panel'] + [class*='layout'] {
+  height: auto;
+}
+
+.layout-appointment-details {
+  display: grid;
+  grid-gap: 20px;
+  padding: 20px;
+  height: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 400px 80px;
+
+  .register-box {
+    .inner {
+      @media screen and (max-width: 768px) {
+        height: 100%;
+      }
+    }
+
+    &.history-box {
+      @include on(tablet) {
+        min-width: 300px;
+      }
+      grid-area: history;
+
+      .history-scroll-container {
+        &::before {
+          content: ' ';
+          height: 100%;
+          top: 0;
+          position: absolute;
+          left: 40px;
+          width: 1px;
+          background: $color-primary;
+        }
+      }
+
+      .inner {
+        @include on(mobile) {
+          border-radius: 5px;
+        }
+        @include on(tablet) {
+          border-radius: 0 5px 5px 5px;
+        }
+
+        .event-scroll {
+          .eventlog {
+            li {
+              time {
+                font-weight: 600;
+                color: $color-primary-dark;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.customer-box {
+      grid-area: customer;
+
+      .inner {
+        @include on(mobile) {
+          border-radius: 5px;
+        }
+        @include on(tablet) {
+          border-radius: 0 5px 5px 5px;
+        }
+        grid-template: 'icon list' 'icon list' 'empty list' 'empty list';
+        grid-template-rows: min-content;
+        display: grid;
+        grid-template-columns: 70px;
+
+        svg {
+          grid-area: icon;
+          width: 50px;
+          height: 50px;
+        }
+
+        ul {
+          grid-area: list;
+
+          li {
+            @include on(mobile) {
+              .name {
+                color: $color-primary-dark;
+              }
+              padding-bottom: 3px;
+            }
+            @include on(tablet) {
+              color: inherit;
+              padding-bottom: 20px;
+            }
+          }
+
+          label {
+            color: $color-primary-dark;
+          }
+        }
+      }
+    }
+
+    &.appointment-box {
+      grid-area: appointment;
+
+      .inner {
+        @include on(mobile) {
+          border-radius: 5px;
+        }
+        @include on(tablet) {
+          border-radius: 0 5px 5px 5px;
+        }
+        grid-template: 'icon category' 'icon name' 'empty title' 'empty description';
+        grid-template-rows: min-content;
+        display: grid;
+        grid-template-columns: 70px;
+
+        svg {
+          grid-area: icon;
+          width: 50px;
+          height: 50px;
+        }
+
+        strong {
+          @include on(mobile) {
+            padding-top: 0;
+          }
+          @include on(tablet) {
+            padding-top: 10px;
+          }
+          font-size: 19px;
+          font-weight: 400;
+          grid-area: name;
+        }
+
+        .service {
+          padding-top: 3px;
+          font-size: 19px;
+          color: $color-primary-dark;
+          grid-area: category;
+        }
+
+        ul {
+          grid-area: title;
+
+          li {
+            strong {
+              padding-top: 5px;
+            }
+          }
+        }
+
+        label {
+          color: $color-primary-dark;
+          padding: 20px 0 0 0;
+        }
+      }
+    }
+  }
+
+  @include on(tablet) {
+    grid-template: 'appointment customer history' '. . actions' !important;
+  }
+  @include on(mobile) {
+    grid-template: 'appointment' 'customer' 'history' 'actions';
+  }
+}
+
+.area-full {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.area-notice {
+  grid-area: notice;
+}
+
+.area-actions {
+  grid-area: actions;
+}

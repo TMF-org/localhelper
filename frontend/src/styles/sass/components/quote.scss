@@ -1,0 +1,31 @@
+.quote {
+  position: relative;
+  padding: 35px 20px;
+
+  p:before,
+  p:after {
+    color: #bcc0be;
+    font-size: 44px;
+    position: absolute;
+  }
+
+  p:before {
+    top: 25px;
+    left: 15px;
+    content: '“';
+  }
+
+  p:after {
+    bottom: 25px;
+    right: 20px;
+    content: '„';
+  }
+
+  p {
+    color: #5b5b5b;
+    font-size: 18px;
+    text-align: center;
+    line-height: 24px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,124 @@
+#notices {
+  position: fixed;
+  display: inline-block;
+  width: 100%;
+  min-height: 38px;
+  z-index: 120;
+  top: 0;
+
+  [class*='notice'] p {
+    float: left;
+    width: calc(100% - 30px);
+    line-height: 20px;
+    padding: 10px !important;
+  }
+
+  svg {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+[class*='notice'] {
+  @include cf();
+
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 38px;
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 35px !important;
+      height: 35px !important;
+      transform: translate(-50%, -50%);
+    }
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  p {
+    font-size: 19px;
+    line-height: 24px;
+    font-weight: 300;
+    display: block;
+    width: 100%;
+    padding: 15px 8px 15px 8px !important;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  span ~ p {
+    padding: 12px 8px 12px 60px !important;
+  }
+
+  @include on(tablet) {
+    margin-bottom: rem(15px);
+
+    svg {
+      width: 30px !important;
+      height: 30px !important;
+    }
+
+    span {
+      width: 60px;
+    }
+
+    span ~ p {
+      padding: rem(15px) rem(14px) rem(15px) rem(70px) !important;
+    }
+  }
+
+  &[class*='--auto'] {
+    width: auto;
+  }
+
+  &[class*='--text-left'] {
+    text-align: left;
+  }
+
+  &[class*='--small'] {
+    margin-bottom: rem(10px);
+
+    span {
+      width: 30px;
+    }
+
+    svg {
+      width: 22px !important;
+      height: 22px !important;
+    }
+
+    p {
+      @include text-small();
+      padding: rem(12px) rem(10px) rem(12px) rem(40px);
+    }
+  }
+
+  &[class*='-sticky'] {
+    position: fixed;
+    top: 0;
+    z-index: 20;
+  }
+
+  &[class*='-gab'] {
+    margin-bottom: 15px;
+  }
+
+  @import 'coloring';
+}

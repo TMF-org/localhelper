@@ -1,0 +1,225 @@
+//@import 'components/dsgvo';
+
+.appointment {
+  .name-price {
+    text-align: left;
+    padding: 15px;
+
+    border-bottom: 1px solid #e3e3e3;
+  }
+
+  .question {
+    @extend %noselect;
+
+    display: block;
+    width: 100%;
+    color: $color-primary;
+    font-size: 26px;
+    font-weight: 300;
+    padding-bottom: 20px;
+  }
+
+  .info {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 15px 10px;
+    background: #f4f4f4;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .field.space {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .date-time {
+    @extend %noselect;
+
+    display: block;
+    width: 100%;
+    padding-bottom: 10px;
+
+    strong {
+      color: $color-primary;
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    small {
+      color: $color-primary;
+      display: block;
+      font-size: 14px;
+      padding-bottom: 5px;
+    }
+  }
+
+  .service-selection {
+    padding-top: 25px;
+    max-width: 400px;
+    margin: 0 auto;
+
+    .service-input span {
+      color: #fff;
+    }
+
+    .selection {
+      position: relative;
+      margin-top: 10px;
+    }
+  }
+
+  .date-selection {
+    padding-bottom: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+
+    > * {
+      float: none;
+    }
+
+    [class*='button'] {
+      height: 42px;
+      line-height: 39px;
+
+      strong {
+        font-size: 18px;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .hour-selection {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 10px 0;
+    margin-top: 15px;
+    background-color: $color-primary;
+    max-width: 400px;
+    margin: 0 auto;
+
+    @include on(tablet) {
+      max-width: 350px;
+      border-radius: 5px 5px 0 0;
+      margin: 15px auto 0;
+    }
+
+    &:before {
+      bottom: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: ' ';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: transparent;
+      border-bottom-color: $color-primary;
+      border-width: 14px;
+      margin-left: -14px;
+    }
+
+    div {
+      padding: 0 0 10px;
+    }
+
+    span {
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      cursor: pointer;
+      border-radius: 4px;
+      border: 1px solid transparent;
+
+      &:hover {
+        border-color: #fff;
+      }
+    }
+
+    div.active span {
+      color: $color-primary;
+      background-color: #fff;
+    }
+
+    div.disabled span,
+    div.closed span {
+      cursor: default;
+
+      &:hover {
+        border-color: none;
+      }
+    }
+
+    div.disabled span {
+      opacity: 0.3;
+    }
+  }
+
+  .minute-selection {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color: $color-primary-dark;
+    max-width: 400px;
+    margin: 0 auto;
+
+    @include on(tablet) {
+      max-width: 350px;
+      border-radius: 0 0 5px 5px;
+      margin: 0 auto 15px;
+    }
+
+    div {
+      padding: 10px 0;
+    }
+
+    span {
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      border-radius: 4px;
+      padding: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    div.active span {
+      color: $color-primary-dark;
+      background-color: #fff;
+    }
+
+    div.disabled span {
+      opacity: 0.3;
+    }
+  }
+
+  .appo-date {
+    padding-top: 25px;
+    max-width: 400px;
+    margin: 0 auto;
+
+    &.closed {
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e3e3e3;
+    }
+  }
+
+  .personal {
+    padding-top: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .sms label {
+    float: left;
+    font-weight: normal;
+    width: calc(100% - 30px);
+    padding: 7px 14px 5px;
+  }
+}
+
+@import 'success';

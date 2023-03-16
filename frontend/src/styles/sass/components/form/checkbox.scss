@@ -1,0 +1,62 @@
+[class*='checkbox'] {
+  @extend %round;
+
+  float: left;
+  padding: 2px;
+  border: 1px solid #c4c4c4;
+  cursor: pointer;
+
+  svg {
+    fill: $color-primary;
+  }
+
+  &[class*='-medium'] {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  &[class*='-small'] {
+    width: 22px;
+    height: 22px;
+
+    svg {
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+  &[class*='-active'] {
+    border-color: $color-primary !important;
+  }
+
+  &[class*='-disabled'] {
+    border-color: #c4c4c4 !important;
+
+    svg {
+      fill: #c4c4c4;
+    }
+  }
+
+  & + label {
+    float: left;
+    font-weight: 400;
+    width: calc(100% - 30px);
+    padding: 7px 14px 5px;
+    line-height: 20px;
+    min-height: 35px;
+  }
+}
+
+// Group of checkbox with label
+.checkb-group {
+  display: flex;
+  align-items: center;
+  span {
+    min-width: 30px;
+  }
+}

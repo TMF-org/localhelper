@@ -1,0 +1,54 @@
+.customer-rating {
+  width: 100%;
+  text-align: center;
+
+  .rating-container {
+    display: block;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 0 20px 0;
+    text-align: center;
+
+    [class*='notice'] {
+      margin-top: 10px;
+    }
+  }
+
+  [class*='section-headline'] {
+    padding-bottom: 15px;
+  }
+
+  .box-max-round {
+    .divider {
+      margin-bottom: 10px;
+    }
+
+    p {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 20px 15px;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+    }
+  }
+
+  .rating-part {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 20px 10px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    border-top: 2px solid #f4f4f4;
+  }
+
+  [class*='section-headline'].small strong {
+    font-size: 20px;
+    padding-bottom: 5px;
+    line-height: 26px;
+  }
+}

@@ -1,0 +1,162 @@
+.article {
+  padding-bottom: 20px;
+
+  .meta {
+    padding: 5px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #efefef;
+    width: 100%;
+    margin-bottom: 17px;
+  }
+
+  .tags {
+    @include cf();
+    padding: 0 0 10px 0;
+
+    li {
+      display: inline-block;
+      width: auto;
+      padding: 0 8px 8px 0 !important;
+
+      &:before {
+        content: '';
+        display: none;
+      }
+
+      span {
+        background-color: #f1f1f1;
+        border-radius: 2px;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  p,
+  li {
+    color: #5d5d5d;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include on(tablet) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+
+  p {
+    display: block;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: block;
+    color: $color-primary;
+    font-weight: 300;
+  }
+
+  h1,
+  h2,
+  h3 {
+    padding: 15px 0;
+  }
+
+  h4,
+  h5,
+  h6 {
+    padding: 8px 0;
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  h2 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  h6 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  ul,
+  ol {
+    padding-left: 20px;
+
+    li {
+      position: relative;
+      display: block;
+      padding-bottom: 5px;
+    }
+  }
+
+  ul li:before {
+    content: ' ';
+    display: inline-block;
+    padding: 0;
+    background: $color-primary;
+    color: #fff;
+    width: 8px;
+    height: 8px;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    top: 10px;
+    right: calc(100% + 5px);
+  }
+
+  ol {
+    counter-reset: li;
+    padding-left: 25px;
+
+    li {
+      counter-increment: li;
+    }
+
+    li:before {
+      content: counter(li);
+      display: inline-block;
+      background: $color-primary;
+      color: #fff;
+      font-size: 14px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      position: absolute;
+      right: calc(100% + 5px);
+      top: 1px;
+      text-align: center;
+      border-radius: 4px;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  p {
+    padding-bottom: 10px;
+  }
+}

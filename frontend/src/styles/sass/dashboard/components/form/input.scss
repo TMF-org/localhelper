@@ -1,0 +1,111 @@
+input[type='text'],
+input[type='number'],
+input[type='search'],
+input[type='password'],
+input[type='tel'],
+input[type='email'] {
+  color: #43464c;
+  font-size: 14px;
+  font-weight: 300;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 0;
+  padding: 10px;
+  border: 1px solid #efefef;
+  background: #fff;
+  box-shadow: none;
+
+  &:hover {
+    border-color: $color-primary-light;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+  }
+
+  &.error {
+    border-color: $color-state-error;
+
+    &:focus {
+      border-color: $color-state-error;
+    }
+  }
+
+  &[disabled] {
+    color: #999999;
+  }
+}
+
+.field {
+  @include cf;
+
+  display: block;
+  width: 100%;
+  padding-bottom: 20px;
+
+  &.error {
+    input[type='text'],
+    input[type='tel'],
+    input[type='number'] {
+      border-color: $color-state-error;
+    }
+  }
+
+  &.dark {
+    input[type='text'],
+    input[type='tel'],
+    input[type='number'] {
+      color: #fff;
+      border: 1px solid #fff;
+
+      &::placeholder {
+        color: #fff;
+      }
+    }
+  }
+
+  &.space {
+    padding: 0 20px 20px;
+  }
+}
+
+::placeholder {
+  color: #9e9e9e;
+}
+
+input[type='search'] {
+  -webkit-appearance: none;
+  padding-right: rem(5px);
+}
+
+[class*='optional'] {
+  font-size: $text-small;
+
+  &[class*='--right'] {
+    float: right;
+    text-align: right;
+  }
+}
+
+input[disabled] {
+  cursor: default;
+}
+
+@document-Regel: url-prefix() {
+  input[type='text'] {
+    padding-top: 0.6rem;
+  }
+}
+
+input[type='number'] {
+  min-width: 60px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}

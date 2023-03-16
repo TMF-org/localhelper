@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "approved_email_domains",
+  "info": {
+    "singularName": "approved-email-domain",
+    "pluralName": "approved-email-domains",
+    "displayName": "Approved E-Mail Domains"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "domain": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

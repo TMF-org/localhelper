@@ -1,0 +1,21 @@
+[class*='content'] {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page-light {
+  background-color: #eff0f1;
+
+  [class*='content'] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+
+    &[class*='transparent'] {
+      background-color: transparent;
+    }
+  }
+}

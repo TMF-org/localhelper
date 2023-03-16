@@ -1,0 +1,65 @@
+[class*='icon'] {
+  display: inline-block;
+  fill: $color-text;
+
+  &[class*='pizzy'] {
+    $icon-size: 10px;
+
+    height: $icon-size;
+    width: $icon-size;
+  }
+
+  &[class*='tiny'] {
+    $icon-size: 15px;
+
+    height: $icon-size;
+    width: $icon-size;
+  }
+
+  &[class*='small'] {
+    $icon-size: 20px;
+
+    height: $icon-size;
+    width: $icon-size;
+  }
+
+  &[class*='medium'] {
+    $icon-size: 25px;
+
+    height: $icon-size;
+    width: $icon-size;
+  }
+
+  &[class*='default'] {
+    $icon-size: 30px;
+
+    height: $icon-size;
+    width: $icon-size;
+  }
+
+  &[class*='large'] {
+    $icon-size: 35px;
+
+    height: $icon-size;
+    width: $icon-size;
+  }
+
+  &[class*='big'] {
+    $icon-size: 50px;
+
+    height: $icon-size;
+    width: $icon-size;
+  }
+
+  &[class*='giant'] {
+    height: 60px;
+    width: auto;
+  }
+}
+
+.loader {
+  animation-name: spin;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

@@ -1,0 +1,174 @@
+.appointments {
+  max-height: 100%;
+  overflow-x: auto;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: auto;
+}
+
+.appointment {
+  position: relative;
+  padding: 0 5px 5px;
+}
+
+.appointment .meta {
+  position: fixed;
+  border-radius: 5px;
+  transform: translate(8px, -50%);
+  width: 250px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    fill: #fff;
+    width: 35px;
+    height: 35px;
+  }
+
+  &:after {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: transparent;
+    border-width: 5px;
+    margin-top: -5px;
+  }
+
+  li {
+    @include cf;
+    color: #fff;
+    display: block;
+    width: 100%;
+    padding: 5px;
+    position: relative;
+
+    .info {
+      display: block;
+      width: 100%;
+      float: left;
+      width: 100%;
+      padding-left: 50px;
+
+      strong {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        display: block;
+        padding: 0;
+        width: 100%;
+      }
+
+      small {
+        display: block;
+        width: 100%;
+        font-size: 11px;
+        padding: 5px 0;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+}
+
+.appointment .dot {
+  position: absolute;
+  right: 12px;
+  top: calc(50% - 2px);
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: help;
+}
+
+.appointment a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.appointment a > span {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  padding: 8px 22px 8px 5px;
+  border-radius: 4px;
+  line-height: 16px;
+  border-left: 6px solid transparent;
+}
+
+.appointment.onRequest span {
+  color: #fff;
+  background: $color-state-info;
+  border-color: darken($color-state-info, 10%);
+}
+
+.appointment.onRequest a:hover > span {
+  background: lighten($color-state-info, 5%);
+}
+
+.appointment.onRequest .meta {
+  background: $color-state-info;
+
+  &:after {
+    border-right-color: $color-state-info;
+  }
+}
+
+.appointment.onRequest .dot {
+  background: darken($color-state-info, 10%);
+}
+
+.appointment.accepted span {
+  color: #fff;
+  background: $color-primary;
+  border-color: darken($color-primary, 10%);
+}
+
+.appointment.accepted:hover a > span {
+  background: lighten($color-primary, 5%);
+}
+
+.appointment.accepted .meta {
+  background: $color-primary;
+
+  &:after {
+    border-right-color: $color-primary;
+  }
+}
+
+.appointment.accepted .dot {
+  background: darken($color-primary, 10%);
+}
+
+.appointment.declined span {
+  color: #fff;
+  background: $color-state-error;
+  border-color: darken($color-state-error, 10%);
+}
+
+.appointment.declined:hover a > span {
+  background: lighten($color-state-error, 5%);
+}
+
+.appointment.declined .meta {
+  background: $color-state-error;
+
+  &:after {
+    border-right-color: $color-state-error;
+  }
+}
+
+.appointment.declined .dot {
+  background: darken($color-state-error, 10%);
+}

@@ -1,0 +1,30 @@
+.onboarding {
+  $color-background: #f1f1f1;
+
+  &#page {
+    background-color: $color-background;
+  }
+
+  // @import '_config/index.scss';
+
+  // @import 'helper/index.scss';
+
+  // @import 'components/form/index.scss';
+
+  @import 'components/layout.scss';
+
+  // @import 'components/button/index.scss';
+  @import 'components/notice.scss';
+  @import 'components/header.scss';
+  @import 'components/progress.scss';
+  @import 'components/steps.scss';
+  @import 'components/list.scss';
+  // @import 'components/opentimes.scss';
+  @import 'components/description.scss';
+
+  @import 'mote/cursor.scss';
+  @import 'mote/font.scss';
+  @import 'mote/background.scss';
+  @import 'mote/grid.scss';
+  // @import 'mote/padding.scss';
+}

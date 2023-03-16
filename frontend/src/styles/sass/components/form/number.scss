@@ -1,0 +1,20 @@
+.number {
+  @include cf();
+
+  [class*='button'] {
+    width: 10%;
+    min-width: 35px;
+
+    &:hover svg {
+      fill: $color-state-info;
+    }
+  }
+
+  input {
+    display: inline-block;
+    max-width: 60px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+  }
+}

@@ -1,0 +1,32 @@
+.manual-request-form {
+  h2 strong {
+    color: $color-primary;
+  }
+
+  p.space.info {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px 25px 20px;
+  }
+
+  .success {
+    font-size: 22px;
+  }
+
+  input,
+  textarea {
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+    border: 1px solid $color-grey;
+    box-shadow: 0 0 1px $color-grey-dark;
+
+    &:focus {
+      border-color: $color-grey-dark;
+    }
+  }
+}

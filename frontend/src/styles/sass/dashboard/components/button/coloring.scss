@@ -1,0 +1,57 @@
+&[class*='-primary'] {
+  color: #fff;
+  background: $color-primary;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff;
+  }
+
+  &:hover {
+    background: darken($color-primary, 10);
+  }
+}
+
+&[class*='-secondary'] {
+  color: #fff;
+  background: $color-secondary;
+
+  svg {
+    fill: #fff;
+  }
+
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+&[class*='-error'] {
+  color: #fff;
+  background: $color-state-error;
+
+  svg {
+    fill: #fff;
+  }
+
+  span,
+  strong {
+    color: #fff;
+  }
+
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+&[class*='-grey'] {
+  color: #fff;
+  background: $color-grey;
+
+  svg {
+    fill: #fff;
+  }
+}

@@ -1,0 +1,60 @@
+@import 'input.scss';
+@import 'select.scss';
+@import 'textarea.scss';
+@import 'number.scss';
+@import 'select-number.scss';
+@import 'checkbox.scss';
+@import 'box.scss';
+@import 'tags.scss';
+@import 'radio.scss';
+@import 'label.scss';
+@import 'modifier.scss';
+@import 'toggle.scss';
+
+.form-wrapper {
+  form {
+    padding: 15px 0;
+  }
+
+  fieldset {
+    @include cf();
+    padding: 15px 15;
+    border-radius: 2px;
+    background: #fff;
+  }
+}
+
+form {
+  &[class*='--right'] {
+    text-align: right;
+  }
+
+  @import 'info';
+
+  fieldset {
+    padding: 20px;
+    margin-bottom: 20px;
+
+    legend {
+      @extend %noselect;
+
+      float: left;
+      width: 100%;
+      color: $color-text;
+      font-size: 20px;
+      font-weight: 600;
+      padding-bottom: 20px;
+    }
+  }
+
+  .row {
+    display: block;
+    float: left;
+    width: 100%;
+    padding: rem(5px) 0;
+  }
+
+  [class*='notice-'] {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,138 @@
+.dev-tools {
+  position: fixed;
+  left: 0;
+  z-index: 150;
+  height: 100%;
+  width: auto;
+  padding: rem(15px);
+  background: transparentize($color-primary, 0.4);
+  transform: translateX(-80%);
+  transition: all 0.2s ease-in-out;
+
+  &.visible {
+    transform: translateX(0);
+  }
+
+  &:hover {
+    background: transparentize($color-primary, 0.5);
+  }
+
+  .point {
+    position: relative;
+    margin-bottom: rem($space-medium);
+  }
+
+  .badge {
+    $size: 20px;
+    color: #fff;
+    position: absolute;
+    right: -18px;
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+    line-height: $size;
+    text-align: center;
+    background-color: $color-state-success;
+  }
+
+  &.visible .badge {
+    top: -7px;
+    right: -7px;
+  }
+
+  .toggle {
+    padding: rem(10px);
+    border-radius: 50%;
+    background-color: $color-primary;
+    cursor: pointer;
+    border: 1px solid $color-primary;
+    box-shadow: 0 0 6px -3px rgba(0, 0, 0, 0.9);
+
+    svg {
+      fill: #fff;
+    }
+
+    &:hover {
+      border-color: #fff;
+    }
+
+    &.active {
+      background-color: #fff;
+
+      svg {
+        fill: $color-primary;
+      }
+    }
+  }
+
+  .menu {
+    @extend %round;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 200px;
+    margin-left: rem($space-small);
+    background-color: #fff;
+    z-index: 20;
+    overflow: hidden;
+    box-shadow: 0 0 6px -3px rgba(0, 0, 0, 0.9);
+  }
+
+  .cache {
+    font-size: rem(12px);
+    font-weight: bold;
+    padding: rem(12px) rem(10px);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #efefef;
+    }
+  }
+
+  h3 {
+    font-size: rem(14px);
+    padding: rem(10px);
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    background: $color-grey-light;
+  }
+
+  .experiment {
+    @extend %noselect;
+
+    padding: rem(12px);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #efefef;
+    }
+
+    strong {
+      font-size: rem(12px);
+      padding-left: rem(5px);
+    }
+
+    small {
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      font-size: rem(11px);
+      display: inline-block;
+      width: 50px;
+      padding: rem(3px);
+    }
+
+    &.active {
+      small {
+        background-color: $color-state-success;
+      }
+    }
+
+    &.inactive {
+      small {
+        background-color: $color-state-error;
+      }
+    }
+  }
+}
