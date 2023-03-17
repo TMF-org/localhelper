@@ -2,8 +2,6 @@ import { ServiceWithImage } from '@/modules/common/hooks/useService';
 import { StrapiData, StrapiMedia } from '@/services/api';
 import Markdown from 'react-markdown';
 import { Search } from '../search/Search';
-import Image from 'next/image';
-import placeholderImage from '@public/image/placeholder.jpg';
 
 interface Props {
   service: StrapiData<ServiceWithImage>;
@@ -39,7 +37,7 @@ const ServicePicture = ({ image }: { image: StrapiMedia | undefined }) => {
   if (image) {
     return (
       <div className="image">
-        <Image
+        <img
           src={process.env.NEXT_PUBLIC_STRAPI_URL + image.url}
           alt={image.name}
           title={image.name}
@@ -49,7 +47,7 @@ const ServicePicture = ({ image }: { image: StrapiMedia | undefined }) => {
   }
   return (
     <div className="image">
-      <Image src={placeholderImage} alt="placeholder" title="placeholder" />
+      <img src="/image/placeholder.jpg" alt="placeholder" title="placeholder" />
     </div>
   );
 };
