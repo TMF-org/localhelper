@@ -4,9 +4,12 @@ import { ServiceSelector } from './Service';
 import { ZipCode } from './ZipCode';
 import { Screen } from '../screen/Screen';
 import { Geo } from './Geo';
+import { useIsHydrated } from '@/modules/common/hooks/useIsHydrated';
 
 export const Search = () => {
+  const isHydrated = useIsHydrated();
   const showScreen = useScreenStore((store) => store.showScreen);
+  if (!isHydrated) return null;
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
       <ServiceSelector />

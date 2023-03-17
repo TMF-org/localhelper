@@ -54,24 +54,11 @@ export const useSearchStore = create<SearchState>()(
     }),
     {
       name: 'search-storage',
-      // TODO: cookie storage & dsgvo check
-      storage: createJSONStorage(() => ({
-        removeItem(name) {
-          return sessionStorage.removeItem(name);
-        },
-        setItem(name, value) {
-          return sessionStorage.setItem(name, value);
-        },
-        getItem(name) {
-          if (typeof window === 'undefined') return null;
-
-          // restore from storage with delay => workaround for SSR issues
-          // TODO: find better solution then arbitrary delay...
-          return new Promise((resolve) =>
-            setTimeout(() => resolve(sessionStorage.getItem(name)), 400),
-          );
-        },
-      })),
+      // Note: session storage is only persisted on client
+      // this is causing hydration errors. To avoid those, every page using data from this store
+      // needs to be either client only, or actively check `useIsHydrated()` hook before rendering
+      // data from this store
+      storage: createJSONStorage(() => sessionStorage),
     },
   ),
 );

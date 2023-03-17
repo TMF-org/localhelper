@@ -1,4 +1,5 @@
 import { Icon } from '@/modules/common/components/Icon';
+import { useIsHydrated } from '@/modules/common/hooks/useIsHydrated';
 import { useServiceCategories } from '@/modules/common/hooks/useServiceCategories';
 import { Service, useServices } from '@/modules/common/hooks/useServices';
 import { StrapiData } from '@/services/api';
@@ -61,6 +62,7 @@ export const ServiceSelector = () => {
 };
 
 const ServiceInput = ({ isOpen }: { isOpen?: boolean }) => {
+  const isHydrated = useIsHydrated();
   const service = useSearchStore((store) => store.search.service);
   const toggleScreen = useScreenStore((store) => store.toggleScreen);
 
@@ -76,7 +78,7 @@ const ServiceInput = ({ isOpen }: { isOpen?: boolean }) => {
       className={`service-input ${active}`}
       onClick={() => toggleScreen('services')}
     >
-      <span>{serviceInputName}</span>
+      <span>{isHydrated && serviceInputName}</span>
       <small>
         <Icon name={icon} size="small" />
       </small>
