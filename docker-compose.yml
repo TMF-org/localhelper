@@ -41,6 +41,9 @@ services:
       - STRAPI_ADMIN_JWT_SECRET=${STRAPI_ADMIN_JWT_SECRET}
       - STRAPI_JWT_SECRET=${STRAPI_JWT_SECRET}
       - JWT_SECRET=${STRAPI_JWT_SECRET}
+      - NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME}
+      - NEXT_PUBLIC_SUPPORT_EMAIL=${NEXT_PUBLIC_SUPPORT_EMAIL}
+      - NEXT_PUBLIC_URL=${NEXT_PUBLIC_URL}
     volumes:
       # Note: mounting "public" instead of "public/uploads" for Strapi import/export support,
       # as Strapi renames the uploads directory during this process, causing volume issues
