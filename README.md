@@ -4,7 +4,7 @@ Lokalhelfer ist die Plattform für Nachbarschaftshilfe von nebenan.
 
 Über die Lokalhelfer-Plattform können Personen geolokalisiert Hilfe bei bestimmten Tätigkeiten
 anbieten. Personen, die wiederum Hilfe benötigen, können die Hilfsangebote über die Plattform
-anfragen uns sich miteinander vernetzen.
+anfragen und sich miteinander vernetzen.
 
 Die Plattform bringt Menschen aus gleichen Regionen und Nachbarschaften über ein smartes,
 geolokalisiertes Matchmaking zusammen.
