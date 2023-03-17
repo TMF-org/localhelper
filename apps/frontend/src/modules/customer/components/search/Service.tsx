@@ -1,16 +1,36 @@
 import { Icon } from '@/modules/common/components/Icon';
-import { useState } from 'react';
+import { useServiceCategories } from '@/modules/common/hooks/useServiceCategories';
+import { Service, useServices } from '@/modules/common/hooks/useServices';
+import { StrapiData } from '@/services/api';
+import { useEffect, useState } from 'react';
 import { useScreenStore } from '../../stores/screen';
 import { useSearchStore } from '../../stores/search';
 import { Screen } from '../screen/Screen';
-import { Service, useServices } from '@/modules/common/hooks/useServices';
-import { useServiceCategories } from '@/modules/common/hooks/useServiceCategories';
-import { StrapiData } from '@/services/api';
+
+/**
+ * set default service if no service was selected
+ * default service is the first service in the list
+ */
+const useSetDefaultService = () => {
+  const currentService = useSearchStore((store) => store.search.service);
+  const update = useSearchStore((store) => store.update);
+
+  const { data, isFetchedAfterMount } = useServices({
+    enabled: !currentService,
+  });
+
+  useEffect(() => {
+    const defaultService = data?.data[0];
+    if (!isFetchedAfterMount || !defaultService || currentService) return;
+    update({ service: defaultService });
+  }, [isFetchedAfterMount]);
+};
 
 export const ServiceSelector = () => {
   const [activeCategory, setActiveCategory] = useState<number>();
 
   const hideScreen = useScreenStore((store) => store.hideScreen);
+  useSetDefaultService();
 
   const deactivate = () => {
     hideScreen('services', { delay: 400 });

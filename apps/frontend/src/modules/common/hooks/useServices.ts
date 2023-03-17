@@ -10,8 +10,10 @@ export async function fetchServices() {
     .json<StrapiPaginatedResponse<Service>>();
 }
 
-export function useServices() {
+export function useServices(options?: { enabled?: boolean }) {
+  const { enabled } = options ?? {};
   return useQuery({
+    enabled,
     queryKey: ['services'],
     queryFn: fetchServices,
   });
