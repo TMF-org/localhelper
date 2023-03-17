@@ -24,7 +24,7 @@ export const Footer = () => {
         <Space height="10px" />
         <Box color="#fff" background="transparent">
           <div style={pStyle}>
-            mit freundlichen Grüßen,
+            Mit freundlichen Grüßen,
             <br />
             <br />
             Dein {process.env.NEXT_PUBLIC_APP_NAME}-Team
