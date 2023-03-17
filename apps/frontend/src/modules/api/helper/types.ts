@@ -6,6 +6,7 @@ export interface Helper {
   summary: string;
   about?: string;
   url: string;
+  bookable: boolean;
   distance?: number;
   media?: { data: StrapiData<StrapiMedia>[] };
 }

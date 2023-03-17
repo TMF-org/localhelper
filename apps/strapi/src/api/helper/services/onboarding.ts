@@ -4,6 +4,8 @@
 
 import urlSlug from 'url-slug';
 import { z } from 'zod';
+import { registeredHelperTemplate } from '../../../extensions/email/templates/helper/registered';
+import { MailTemplateService } from '../../../extensions/email/templateService';
 
 export const onboardingSchema = z.object({
   name: z.string().trim().nonempty(),
@@ -80,6 +82,16 @@ export default () => ({
       // TODO: manage file upload
       // files: [file],
     });
+
+    // notify helper via mail
+    const mailService = strapi.service(
+      'plugin::email.template',
+    ) as MailTemplateService;
+    const helperTemplate = mailService.getTemplate(registeredHelperTemplate, {
+      helper: data as any,
+    });
+    await mailService.send(helperTemplate, { to: data as any });
+
     return helper;
   },
 });

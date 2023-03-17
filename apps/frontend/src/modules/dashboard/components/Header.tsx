@@ -53,6 +53,10 @@ export const DashboardMenu = () => {
     </ul>
   );
 
+  let title = helper?.attributes.bookable
+    ? helper.attributes.name
+    : 'Dein Profil wird überprüft';
+
   return (
     <div className="main-right-menu">
       <div className="wrapper" ref={ref}>
@@ -62,7 +66,7 @@ export const DashboardMenu = () => {
               <Icon name="customer" />
             </div>
             <h4 className="not-on-mobile">
-              <strong>{helper?.attributes.name}</strong>
+              <strong>{title}</strong>
               <small>{session?.user.email}</small>
             </h4>
             <div className="menu-icon only-on-mobile">

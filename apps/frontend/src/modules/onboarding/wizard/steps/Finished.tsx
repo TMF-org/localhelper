@@ -14,9 +14,11 @@ export const FinishedStep = () => {
         <h2 className="h2-normalize">Geschafft!</h2>
         <br />
         <p>
-          Du erhältst eine Bestätigungs-Mail mit den Zugangsdaten, mit denen du
-          dich online im <Link href="/dashboard">Dashboard</Link> anmelden
-          kannst.
+          Deine Anmeldung wird nun von uns geprüft. Sobald dein Zugang
+          freigeschaltet wurde, wirst du von uns per Mail informiert.
+          <br />
+          Anschließend kannst du dich mit deinen Zugangsdaten online im{' '}
+          <Link href="/dashboard">Dashboard</Link> anmelden kannst.
         </p>
 
         <br />
