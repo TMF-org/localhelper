@@ -12,17 +12,23 @@ import { StrapiData } from '@/services/api';
 
 const wordingList = {
   sendMail: {
-    'appointment/created/customer': 'Request was created',
-    'ticket/accepted/customer': 'Request accept email was sent',
-    'ticket/canceled/customer': 'Request rejection email was sent',
-    'appointment/accepted/customer': 'Request accept email was sent',
-    'appointment/canceled/customer': 'Request rejection email was sent',
-    'appointment/created/store': 'Request email was sent',
+    // old mail wordings for backwards compatibility
+    'appointment/created/customer': 'Anfrage wurde erstellt',
+    'ticket/accepted/customer': 'Anfragbestätigung wurde gesendet',
+    'ticket/canceled/customer': 'Anfrageabsage wurde gesendet',
+    'appointment/accepted/customer': 'Anfragbestätigung wurde gesendet',
+    'appointment/canceled/customer': 'Anfrageabsage wurde gesendet',
+    'appointment/created/store': 'Anfrage wurde versendet',
+    // new mail wordings
+    'requests/accepted/customer': 'Anfragbestätigung wurde gesendet',
+    'requests/declined/customer': 'Anfrageabsage wurde gesendet',
+    'requests/created/customer': 'Anfrage wurde erstellt',
+    'requests/created/helper': 'Anfrage wurde versendet',
   },
   changeState: {
-    accepted: 'Request was accepted',
-    declined: 'Request was rejected',
-    canceledAutomatically: 'Requested was automatically rejected',
+    accepted: 'Anfrage wurde angenommen',
+    declined: 'Anfrage wurde abgelehnt',
+    canceledAutomatically: 'Anfrage wurde automatisch storniert',
   },
 } as Record<string, Record<string, string>>;
 

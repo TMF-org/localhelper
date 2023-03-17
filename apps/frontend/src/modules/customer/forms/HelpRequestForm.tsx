@@ -54,6 +54,7 @@ export const HelpRequestForm = ({ helper }: Props) => {
       customer: {
         name: values.name,
         email: values.email,
+        phone: values.phone,
         about: values.about,
         agb: values.agb,
       },

@@ -5,6 +5,12 @@
 import { factories } from '@strapi/strapi';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';
+import { MailTemplateService } from '../../../extensions/email/templateService';
+import { acceptedRequestCustomerTemplate } from '../../../extensions/email/templates/requests/customer/accepted';
+import { createdRequestCustomerTemplate } from '../../../extensions/email/templates/requests/customer/created';
+import { declinedRequestCustomerTemplate } from '../../../extensions/email/templates/requests/customer/declined';
+import { createdRequestHelperTemplate } from '../../../extensions/email/templates/requests/helper/created';
+import { TicketLogService } from '../services/log';
 
 const createSchema = z
   .object({
@@ -37,13 +43,37 @@ export default factories.createCoreController(
         editID: nanoid(),
       };
 
-      const result = await strapi.service('api::ticket.ticket').create({
+      const newTicket = await strapi.service('api::ticket.ticket')!.create!({
         data: requestData,
+        populate: { helper: true, service: true },
       });
 
-      // TODO: MAIL SENDOUT
+      // send mail
+      const mailService = strapi.service(
+        'plugin::email.template',
+      ) as MailTemplateService;
+      const helperTemplate = mailService.getTemplate(
+        createdRequestHelperTemplate,
+        {
+          customer: ret.data.customer as any,
+          helper: newTicket.helper,
+          service: newTicket.service,
+        },
+      );
+      const customerTemplate = mailService.getTemplate(
+        createdRequestCustomerTemplate,
+        {
+          customer: ret.data.customer as any,
+          helper: newTicket.helper,
+          service: newTicket.service,
+        },
+      );
+      await mailService.send(helperTemplate, { to: newTicket.helper });
+      await mailService.send(customerTemplate, {
+        to: ret.data.customer as any,
+      });
 
-      const sanitizedResult = await this.sanitizeOutput(result, ctx);
+      const sanitizedResult = await this.sanitizeOutput(newTicket, ctx);
       return this.transformResponse(sanitizedResult);
     },
 
@@ -74,32 +104,40 @@ export default factories.createCoreController(
       const logEntry = {
         action: 'changeState',
         result: 'accepted',
-        error: null,
         date: new Date(),
       };
       const newLogs = [logEntry, ...ticket.log];
 
-      const updatedTicket = await strapi.entityService.update(
+      // Update ticket
+      let updatedTicket = await strapi.entityService.update(
         'api::ticket.ticket',
         ctx.params.id,
         {
-          data: {
-            status: 'accepted',
-            log: newLogs,
-          },
-          populate: {
-            log: true,
-            customer: true,
-            service: {
-              populate: {
-                category: true,
-              },
-            },
-          },
+          data: { status: 'accepted', log: newLogs },
+          populate: { customer: true },
         },
       );
 
-      // TODO: MAIL SENDOUT
+      // send mail
+      const mailService = strapi.service<MailTemplateService>(
+        'plugin::email.template',
+      );
+      const template = mailService.getTemplate(
+        acceptedRequestCustomerTemplate,
+        {
+          customer: updatedTicket.customer,
+          helper,
+        },
+      );
+      await mailService.send(template, { to: updatedTicket.customer });
+
+      // add mail send event to log
+      updatedTicket = await strapi
+        .service<TicketLogService>('api::ticket.log')
+        .log(ctx.params.id, {
+          action: 'sendMail',
+          result: acceptedRequestCustomerTemplate.name,
+        });
 
       const sanitizedResult = await this.sanitizeOutput(updatedTicket, ctx);
       return this.transformResponse(sanitizedResult);
@@ -132,32 +170,40 @@ export default factories.createCoreController(
       const logEntry = {
         action: 'changeState',
         result: 'declined',
-        error: null,
         date: new Date(),
       };
       const newLogs = [logEntry, ...ticket.log];
 
-      const updatedTicket = await strapi.entityService.update(
+      // update ticket
+      let updatedTicket = await strapi.entityService.update(
         'api::ticket.ticket',
         ctx.params.id,
         {
-          data: {
-            status: 'declined',
-            log: newLogs,
-          },
-          populate: {
-            log: true,
-            customer: true,
-            service: {
-              populate: {
-                category: true,
-              },
-            },
-          },
+          data: { status: 'declined', log: newLogs },
+          populate: { customer: true },
         },
       );
 
-      // TODO: MAIL SENDOUT
+      // send mail
+      const mailService = strapi.service<MailTemplateService>(
+        'plugin::email.template',
+      );
+      const template = mailService.getTemplate(
+        declinedRequestCustomerTemplate,
+        {
+          customer: updatedTicket.customer,
+          helper,
+        },
+      );
+      await mailService.send(template, { to: updatedTicket.customer });
+
+      // add mail send event to log
+      updatedTicket = await strapi
+        .service<TicketLogService>('api::ticket.log')
+        .log(ctx.params.id, {
+          action: 'sendMail',
+          result: declinedRequestCustomerTemplate.name,
+        });
 
       const sanitizedResult = await this.sanitizeOutput(updatedTicket, ctx);
       return this.transformResponse(sanitizedResult);
