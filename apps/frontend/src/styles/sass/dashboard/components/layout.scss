@@ -58,6 +58,12 @@
     display: flex;
     justify-content: space-between;
 
+    .appointment-notice--success,
+    .appointment-notice--error {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
     &.only-on-mobile {
       height: auto;
       flex-direction: column;

@@ -45,7 +45,7 @@ export const Button = ({
     const roundedClass = rounded ? '-rounded' : '';
     return `button-${type}--${size}${getModifier(
       modifier,
-    )}${roundedClass}${className}`;
+    )}${roundedClass} ${className}`;
   };
 
   const link = (
