@@ -190,68 +190,6 @@
   position: static;
 }
 
-.hidden-input {
-  cursor: pointer;
-  @include on(mobile) {
-    .camera-icon {
-      display: none;
-    }
-    .loading {
-      background: $color-background;
-    }
-    &.visible-icon {
-      background: white;
-
-      .field.space.loading {
-        display: none !important;
-      }
-
-      .camera-icon {
-        display: block;
-      }
-    }
-    padding: 0;
-    .field.space {
-      padding: 0;
-      width: 100%;
-      height: 100%;
-
-      > input {
-        display: none !important;
-      }
-    }
-
-    display: flex;
-    justify-content: center;
-  }
-  @include on(tablet) {
-    .upload-profile-image-text {
-      font-size: 16px;
-    }
-    padding: inherit;
-  }
-
-  .camera-icon {
-    position: static;
-    fill: $color-primary;
-    width: 80px;
-
-    > svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-.field.space.loading {
-  @include on(mobile) {
-    .image-preview {
-      max-height: 100%;
-      max-width: 100%;
-    }
-  }
-}
-
 .h2-normalize {
   @include on(mobile) {
     font-size: 26px !important;

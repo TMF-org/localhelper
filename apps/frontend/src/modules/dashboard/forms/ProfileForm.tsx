@@ -2,22 +2,20 @@ import { useUpdateMeMutation } from '@/modules/api/helper/mutations';
 import { useMeHelper } from '@/modules/api/helper/queries';
 import { MeHelper } from '@/modules/api/helper/types';
 import { Button } from '@/modules/common/components/Button';
+import { ImageUpload } from '@/modules/common/components/form/ImageUpload';
 import { Input } from '@/modules/common/components/form/Input';
 import { Textarea } from '@/modules/common/components/form/Textarea';
 import { StrapiData } from '@/services/api';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { z } from 'zod';
 
-interface YourProfileProps {
-  helper: StrapiData<MeHelper>;
-}
-
 interface FormProps {
   helper: StrapiData<MeHelper>;
-  onSave: (data: Partial<MeHelper>) => void;
+  onSave: (data: Partial<MeHelper> & { media?: File | null }) => void;
 }
 
 const contactInfoSchema = z.object({
@@ -84,6 +82,53 @@ const ContactInformationForm = ({ helper, onSave }: FormProps) => {
   );
 };
 
+const AvatarForm = ({
+  helper,
+  onSave,
+}: {
+  helper: FormProps['helper'];
+  onSave: ({ media }: { media?: File | null }) => void;
+}) => {
+  const currentMedia = helper.attributes.media?.data?.[0];
+  const currentMediaUrl = currentMedia
+    ? process.env.NEXT_PUBLIC_STRAPI_URL + currentMedia.attributes.url
+    : null;
+
+  const [file, setFile] = useState<File | null>();
+
+  const saveImage = async () => {
+    if (file === undefined) return;
+    onSave({ media: file });
+  };
+
+  return (
+    <form className="profile-form" onSubmit={(e) => e.preventDefault()}>
+      <div className="form-container space">
+        <h1>Profilbild ändern</h1>
+
+        <ImageUpload
+          image={
+            file !== undefined
+              ? file
+                ? URL.createObjectURL(file)
+                : undefined
+              : currentMediaUrl
+          }
+          onFileSelected={setFile}
+        />
+      </div>
+      <Button
+        className="profile-form-button"
+        type={file === undefined ? 'grey' : undefined}
+        onClick={saveImage}
+        disabled={file === undefined}
+      >
+        Speichern
+      </Button>
+    </form>
+  );
+};
+
 // TODO: change location, avatar & services
 
 export const YourProfile = () => {
@@ -92,7 +137,9 @@ export const YourProfile = () => {
 
   const helper = data?.data;
 
-  const handleSave = async (data: Partial<MeHelper>) => {
+  const handleSave = async (
+    data: Partial<Omit<MeHelper, 'media'>> & { media?: File | null },
+  ) => {
     mutate(
       { ...data, services: data.services?.data.map((service) => service.id) },
       {
@@ -111,7 +158,10 @@ export const YourProfile = () => {
     <section className="profile-overview">
       <h1>Dein Profil</h1>
       {helper && (
-        <ContactInformationForm helper={data?.data} onSave={handleSave} />
+        <>
+          <ContactInformationForm helper={helper} onSave={handleSave} />
+          <AvatarForm helper={helper} onSave={handleSave} />
+        </>
       )}
     </section>
   );

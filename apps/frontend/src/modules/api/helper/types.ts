@@ -8,7 +8,7 @@ export interface Helper {
   url: string;
   bookable: boolean;
   distance?: number;
-  media?: { data: StrapiData<StrapiMedia>[] };
+  media: { data?: StrapiData<StrapiMedia>[] };
 }
 
 export interface HelperWithDetails extends Helper {

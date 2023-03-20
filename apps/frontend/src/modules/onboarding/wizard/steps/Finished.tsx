@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FinishIcon } from '../../components/icons/finish';
+import { FinishIcon } from '@/modules/common/components/icons/finish';
 
 const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL;
 

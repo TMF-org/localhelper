@@ -5,7 +5,7 @@
 import { factories } from '@strapi/strapi';
 import * as geolib from 'geolib';
 import { onboardingSchema } from '../services/onboarding';
-import { updateMeSchema } from '../services/update';
+import { UpdateHelperService, updateMeSchema } from '../services/update';
 import { sanitize } from '@strapi/utils';
 
 const { contentAPI } = sanitize;
@@ -140,7 +140,18 @@ export default factories.createCoreController(
         .findByUser(ctx.state.user.id);
       if (!helper) return ctx.notFound('no-helper-found');
 
-      const parse = updateMeSchema.safeParse(ctx.request.body?.data ?? {});
+      let mediaUpload = ctx.request.files['files.media'];
+      // if media is null, existing file should be deleted
+      if (!mediaUpload && ctx.request.body['files.media'] === 'null') {
+        mediaUpload = null;
+      }
+
+      let data =
+        typeof ctx.request.body?.data === 'string'
+          ? JSON.parse(ctx.request.body?.data)
+          : ctx.request.body?.data;
+
+      const parse = updateMeSchema.safeParse(data ?? {});
       if (parse.success !== true) {
         return ctx.badRequest('validation-error', {
           errors: parse.error.issues,
@@ -148,8 +159,8 @@ export default factories.createCoreController(
       }
 
       const updatedHelper = await strapi
-        .service('api::helper.update')
-        .updateMe(helper.id, parse.data);
+        .service<UpdateHelperService>('api::helper.update')
+        .updateMe(helper.id, parse.data, mediaUpload);
       return this.transformResponse(updatedHelper);
     },
 

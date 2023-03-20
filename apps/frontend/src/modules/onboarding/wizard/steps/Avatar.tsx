@@ -1,11 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { BackIcon } from '../../components/icons/back';
-import { CameraIcon } from '../../components/icons/camera';
-import { NextIcon } from '../../components/icons/next';
-import { UserIcon } from '../../components/icons/user';
+import { BackIcon } from '@/modules/common/components/icons/back';
+import { NextIcon } from '@/modules/common/components/icons/next';
+import { UserIcon } from '@/modules/common/components/icons/user';
 import { StepProps } from '../Wizard';
+import { ImageUpload } from '@/modules/common/components/form/ImageUpload';
 
 export const avatarSchema = z.object({
   avatar: z.custom<File>((v) => v instanceof File).optional(),
@@ -25,12 +25,6 @@ export const AvatarStep = ({
 
   const avatar = watch('avatar');
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files?.[0]) return;
-    setValue('avatar', files[0]);
-  };
-
   return (
     <form onSubmit={handleSubmit(updateAndNext)}>
       <div className="description-small not-on-mobile box-centered bgc-white pdg-25">
@@ -49,33 +43,13 @@ export const AvatarStep = ({
 
       <div className="frm box-centered">
         <div className="grd-1 pdg-top-20 mobile-pdg-rgt-20 mobile-pdg-lft-20">
-          <div className="grd-1 bgc-white bgc-transparent-on-mobile pdg-btm-20">
-            <div className="flex column centered pdg-btm-20 pdg-top-20">
-              <h3 className="pdg-btm-35 fsi-26 pdg-top-20">Dein Profilbild</h3>
-              <label
-                className={`box hidden-input ${!avatar ? 'visible-icon' : ''}`}
-              >
-                {!avatar && (
-                  <CameraIcon className="only-on-mobile camera-icon" />
-                )}
-                <div className="field space loading">
-                  {/* <h1>Lädt...</h1> */}
-                  <input name="image" type="file" onChange={handleFileUpload} />
-                  {avatar && (
-                    <img
-                      className="image-preview"
-                      src={URL.createObjectURL(avatar)}
-                      alt="image-preview"
-                    />
-                  )}
-                </div>
-                {!avatar && (
-                  <div className="not-on-mobile upload-profile-image-text">
-                    Profilbild auswählen
-                  </div>
-                )}
-              </label>
-            </div>
+          <div className="grd-1 bgc-white bgc-transparent-on-mobile pdg-top-20 pdg-btm-20">
+            <h3 className="pdg-btm-35 fsi-26 pdg-top-20">Dein Profilbild</h3>
+            <ImageUpload
+              onFileSelected={(file) => setValue('avatar', file ?? undefined)}
+              image={avatar ? URL.createObjectURL(avatar) : undefined}
+              hideActions
+            />
           </div>
         </div>
       </div>

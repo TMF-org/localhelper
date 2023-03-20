@@ -1,9 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { BackIcon } from '../../components/icons/back';
-import { LocationIcon } from '../../components/icons/location';
-import { NextIcon } from '../../components/icons/next';
+import { BackIcon } from '@/modules/common/components/icons/back';
+import { LocationIcon } from '@/modules/common/components/icons/location';
+import { NextIcon } from '@/modules/common/components/icons/next';
 
 import {
   GMap,

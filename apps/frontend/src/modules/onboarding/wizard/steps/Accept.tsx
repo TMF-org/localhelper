@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { AcceptIcon } from '../../components/icons/accept';
-import { BackIcon } from '../../components/icons/back';
-import { NextIcon } from '../../components/icons/next';
+import { AcceptIcon } from '@/modules/common/components/icons/accept';
+import { BackIcon } from '@/modules/common/components/icons/back';
+import { NextIcon } from '@/modules/common/components/icons/next';
 import { onboardingSchema, StepProps } from '../Wizard';
 
 export const acceptSchema = z.object({

@@ -2,9 +2,9 @@ import { Textarea } from '@/modules/common/components/form/Textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { BackIcon } from '../../components/icons/back';
-import { NextIcon } from '../../components/icons/next';
-import { UserIcon } from '../../components/icons/user';
+import { BackIcon } from '@/modules/common/components/icons/back';
+import { NextIcon } from '@/modules/common/components/icons/next';
+import { UserIcon } from '@/modules/common/components/icons/user';
 import { StepProps } from '../Wizard';
 
 const message =

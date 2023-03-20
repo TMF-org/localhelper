@@ -15,13 +15,46 @@ export const updateMeSchema = z.object({
 });
 export type UpdateMeType = z.infer<typeof updateMeSchema>;
 
-export default () => ({
-  async updateMe(helperId: number, data: UpdateMeType) {
+const updateHelperService = {
+  async updateMe(
+    helperId: number,
+    data: UpdateMeType,
+    mediaUpload?: any | null,
+  ) {
+    let currentMedia = null;
+    if (mediaUpload !== undefined) {
+      // check if helper already has media
+      const helper = await strapi.entityService.findOne(
+        'api::helper.helper',
+        helperId,
+        { populate: { media: true } },
+      );
+      currentMedia = helper.media?.[0];
+    }
+    if (currentMedia && mediaUpload !== null) {
+      // replace existing media
+      await strapi
+        .service('plugin::upload.upload')
+        .replace(currentMedia.id, { data: mediaUpload, file: mediaUpload });
+    } else if (currentMedia && mediaUpload === null) {
+      // delete existing media
+      await strapi.service('plugin::upload.upload').remove(currentMedia);
+    }
+
+    // update helper
     const updatedHelper = await strapi.entityService.update(
       'api::helper.helper',
       helperId,
-      { data, populate: { geo: true } },
+      {
+        data,
+        files: !currentMedia && mediaUpload ? { media: [mediaUpload] } : null,
+        populate: { geo: true, services: true, media: true },
+      },
     );
     return updatedHelper;
   },
-});
+};
+
+export type UpdateHelperService = typeof updateHelperService;
+
+export default () => updateHelperService;

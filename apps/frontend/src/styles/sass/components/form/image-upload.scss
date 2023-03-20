@@ -1,0 +1,87 @@
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  label {
+    min-height: 100px;
+    justify-content: center;
+    align-items: center;
+
+    .field {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  @include on(tablet) {
+    .box {
+      max-width: 800px;
+      min-height: 400px;
+    }
+  }
+
+  .hidden-input {
+    cursor: pointer;
+    @include on(mobile) {
+      .camera-icon {
+        display: none;
+      }
+      .loading {
+        background: $color-background;
+      }
+      &.visible-icon {
+        background: white;
+
+        .field.space.loading {
+          display: none !important;
+        }
+
+        .camera-icon {
+          display: block;
+        }
+      }
+      padding: 0;
+      .field.space {
+        padding: 0;
+        > input {
+          display: none !important;
+        }
+      }
+
+      display: flex;
+      justify-content: center;
+    }
+    @include on(tablet) {
+      &.visible-icon {
+        background: #f1f1f1;
+      }
+      .upload-profile-image-text {
+        font-size: 16px;
+      }
+      padding: inherit;
+    }
+
+    .camera-icon {
+      position: static;
+      fill: $color-primary;
+      width: 80px;
+
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .field.space.loading {
+    @include on(mobile) {
+      .image-preview {
+        height: 100%;
+        max-width: 100%;
+        max-height: 600px;
+      }
+    }
+  }
+}

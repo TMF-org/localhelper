@@ -2,9 +2,9 @@ import { Input } from '@/modules/common/components/form/Input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { BackIcon } from '../../components/icons/back';
-import { NextIcon } from '../../components/icons/next';
-import { UserIcon } from '../../components/icons/user';
+import { BackIcon } from '@/modules/common/components/icons/back';
+import { NextIcon } from '@/modules/common/components/icons/next';
+import { UserIcon } from '@/modules/common/components/icons/user';
 import { StepProps } from '../Wizard';
 
 export const userSchema = z.object({

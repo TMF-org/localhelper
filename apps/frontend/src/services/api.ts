@@ -73,6 +73,8 @@ export interface StrapiMedia {
   name: string;
   formats: any;
   url: string;
+  height: number;
+  width: number;
 }
 
 export { api };

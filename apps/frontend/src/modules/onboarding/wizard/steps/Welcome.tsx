@@ -1,5 +1,5 @@
-import { MountainIcon } from '../../components/icons/mountain';
-import { NextIcon } from '../../components/icons/next';
+import { MountainIcon } from '@/modules/common/components/icons/mountain';
+import { NextIcon } from '@/modules/common/components/icons/next';
 import { StepProps } from '../Wizard';
 
 export const WelcomeStep = ({ updateAndNext }: StepProps) => {

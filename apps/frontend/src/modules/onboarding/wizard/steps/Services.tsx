@@ -10,9 +10,9 @@ import {
   useForm,
 } from 'react-hook-form';
 import { z } from 'zod';
-import { BackIcon } from '../../components/icons/back';
-import { NextIcon } from '../../components/icons/next';
-import { ServicesIcon } from '../../components/icons/services';
+import { BackIcon } from '@/modules/common/components/icons/back';
+import { NextIcon } from '@/modules/common/components/icons/next';
+import { ServicesIcon } from '@/modules/common/components/icons/services';
 import { StepProps } from '../Wizard';
 
 const message = 'Es muss mindestens eine Option ausgewählt werden.';

@@ -41,8 +41,18 @@ export const updateMeHelper =
   (session: Session | null) => async (data: UpdateMeType) => {
     if (!session) return;
     try {
+      const { media, ...dataWithoutMedia } = data;
+      const formData = new FormData();
+      if (media) {
+        formData.append('files.media', media, media.name);
+      } else if (media === null) {
+        // mark media for deletion
+        formData.append('files.media', 'null');
+      }
+      formData.append('data', JSON.stringify(dataWithoutMedia));
+
       const response = await api.put('helpers/me', {
-        json: { data },
+        body: formData,
         headers: {
           Authorization: `Bearer ${session.jwt}`,
         },
@@ -74,5 +84,9 @@ export const updateMeSchema = z.object({
   summary: z.string().nonempty().optional(),
   about: z.string().nonempty().optional(),
   services: z.array(z.number()).min(1).optional(),
+  media: z
+    .custom<File>((v) => v instanceof File)
+    .nullable()
+    .optional(),
 });
 export type UpdateMeType = z.infer<typeof updateMeSchema>;
