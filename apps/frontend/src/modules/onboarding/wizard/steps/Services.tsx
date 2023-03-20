@@ -1,19 +1,11 @@
-import { RawCheckbox } from '@/modules/common/components/form/Checkbox';
-import { FormFieldError } from '@/modules/common/components/form/Error';
-import { useServices } from '@/modules/common/hooks/useServices';
 import { zodResolver } from '@hookform/resolvers/zod';
-import clsx from 'clsx';
-import {
-  ErrorOption,
-  useController,
-  UseControllerProps,
-  useForm,
-} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { BackIcon } from '@/modules/common/components/icons/back';
 import { NextIcon } from '@/modules/common/components/icons/next';
 import { ServicesIcon } from '@/modules/common/components/icons/services';
 import { StepProps } from '../Wizard';
+import { ServicesCheckList } from '@/modules/common/components/ServicesCheckList';
 
 const message = 'Es muss mindestens eine Option ausgewählt werden.';
 export const servicesSchema = z.object({
@@ -98,49 +90,5 @@ export const ServicesStep = ({
         </button>
       </div>
     </form>
-  );
-};
-
-interface ServicesCheckListProps extends UseControllerProps<any> {
-  error?: ErrorOption;
-}
-
-const ServicesCheckList = (props: ServicesCheckListProps) => {
-  const { error, ...controllerProps } = props;
-  const { data, isLoading } = useServices();
-  const services = data?.data;
-
-  const { field } = useController(controllerProps);
-
-  return (
-    <div className="list-wrapper">
-      {isLoading ? (
-        <p>Lädt...</p>
-      ) : (
-        <ul>
-          {services?.map((service, index) => {
-            const isActive = field.value?.includes(service.id);
-            return (
-              <li key={service.id} className={clsx({ active: isActive })}>
-                <RawCheckbox
-                  checked={field.value?.includes(service.id)}
-                  onChange={(checked) => {
-                    if (!checked) {
-                      field.onChange(
-                        field.value?.filter((id: any) => id !== service.id),
-                      );
-                    } else if (!field.value?.includes(service.id)) {
-                      field.onChange([...(field.value ?? []), service.id]);
-                    }
-                  }}
-                  label={service.attributes.name}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      )}
-      <FormFieldError error={error} />
-    </div>
   );
 };

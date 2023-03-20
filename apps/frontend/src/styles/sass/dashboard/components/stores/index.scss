@@ -120,7 +120,6 @@
           margin: 10px 0;
 
           label {
-            padding: 0;
             color: #82898e;
             font-size: 12px;
           }
@@ -131,6 +130,11 @@
             font-size: 18px;
             color: $color-primary-dark;
             font-weight: 400;
+          }
+        }
+        .list-wrapper {
+          .field {
+            padding: 0;
           }
         }
       }
@@ -178,6 +182,10 @@
             margin-top: 14px;
             padding: 10px 0;
             font-size: 16px;
+          }
+          .checkb-group label {
+            margin: 0;
+            padding: 10px 10px;
           }
 
           .description {

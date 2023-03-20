@@ -1,10 +1,14 @@
-import { useUpdateMeMutation } from '@/modules/api/helper/mutations';
+import {
+  UpdateMeType,
+  useUpdateMeMutation,
+} from '@/modules/api/helper/mutations';
 import { useMeHelper } from '@/modules/api/helper/queries';
 import { MeHelper } from '@/modules/api/helper/types';
 import { Button } from '@/modules/common/components/Button';
 import { ImageUpload } from '@/modules/common/components/form/ImageUpload';
 import { Input } from '@/modules/common/components/form/Input';
 import { Textarea } from '@/modules/common/components/form/Textarea';
+import { ServicesCheckList } from '@/modules/common/components/ServicesCheckList';
 import { StrapiData } from '@/services/api';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
@@ -15,7 +19,7 @@ import { z } from 'zod';
 
 interface FormProps {
   helper: StrapiData<MeHelper>;
-  onSave: (data: Partial<MeHelper> & { media?: File | null }) => void;
+  onSave: (data: UpdateMeType) => void;
 }
 
 const contactInfoSchema = z.object({
@@ -82,13 +86,7 @@ const ContactInformationForm = ({ helper, onSave }: FormProps) => {
   );
 };
 
-const AvatarForm = ({
-  helper,
-  onSave,
-}: {
-  helper: FormProps['helper'];
-  onSave: ({ media }: { media?: File | null }) => void;
-}) => {
+const AvatarForm = ({ helper, onSave }: FormProps) => {
   const currentMedia = helper.attributes.media?.data?.[0];
   const currentMediaUrl = currentMedia
     ? process.env.NEXT_PUBLIC_STRAPI_URL + currentMedia.attributes.url
@@ -129,7 +127,55 @@ const AvatarForm = ({
   );
 };
 
-// TODO: change location, avatar & services
+const message = 'Es muss mindestens eine Option ausgewählt werden.';
+export const servicesSchema = z.object({
+  services: z
+    .array(z.number(), { required_error: message })
+    .min(1, { message }),
+});
+type ServicesFormValues = z.infer<typeof servicesSchema>;
+
+const ServicesForm = ({ helper, onSave }: FormProps) => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ServicesFormValues>({
+    defaultValues: {
+      services:
+        helper.attributes.services.data.map((service) => service.id) || [],
+    },
+    resolver: zodResolver(servicesSchema),
+  });
+
+  return (
+    <form className="profile-form" onSubmit={handleSubmit(onSave)}>
+      <div className="form-container">
+        <h1>Wobei kannst du helfen?</h1>
+
+        <div className="description">
+          <p>
+            Wähle die Unterstützung aus, die du hilfebedürftigen Menschen
+            anbieten möchtest.
+          </p>
+        </div>
+
+        <div className="frm box-centered">
+          <div className="grd-1 pdg-25 bgc-white">
+            <ServicesCheckList
+              name="services"
+              control={control}
+              error={errors.services}
+            />
+          </div>
+        </div>
+      </div>
+      <Button className="profile-form-button">Speichern</Button>
+    </form>
+  );
+};
+
+// TODO: change location
 
 export const YourProfile = () => {
   const { data } = useMeHelper();
@@ -137,21 +183,16 @@ export const YourProfile = () => {
 
   const helper = data?.data;
 
-  const handleSave = async (
-    data: Partial<Omit<MeHelper, 'media'>> & { media?: File | null },
-  ) => {
-    mutate(
-      { ...data, services: data.services?.data.map((service) => service.id) },
-      {
-        onSuccess: () => {
-          toast('Deine Daten wurden gespeichert');
-        },
-        onError: (error) => {
-          console.error(error);
-          toast('Beim Speichern ist ein Fehler aufgetreten');
-        },
+  const handleSave = async (data: UpdateMeType) => {
+    mutate(data, {
+      onSuccess: () => {
+        toast('Deine Daten wurden gespeichert');
       },
-    );
+      onError: (error) => {
+        console.error(error);
+        toast('Beim Speichern ist ein Fehler aufgetreten');
+      },
+    });
   };
 
   return (
@@ -160,6 +201,7 @@ export const YourProfile = () => {
       {helper && (
         <>
           <ContactInformationForm helper={helper} onSave={handleSave} />
+          <ServicesForm helper={helper} onSave={handleSave} />
           <AvatarForm helper={helper} onSave={handleSave} />
         </>
       )}
