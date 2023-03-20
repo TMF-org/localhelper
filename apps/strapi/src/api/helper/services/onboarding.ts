@@ -23,8 +23,8 @@ export const onboardingSchema = z.object({
 });
 export type OnboardingType = z.infer<typeof onboardingSchema>;
 
-export default () => ({
-  async onboarding(data: OnboardingType, file?: any) {
+const onboardingService = {
+  async onboarding(data: OnboardingType, mediaUpload?: any) {
     const url = urlSlug(data.name);
 
     const existingUser = await strapi.entityService.findMany(
@@ -79,8 +79,7 @@ export default () => ({
         services: data.services,
         user: user.id,
       },
-      // TODO: manage file upload
-      // files: [file],
+      files: mediaUpload ? { media: [mediaUpload] } : null,
     });
 
     // notify helper via mail
@@ -94,4 +93,8 @@ export default () => ({
 
     return helper;
   },
-});
+};
+
+export type OnboardingService = typeof onboardingService;
+
+export default () => onboardingService;

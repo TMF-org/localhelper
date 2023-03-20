@@ -8,8 +8,15 @@ import { Helper, MeHelper } from './types';
 
 export const onboardHelper = async (data: OnboardingType) => {
   try {
+    const { media, ...dataWithoutMedia } = data;
+    const formData = new FormData();
+    if (media) {
+      formData.append('files.media', media, media.name);
+    }
+    formData.append('data', JSON.stringify(dataWithoutMedia));
+
     const response = await api.post('onboarding', {
-      json: { data },
+      body: formData,
     });
     const helper = response.json<StrapiResponse<Helper>>();
     return helper;
@@ -33,6 +40,8 @@ export const onboardingSchema = z.object({
   about: z.string().nonempty(),
 
   services: z.array(z.number()).min(1),
+
+  media: z.custom<File>((v) => v instanceof File).optional(),
 });
 
 type OnboardingType = z.infer<typeof onboardingSchema>;

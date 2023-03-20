@@ -75,6 +75,7 @@ export const AcceptStep = ({
       password: data.password,
       services: data.services,
       summary: data.summary,
+      media: data.media,
     }).then(() => {
       updateAndNext();
     });

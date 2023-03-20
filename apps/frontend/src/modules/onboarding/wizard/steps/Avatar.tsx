@@ -8,7 +8,7 @@ import { StepProps } from '../Wizard';
 import { ImageUpload } from '@/modules/common/components/form/ImageUpload';
 
 export const avatarSchema = z.object({
-  avatar: z.custom<File>((v) => v instanceof File).optional(),
+  media: z.custom<File>((v) => v instanceof File).optional(),
 });
 
 type FormValues = z.infer<typeof avatarSchema>;
@@ -23,7 +23,7 @@ export const AvatarStep = ({
     resolver: zodResolver(avatarSchema),
   });
 
-  const avatar = watch('avatar');
+  const media = watch('media');
 
   return (
     <form onSubmit={handleSubmit(updateAndNext)}>
@@ -46,8 +46,8 @@ export const AvatarStep = ({
           <div className="grd-1 bgc-white bgc-transparent-on-mobile pdg-top-20 pdg-btm-20">
             <h3 className="pdg-btm-35 fsi-26 pdg-top-20">Dein Profilbild</h3>
             <ImageUpload
-              onFileSelected={(file) => setValue('avatar', file ?? undefined)}
-              image={avatar ? URL.createObjectURL(avatar) : undefined}
+              onFileSelected={(file) => setValue('media', file ?? undefined)}
+              image={media ? URL.createObjectURL(media) : undefined}
               hideActions
             />
           </div>
