@@ -120,7 +120,13 @@ yarn install
 yarn dev
 ```
 
-This will start both Strapi and the frontend Next.js application
+This will start both Strapi and the frontend Next.js application concurrently.  
+Alternatively, if you want to start them separately, you can use the following commands:
+
+```shell
+yarn dev --filter frontend
+yarn dev --filter strapi
+```
 
 #### 3. Import Quick-Start example config (Optional, but recommended)
 

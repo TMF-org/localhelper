@@ -12,8 +12,8 @@ export const WelcomeStep = ({ updateAndNext }: StepProps) => {
 
         <h2>Herzlich Willkommen</h2>
         <p>
-          Wir freuen uns darüber, dass du über Lokalhelfer.de deine Hilfe zur
-          Verfügung stellst.
+          Wir freuen uns darüber, dass du über{' '}
+          {process.env.NEXT_PUBLIC_APP_NAME} deine Hilfe zur Verfügung stellst.
         </p>
         <p>
           Wir führen dich Schritt für Schritt durch unsere Anmeldung.

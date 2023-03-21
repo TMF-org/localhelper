@@ -45,8 +45,8 @@ const ContactInformationForm = ({ helper, onSave }: FormProps) => {
       <div className="form-container">
         <h1>Kontaktinformationen</h1>
         <div className="description">
-          Diese Daten sind sehr wichtig. Hierüber kontaktiert Lokalhelfer dich
-          über neue Anfragen.
+          Diese Daten sind sehr wichtig. Hierüber kontaktiert{' '}
+          {process.env.NEXT_PUBLIC_APP_NAME} dich über neue Anfragen.
           <br />
           <br />
           Hinweis: Wenn du dein Passwort ändern möchtest, verwende bitte die{' '}

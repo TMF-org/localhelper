@@ -113,5 +113,5 @@ const Template = ({ helper, customer, service, annotation }: Props) => {
 export const createdRequestHelperTemplate = {
   name: 'requests/created/customer',
   template: Template,
-  subject: 'Neue Anfrage über Lokalhelfer',
+  subject: `Neue Anfrage über ${process.env.NEXT_PUBLIC_APP_NAME}`,
 };
