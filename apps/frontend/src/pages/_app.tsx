@@ -17,6 +17,7 @@ import { z } from 'zod';
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
   requireAuth?: boolean;
+  enableAuth?: boolean;
 };
 
 type AppPropsWithLayout = AppProps & {
@@ -32,17 +33,24 @@ export default function App({
   useSyncHistoryWithScreenStore();
   const [queryClient] = useState(() => new QueryClient());
   const getLayout = Component.getLayout || ((page) => page);
-  return (
-    <SessionProvider session={session}>
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          {Component.requireAuth ? (
-            <RequireAuth>{getLayout(<Component {...pageProps} />)}</RequireAuth>
-          ) : (
-            getLayout(<Component {...pageProps} />)
-          )}
-        </Hydrate>
-      </QueryClientProvider>
-    </SessionProvider>
+
+  const appTree = (
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        {Component.requireAuth ? (
+          <RequireAuth>{getLayout(<Component {...pageProps} />)}</RequireAuth>
+        ) : (
+          getLayout(<Component {...pageProps} />)
+        )}
+      </Hydrate>
+    </QueryClientProvider>
   );
+
+  // enable next auth SessionProvider only on pages that require auth
+  // this prevents next-auth cookies from being set on every page
+  if (!Component.enableAuth) {
+    return appTree;
+  } else {
+    return <SessionProvider session={session}>{appTree}</SessionProvider>;
+  }
 }

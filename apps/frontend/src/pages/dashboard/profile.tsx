@@ -12,6 +12,7 @@ const ProfilePage: NextPageWithLayout = () => {
 ProfilePage.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 ProfilePage.requireAuth = true;
+ProfilePage.enableAuth = true;
 
 export default ProfilePage;
 

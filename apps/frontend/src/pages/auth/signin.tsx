@@ -100,6 +100,7 @@ const Signin: NextPageWithLayout = () => {
 };
 
 Signin.getLayout = (page) => <AuthLayout>{page}</AuthLayout>;
+Signin.enableAuth = true;
 
 export default Signin;
 

@@ -13,6 +13,7 @@ const Dashboard: NextPageWithLayout = () => {
 Dashboard.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 Dashboard.requireAuth = true;
+Dashboard.enableAuth = true;
 
 export default Dashboard;
 

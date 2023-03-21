@@ -16,6 +16,7 @@ const TicketDetails: NextPageWithLayout = () => {
 TicketDetails.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 TicketDetails.requireAuth = true;
+TicketDetails.enableAuth = true;
 
 export default TicketDetails;
 
