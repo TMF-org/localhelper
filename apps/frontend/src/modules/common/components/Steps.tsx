@@ -13,27 +13,23 @@ export const Steps = ({ headline, subline, children }: Props) => {
   const [index, setIndex] = useState(0);
 
   const getPoints = () => {
-    let sum = 0;
-
     let points = [];
 
     let max = children.length - 1;
     let size = '1of' + children.length;
 
-    while (sum <= max) {
-      sum++;
-
-      let className = sum - 1 === index ? 'active' : undefined;
+    for (let i = 0; i <= max; i++) {
+      let className = i === index ? 'active' : undefined;
 
       points.push(
         <Box
           size={size}
           tagName="li"
           className={className}
-          key={sum}
-          onClick={() => setIndex(sum - 1)}
+          key={i}
+          onClick={() => setIndex(i)}
         >
-          <strong>{sum}</strong>
+          <strong>{i + 1}</strong>
         </Box>,
       );
     }

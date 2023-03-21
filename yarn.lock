@@ -1460,6 +1460,26 @@
     fast-deep-equal "^3.1.3"
     supercluster "^7.1.3"
 
+"@gromy/react-swipeable-views-core@^0.15.1":
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/@gromy/react-swipeable-views-core/-/react-swipeable-views-core-0.15.1.tgz#c362f30de7ddba48ebdfe57f58e622263b6451aa"
+  integrity sha512-wKcBKaLEPhC6CRqIKFW3ZonZCjkyOawfkwQhh9oqrZHgv/W2iPpVMMEIB27elyEgb8b5RgqJtp6o1vxuSO7/cA==
+  dependencies:
+    "@babel/runtime" "7.0.0"
+    warning "^4.0.1"
+
+"@gromy/react-swipeable-views-utils@^0.15.1":
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/@gromy/react-swipeable-views-utils/-/react-swipeable-views-utils-0.15.1.tgz#6d9e5ffb1a22f1a18b35613666fe1b78ea3444b3"
+  integrity sha512-fVn/MMzgW2wdB+EVmaBYLK/BOXzZKaJ6yCM0luZRwCU4/8OAuWHah0MGbCXiZDSfpvsFyVWYNp0zOT3os8HlAA==
+  dependencies:
+    "@babel/runtime" "7.0.0"
+    "@gromy/react-swipeable-views-core" "^0.15.1"
+    keycode "^2.1.7"
+    prop-types "^15.6.0"
+    react-event-listener "^0.6.0"
+    shallow-equal "^1.2.1"
+
 "@hookform/resolvers@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-3.0.0.tgz#bb9346f1550a472a980af5b08e549366c788ff76"
@@ -9426,35 +9446,15 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.2.tgz#dc6345b9e8f9906dc2eeb68700b615e0b4fe752a"
   integrity sha512-PVjOcvVOyIILrYoyGEpDN3vmYNLdy1CajSFNt4TDsVQC5KpTijDvWVoR+/7Rz2xT978D8/ZtFceXxzsPwZEDvw==
 
-react-swipeable-views-core@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/react-swipeable-views-core/-/react-swipeable-views-core-0.14.0.tgz#6ac443a7cc7bc5ea022fbd549292bb5fff361cce"
-  integrity sha512-0W/e9uPweNEOSPjmYtuKSC/SvKKg1sfo+WtPdnxeLF3t2L82h7jjszuOHz9C23fzkvLfdgkaOmcbAxE9w2GEjA==
+"react-swipeable-views@npm:@gromy/react-swipeable-views@^0.15.1":
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/@gromy/react-swipeable-views/-/react-swipeable-views-0.15.1.tgz#f697b4acdb22e895882bd0020a5258e6f928e366"
+  integrity sha512-At2d4SkQpqwAgENeBsixH0pTPteadi01Tl4b4HN+OpV10+6KMmZSVkMTQvYgZ4xiKLB7dCr74jyCJgRFwylzUw==
   dependencies:
     "@babel/runtime" "7.0.0"
-    warning "^4.0.1"
-
-react-swipeable-views-utils@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/react-swipeable-views-utils/-/react-swipeable-views-utils-0.14.0.tgz#6b76e251906747482730c22002fe47ab1014ba32"
-  integrity sha512-W+fXBOsDqgFK1/g7MzRMVcDurp3LqO3ksC8UgInh2P/tKgb5DusuuB1geKHFc6o1wKl+4oyER4Zh3Lxmr8xbXA==
-  dependencies:
-    "@babel/runtime" "7.0.0"
-    keycode "^2.1.7"
-    prop-types "^15.6.0"
-    react-event-listener "^0.6.0"
-    react-swipeable-views-core "^0.14.0"
-    shallow-equal "^1.2.1"
-
-react-swipeable-views@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/react-swipeable-views/-/react-swipeable-views-0.14.0.tgz#149c0df3d92220cc89e3f6d5c04a78dfe46f9b54"
-  integrity sha512-wrTT6bi2nC3JbmyNAsPXffUXLn0DVT9SbbcFr36gKpbaCgEp7rX/OFxsu5hPc/NBsUhHyoSRGvwqJNNrWTwCww==
-  dependencies:
-    "@babel/runtime" "7.0.0"
+    "@gromy/react-swipeable-views-core" "^0.15.1"
+    "@gromy/react-swipeable-views-utils" "^0.15.1"
     prop-types "^15.5.4"
-    react-swipeable-views-core "^0.14.0"
-    react-swipeable-views-utils "^0.14.0"
     warning "^4.0.1"
 
 react-transition-group@^4.3.0:
