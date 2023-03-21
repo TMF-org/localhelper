@@ -1,7 +1,12 @@
+import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
-import { Toaster } from 'react-hot-toast';
 import { BaseLayout } from '../common/BaseLayout';
 import { DashboardHeader } from './components/Header';
+
+const ToasterDynamic = dynamic({
+  ssr: false,
+  loader: () => import('react-hot-toast').then((mod) => mod.Toaster),
+});
 
 interface Props {
   children: ReactNode;
@@ -14,7 +19,10 @@ export const DashboardLayout = ({ children }: Props) => {
         <DashboardHeader />
         {children}
       </section>
-      <Toaster position="bottom-right" toastOptions={{ className: 'toast' }} />
+      <ToasterDynamic
+        position="bottom-right"
+        toastOptions={{ className: 'toast' }}
+      />
     </BaseLayout>
   );
 };
