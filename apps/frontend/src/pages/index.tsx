@@ -1,9 +1,11 @@
+import { fetchHelpersForMap } from '@/modules/api/helper/queries';
 import { Button } from '@/modules/common/components/Button';
 import { Icon } from '@/modules/common/components/Icon';
 import { Responsive } from '@/modules/common/components/Responsive';
 import { Steps } from '@/modules/common/components/Steps';
 import { fetchServiceCategories } from '@/modules/common/hooks/useServiceCategories';
 import { fetchServices, useServices } from '@/modules/common/hooks/useServices';
+import { HelpersMap } from '@/modules/customer/components/helper/HelpersMap';
 import { Search } from '@/modules/customer/components/search/Search';
 import { ServiceList } from '@/modules/customer/components/service/ServiceList';
 import { CustomerLayout } from '@/modules/customer/layout';
@@ -97,8 +99,7 @@ const Home: NextPageWithLayout = () => {
           <h2 className="section-headline">
             <strong>Alle Helfer*innen auf einen Blick</strong>
           </h2>
-          {/* TODO: add map */}
-          {/* <HelpersMap helpers={this.props.response.helpers} /> */}
+          <HelpersMap />
         </Responsive>
       </section>
       <section className="section">
@@ -205,6 +206,7 @@ export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const { dehydratedState } = await prefetchQueries([
+    { queryKey: ['helpersForMap'], queryFn: fetchHelpersForMap },
     { queryKey: ['services'], queryFn: fetchServices },
     { queryKey: ['service-categories'], queryFn: fetchServiceCategories },
   ]);

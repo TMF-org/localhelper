@@ -1,5 +1,6 @@
 import {
   Helper,
+  HelperForMap,
   HelperWithDetails,
   MeHelper,
 } from '@/modules/api/helper/types';
@@ -41,6 +42,19 @@ export function useHelpersByDistance(options: Options) {
   return useQuery({
     queryKey: ['helpersByDistance', options.lat, options.lng, options.service],
     queryFn: () => fetchHelpersByDistance(options),
+  });
+}
+
+export async function fetchHelpersForMap() {
+  return await api
+    .get('helpers/for-map')
+    .json<StrapiPaginatedResponse<HelperForMap>>();
+}
+
+export function useHelpersForMap() {
+  return useQuery({
+    queryKey: ['helpersForMap'],
+    queryFn: () => fetchHelpersForMap(),
   });
 }
 

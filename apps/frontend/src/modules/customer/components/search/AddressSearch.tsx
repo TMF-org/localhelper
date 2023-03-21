@@ -1,43 +1,28 @@
-import { Button } from '@/modules/common/components/Button';
-import { vibrate } from '@/modules/common/lib/vibrate';
 import { readGeoData } from '@/modules/api/geo/geo';
-import Script from 'next/script';
+import { Button } from '@/modules/common/components/Button';
+import { useGoogleMapsJsApi } from '@/modules/common/components/GMap';
+import { vibrate } from '@/modules/common/lib/vibrate';
+import { useEffect, useRef } from 'react';
 import { useScreenStore } from '../../stores/screen';
 import { useSearchStore } from '../../stores/search';
 import { Screen } from '../screen/Screen';
 import { Location } from './Location';
 
-export const ZipCode = () => {
+export const AddressSearch = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const showScreen = useScreenStore((store) => store.showScreen);
   const toggleScreen = useScreenStore((store) => store.toggleScreen);
+  const isScreenActive = useScreenStore((store) => store.isActive);
   const searchStore = useSearchStore();
 
-  const className = `zipcode ${
-    searchStore.search.city ? 'active' : 'inactive'
-  }`;
+  const { isLoaded } = useGoogleMapsJsApi();
 
-  const getLink = () => {
-    if (searchStore.search.city) {
-      // TODO: location check
-      return (
-        <Location
-          showOnSuccess
-          search={searchStore.search}
-          onClick={() => toggleScreen('zipcode')}
-        />
-      );
-    }
-
-    return (
-      <span className="action" onClick={() => toggleScreen('zipcode')}>
-        Standort per Straße und Ort
-      </span>
-    );
-  };
+  const zipScreenActive = isScreenActive('zipcode');
 
   const initAutocomplete = () => {
     const autocomplete = new (window as any).google.maps.places.Autocomplete(
-      document.getElementById('autocomplete'),
+      inputRef.current,
       {
         types: ['geocode'],
         componentRestrictions: { country: 'de' },
@@ -55,6 +40,34 @@ export const ZipCode = () => {
     });
   };
 
+  useEffect(() => {
+    if (!isLoaded) return;
+    if (!zipScreenActive) return;
+    initAutocomplete();
+  }, [isLoaded, zipScreenActive, zipScreenActive]);
+
+  const className = `zipcode ${
+    searchStore.search.city ? 'active' : 'inactive'
+  }`;
+
+  const getLink = () => {
+    if (searchStore.search.city) {
+      return (
+        <Location
+          showOnSuccess
+          search={searchStore.search}
+          onClick={() => toggleScreen('zipcode')}
+        />
+      );
+    }
+
+    return (
+      <span className="action" onClick={() => toggleScreen('zipcode')}>
+        Standort per Straße und Ort
+      </span>
+    );
+  };
+
   return (
     <section className={className}>
       {getLink()}
@@ -67,11 +80,12 @@ export const ZipCode = () => {
           </h2>
 
           <div className="field dark">
-            <Script
-              src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GMAPS_API_KEY}&libraries=places&v=weekly`}
-              onLoad={initAutocomplete}
+            <input
+              ref={inputRef}
+              type="text"
+              id="autocomplete"
+              placeholder="Straße und Ort"
             />
-            <input type="text" id="autocomplete" placeholder="Straße und Ort" />
           </div>
 
           <Location search={searchStore.search} />

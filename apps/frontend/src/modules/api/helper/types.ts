@@ -1,6 +1,16 @@
 import { Service } from '@/modules/common/hooks/useServices';
 import { StrapiData, StrapiMedia } from '@/services/api';
 
+export interface HelperForMap {
+  name: string;
+  url: string;
+  geo: {
+    id: string;
+    lat: string;
+    lng: string;
+  };
+}
+
 export interface Helper {
   name: string;
   summary: string;

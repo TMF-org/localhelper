@@ -6,6 +6,14 @@ export default {
   routes: [
     {
       method: 'GET',
+      path: '/helpers/for-map',
+      handler: 'helper.findForMap',
+      config: {
+        policies: [],
+      },
+    },
+    {
+      method: 'GET',
       path: '/helpers/by-distance',
       handler: 'helper.findByDistance',
       config: {

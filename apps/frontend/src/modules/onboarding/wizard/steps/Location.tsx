@@ -49,7 +49,7 @@ export const LocationStep = ({
   });
   const geo = watch('geo');
 
-  const { isLoaded, mapDefaultProps } = useMapLoader(['places']);
+  const { isLoaded, mapDefaultProps } = useMapLoader();
 
   const onUpdatePlace = (place?: google.maps.places.PlaceResult) => {
     setValue('geo', {

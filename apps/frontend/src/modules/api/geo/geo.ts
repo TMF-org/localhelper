@@ -3,13 +3,6 @@ import ky from 'ky';
 
 const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.NEXT_PUBLIC_GMAPS_API_KEY}`;
 
-export async function getGeoByZipcode(zipcode: string) {
-  const data = await ky
-    .get(`${geocodeUrl}&components=country:DE&address=${zipcode}`)
-    .json();
-  return readGeoData((data as any).results, 'zipcode');
-}
-
 export async function getCityByGeo(geo: NonNullable<Search['geo']>) {
   const data = await ky
     .get(`${geocodeUrl}&latlng=${geo.latitude},${geo.longitude}&sensor=false`)

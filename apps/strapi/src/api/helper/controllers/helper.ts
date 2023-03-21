@@ -125,6 +125,19 @@ export default factories.createCoreController(
       return this.transformResponse(sanitizedResults);
     },
 
+    async findForMap(ctx) {
+      const entities = await strapi.entityService.findMany(
+        'api::helper.helper',
+        {
+          fields: ['name', 'url'],
+          filters: { bookable: true },
+          populate: { geo: true },
+        },
+      );
+      // Note: in the future geo coordinates could be made inaccurate here to prevent leaking exact locations
+      return this.transformResponse(entities);
+    },
+
     async findMe(ctx) {
       const helper = await strapi
         .service('api::helper.find')

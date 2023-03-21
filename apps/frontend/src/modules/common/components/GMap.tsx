@@ -3,8 +3,9 @@ import {
   GoogleMapProps,
   StandaloneSearchBox,
   useJsApiLoader,
+  LoadScriptProps,
 } from '@react-google-maps/api';
-import { ChangeEvent, KeyboardEvent, ReactNode, useRef } from 'react';
+import { ChangeEvent, KeyboardEvent, useRef } from 'react';
 import { FieldError } from 'react-hook-form';
 import { FormFieldError } from './form/Error';
 
@@ -22,14 +23,19 @@ const defaultCenter = {
   lng: 8.0991558,
 };
 
-export const useMapLoader = (libraries: any[] = []) => {
-  const librariesConst = useRef(libraries);
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GMAPS_API_KEY ?? '',
-    libraries: librariesConst.current,
-  });
+const libraries: LoadScriptProps['libraries'] = ['places'];
 
+export const useGoogleMapsJsApi = () => {
+  const { isLoaded } = useJsApiLoader({
+    id: '__googleMapsScriptId',
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GMAPS_API_KEY ?? '',
+    libraries,
+  });
+  return { isLoaded };
+};
+
+export const useMapLoader = () => {
+  const { isLoaded } = useGoogleMapsJsApi();
   const mapDefaultProps: Omit<Props, 'center'> & {
     center: NonNullable<Props['center']>;
   } = {
@@ -49,7 +55,7 @@ export const GMap = (props: Props) => {
   const { isLoaded, ...gmapProps } = props;
   return (
     <div className="map">
-      {isLoaded ? <GoogleMap {...gmapProps} /> : <div>Loading...</div>}
+      {isLoaded ? <GoogleMap {...gmapProps} /> : <div>Lädt...</div>}
     </div>
   );
 };
