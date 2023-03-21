@@ -11,8 +11,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "start:frontend": "turbo run start --filter=frontend",
-    "start:strapi": "turbo run start --filter=strapi",
+    "start": "turbo run start",
     "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
     "lint": "turbo run lint && prettier --check \"**/*.{ts,tsx,md,json}\"",
     "clean": "turbo run clean"
