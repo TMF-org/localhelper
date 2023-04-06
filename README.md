@@ -18,11 +18,22 @@ Sowohl die angebotenen Hilfstätigkeiten sowie deren Clusterungen können indivi
 werden. Nutzer der Plattform werden Schritt für Schritt durch den Prozess geführt und können alle
 Informationen selbstständig im Nachhinein über ein Benutzerkonto verwalten.
 
+
+Lokalhelfer is the platform for neighborhood help from next door.
+
+Via the Lokalhelfer platform, people can offer geolocalized help with specific activities. People who need help in turn can request it via the platform and network with each other.
+The platform brings people from the same regions and neighborhoods together via smart, geolocated matchmaking.
+Both the onboarding as a helper and the request as a person seeking help are fully automated and easy to use in terms of accessibility. To ensure trust on the platform, an individual approval process for help offers can be activated which enables the manual approval of help offers via the platform backend.
+Both, the help activities offered and their clustering can be customized. Users of the platform are guided through the process step by step and can manage all information independently afterwards via a user account.
+
+
 ![presentation1](./docs/assets/lokalhelfer_presentation.png)
 
 Kommunen, Länder, Städte sowie öffentliche und wohltätige Institutionen können die Lokalhelfer
 Plattform nahtlos in ihre bestehenden Plattformen und Lösungen integrieren, so dass sie ein
 integraler Bestandteil der digitalen Strategie sind. Diese Integrationsmöglichkeit wird durch die API-first Konzeption gewährleistet.
+
+Local governments, states, cities, and public and charitable institutions can integrate the Local Helpers platform seamlessly into their existing platforms and solutions, making it an integral part of their digital strategy. This integration capability is ensured by the API-first design.
 
 ![presentation1](./docs/assets/lokalhelfer_eifelkreis_mockup.png)
 
