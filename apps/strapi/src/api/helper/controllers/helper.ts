@@ -6,9 +6,9 @@ import { factories } from '@strapi/strapi';
 import * as geolib from 'geolib';
 import { onboardingSchema, OnboardingService } from '../services/onboarding';
 import { UpdateHelperService, updateMeSchema } from '../services/update';
-import { sanitize } from '@strapi/utils';
+import utils from '@strapi/utils';
 
-const { contentAPI } = sanitize;
+const { contentAPI } = utils.sanitize;
 
 export default factories.createCoreController(
   'api::helper.helper',

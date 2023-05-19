@@ -7,7 +7,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 RUN yarn global add turbo
 COPY . .
-RUN turbo prune --scope=strapi --docker
+RUN turbo prune --scope=@localhelper/strapi --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM ${NODE_IMAGE} AS installer
@@ -24,7 +24,7 @@ RUN yarn install
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 
-RUN yarn turbo run build --filter=strapi...
+RUN yarn turbo run build --filter=@localhelper/strapi...
 
 FROM ${NODE_IMAGE} AS runner
 WORKDIR /app

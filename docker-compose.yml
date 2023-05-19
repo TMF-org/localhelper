@@ -29,6 +29,7 @@ services:
       - DATABASE_NAME=strapi
       - DATABASE_PASSWORD=strapi
 
+      - MAIL_FROM=${MAIL_FROM}
       - MAIL_HOST=${MAIL_HOST}
       - MAIL_USER=${MAIL_USER}
       - MAIL_PORT=${MAIL_PORT}

@@ -7,7 +7,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 RUN yarn global add turbo
 COPY . .
-RUN turbo prune --scope=frontend --docker
+RUN turbo prune --scope=@localhelper/frontend --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM ${NODE_IMAGE} AS installer
@@ -24,7 +24,7 @@ RUN yarn install
 COPY --from=builder /app/out/full/ .
 COPY turbo.json .env .
 
-RUN yarn turbo run build --filter=frontend...
+RUN yarn turbo run build --filter=@localhelper/frontend...
 
 FROM ${NODE_IMAGE} AS runner
 WORKDIR /app

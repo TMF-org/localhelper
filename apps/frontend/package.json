@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "@localhelper/frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "@tanstack/react-query": "^4.22.0",
     "clsx": "^1.2.1",
     "ky": "^0.33.2",
-    "next": "^13.2.3",
+    "next": "13.4.0",
     "next-auth": "^4.18.8",
     "react": "^18.2.0",
     "react-detect-click-outside": "^1.1.7",
@@ -24,13 +24,13 @@
     "react-hot-toast": "^2.4.0",
     "react-markdown": "^8.0.5",
     "react-swipeable-views": "npm:@gromy/react-swipeable-views@^0.15.1",
-    "sharp": "^0.31.3",
+    "sharp": "^0.32.1",
     "zod": "^3.21.4",
     "zustand": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^18.14.6",
-    "@types/react": "18.0.28",
+    "@types/react": "^18.2.6",
     "@types/react-dom": "^18.0.11",
     "@types/react-swipeable-views": "^0.13.1",
     "dotenv": "^16.0.3",
@@ -39,7 +39,7 @@
     "eslint-config-next": "^13.2.3",
     "prettier": "^2.8.4",
     "sass": "^1.57.1",
-    "typescript": "5.0.2"
+    "typescript": "5.0.4"
   },
   "license": "GPL-3.0"
 }
