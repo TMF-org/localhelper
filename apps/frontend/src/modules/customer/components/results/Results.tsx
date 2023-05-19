@@ -6,6 +6,7 @@ import { Breadcrumbs } from '../../Breadcrumbs';
 import { useSearchStore } from '../../stores/search';
 import { HelperCard } from '../helper/HelperCard';
 import { NoResults } from './NoResults';
+import { NoSSR } from '@/modules/common/components/NoSSR';
 
 interface Props {
   helpers: StrapiData<Helper>[];
@@ -16,7 +17,9 @@ export const Results = ({ helpers }: Props) => {
     <section className="results">
       <Breadcrumbs page="Umkreissuche" />
 
-      <Actions />
+      <NoSSR>
+        <Actions />
+      </NoSSR>
 
       {helpers.length === 0 ? (
         <NoResults />
