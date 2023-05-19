@@ -34,7 +34,7 @@ export const HelperCard = ({ helper }: Props) => {
 
       <div className="store-info">
         <header>
-          {helper.attributes.distance && (
+          {typeof helper.attributes.distance === 'number' && (
             <Distance distance={helper.attributes.distance} />
           )}
         </header>
