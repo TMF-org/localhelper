@@ -1,0 +1,105 @@
+@import 'different';
+@import 'actions';
+
+.results {
+  background: #efefef;
+  @include cf();
+
+  > [class*='notice'] {
+    margin-bottom: 0;
+  }
+
+  > * {
+    float: left;
+    width: 100%;
+  }
+
+  @include on(tablet) {
+    .stores {
+      padding-top: 20px;
+    }
+  }
+
+  .store {
+    position: relative;
+    width: 100%;
+    background: #efefef;
+
+    .map {
+      padding: 0;
+      float: right;
+    }
+
+    .appointment-button {
+      min-height: 52px;
+    }
+
+    .divider {
+      padding: 0 0 15px;
+      background: #fff;
+    }
+
+    footer [class*='button-primary'],
+    footer [class*='button-primary'] strong {
+      color: #fff;
+    }
+
+    @include on(tablet) {
+      float: left;
+      width: 100%;
+      padding: 0 0 20px 0;
+      border: none;
+
+      .image {
+        float: left;
+        width: 320px;
+        height: 236px;
+        padding: 0;
+        background: #fff;
+
+        img {
+          left: 50%;
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      .name-price {
+        padding-bottom: 10px;
+      }
+
+      header {
+        padding-bottom: 5px;
+      }
+
+      .summary {
+        height: 60px;
+      }
+
+      .store-info {
+        float: left;
+        width: calc(100% - 320px);
+        height: 236px;
+        padding: 10px 15px;
+      }
+
+      footer [class*='button'] strong {
+        font-size: 19px;
+        line-height: 44px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .name-price {
+    padding-bottom: 15px;
+  }
+
+  .summary {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 0 0 15px 0;
+  }
+}
