@@ -18,14 +18,12 @@ Sowohl die angebotenen Hilfstätigkeiten sowie deren Clusterungen können indivi
 werden. Nutzer der Plattform werden Schritt für Schritt durch den Prozess geführt und können alle
 Informationen selbstständig im Nachhinein über ein Benutzerkonto verwalten.
 
-
 Lokalhelfer is the platform for neighborhood help from next door.
 
 Via the Lokalhelfer platform, people can offer geolocalized help with specific activities. People who need help in turn can request it via the platform and network with each other.
 The platform brings people from the same regions and neighborhoods together via smart, geolocated matchmaking.
 Both the onboarding as a helper and the request as a person seeking help are fully automated and easy to use in terms of accessibility. To ensure trust on the platform, an individual approval process for help offers can be activated which enables the manual approval of help offers via the platform backend.
 Both, the help activities offered and their clustering can be customized. Users of the platform are guided through the process step by step and can manage all information independently afterwards via a user account.
-
 
 ![presentation1](./docs/assets/lokalhelfer_presentation.png)
 
@@ -60,6 +58,8 @@ For instance, you will need to incorporate a reverse proxy/load balancer with TL
 
 - Docker & `docker-compose`
 - Linux (Mac and Windows/WSL will probably work as well)
+- Google Maps API-Key with Places and Geocoding APIs enabled
+- SMTP credentials for sending transactional emails
 
 #### 1. Adjust configuration variables
 
@@ -158,7 +158,7 @@ If successful, you should see the following confirmation:
 
 #### 4. Create admin user in Strapi
 
-Open http://localhost:1337 to launch the Strapi wizard, and configure your first admin user as directed.
+Open http://localhost:1337/admin/ to launch the Strapi wizard, and configure your first admin user as directed.
 
 ![strapi_welcome](docs/assets/dev_strapi_welcome.png)
 
