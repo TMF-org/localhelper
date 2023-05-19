@@ -122,6 +122,11 @@ apps/frontend/.vercel/
 apps/frontend/out/
 apps/frontend/build/
 
+# PWA
+apps/frontend/public/sw.js
+apps/frontend/public/workbox-*.js
+
+
 ############################
 # typescript
 ############################
