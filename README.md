@@ -100,14 +100,14 @@ If successful, you should see the following confirmation:
 
 #### 4. Create admin user in Strapi
 
-Open http://localhost:1337 to launch the Strapi wizard, and configure your first admin user as directed.
+Open http://localhost:1337/admin/ to launch the Strapi wizard, and configure your first admin user as directed.
 
 ![strapi_welcome](docs/assets/dev_strapi_welcome.png)
 
 #### Finished!
 
 The frontend should now be accessible at http://localhost:3000.  
-To manage services, FAQ, helpers, and more, use Strapi at http://localhost:1337.
+To manage services, FAQ, helpers, and more, use Strapi at http://localhost:1337/admin/.
 
 ## Development
 
@@ -165,4 +165,4 @@ Open http://localhost:1337/admin/ to launch the Strapi wizard, and configure you
 #### Finished!
 
 The frontend should now be accessible at http://localhost:3000.  
-To manage services, FAQ, helpers, and more, use Strapi at http://localhost:1337.
+To manage services, FAQ, helpers, and more, use Strapi at http://localhost:1337/admin/.
